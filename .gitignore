@@ -12,3 +12,4 @@ playwright-report/
 .DS_Store
 web-start.log
 scripts/_*.mjs
+lustra-run.log
