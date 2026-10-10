@@ -1,0 +1,19 @@
+{
+  "name": "lustra",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Lustra — the spatial operating system for detailing, PPF, tint & wrap shops (Next.js + Node.js + MongoDB)",
+  "scripts": {
+    "install:all": "npm install && npm --prefix server install && npm --prefix web install",
+    "dev": "concurrently -k -n api,web -c magenta,cyan \"npm --prefix server run dev\" \"npm --prefix web run dev\"",
+    "seed": "npm --prefix server run seed",
+    "test": "npm --prefix server test",
+    "build": "npm --prefix server run build && npm --prefix web run build",
+    "start": "concurrently -k -n api,web -c magenta,cyan \"npm --prefix server start\" \"npm --prefix web start\"",
+    "e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "concurrently": "^9.2.5"
+  }
+}

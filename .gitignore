@@ -1,0 +1,14 @@
+node_modules/
+.next/
+dist/
+coverage/
+.env
+.env.local
+server/uploads/*
+!server/uploads/.gitkeep
+test-results/
+playwright-report/
+*.log
+.DS_Store
+web-start.log
+scripts/_*.mjs
