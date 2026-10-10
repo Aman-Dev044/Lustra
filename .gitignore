@@ -13,3 +13,4 @@ playwright-report/
 web-start.log
 scripts/_*.mjs
 lustra-run.log
+/image.png
