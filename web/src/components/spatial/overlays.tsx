@@ -81,7 +81,7 @@ export function Modal({
               aria-labelledby={title ? titleId : undefined}
               tabIndex={-1}
               className={cn(
-                "glass-2 rim relative flex max-h-[92vh] w-full flex-col overflow-hidden rounded-t-[28px] outline-none sm:rounded-[28px]",
+                "glass-sheet rim relative flex max-h-[92vh] w-full flex-col overflow-hidden rounded-t-[28px] outline-none sm:rounded-[28px]",
                 widths[size],
               )}
               initial={{ opacity: 0, scale: 0.92, y: 30, filter: "blur(8px)" }}
@@ -155,7 +155,7 @@ export function Drawer({
             <motion.aside
               role="dialog"
               aria-modal="true"
-              className="glass-2 absolute top-2 right-2 bottom-2 flex flex-col overflow-hidden rounded-[26px]"
+              className="glass-sheet absolute top-2 right-2 bottom-2 flex flex-col overflow-hidden rounded-[26px]"
               style={{ width: `min(${width}px, calc(100vw - 16px))` }}
               initial={{ x: "105%" }}
               animate={{ x: 0 }}
@@ -264,7 +264,7 @@ export function Menu({
             exit={{ opacity: 0, y: -6, scale: 0.96 }}
             transition={{ duration: 0.14 }}
             className={cn(
-              "glass-2 absolute z-50 mt-2 min-w-48 overflow-hidden rounded-2xl p-1.5",
+              "glass-sheet absolute z-50 mt-2 min-w-48 overflow-hidden rounded-2xl p-1.5",
               align === "right" ? "right-0" : "left-0",
             )}
           >

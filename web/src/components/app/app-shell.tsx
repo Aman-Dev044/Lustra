@@ -346,7 +346,7 @@ function Notifications() {
               initial={{ opacity: 0, y: -8, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -8, scale: 0.96 }}
-              className="glass-2 absolute right-0 z-50 mt-2 w-[min(380px,calc(100vw-24px))] overflow-hidden rounded-3xl"
+              className="glass-sheet absolute right-0 z-50 mt-2 w-[min(380px,calc(100vw-24px))] overflow-hidden rounded-3xl"
             >
               <div className="flex items-center justify-between border-b border-white/[0.07] px-4 py-3">
                 <p className="text-sm font-semibold">Notifications</p>

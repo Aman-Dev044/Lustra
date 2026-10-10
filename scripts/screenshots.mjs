@@ -10,12 +10,12 @@ const only = process.env.ONLY?.split(",");
 mkdirSync(out, { recursive: true });
 
 const publicPages = ["/", "/features", "/features/quote-copilot", "/industries/paint-protection-film", "/pricing", "/visualizer", "/why-lustra", "/about", "/contact", "/blog", "/login", "/signup", "/book/apex-auto-spa"];
-const appPages = ["/app", "/app/insights", "/app/board", "/app/calendar", "/app/routes", "/app/jobs", "/app/customers", "/app/quotes/new", "/app/invoices", "/app/inspections", "/app/messages", "/app/automations", "/app/analytics", "/app/settings", "/app/promotions", "/app/campaigns", "/app/reviews", "/app/integrations", "/app/marketplace", "/app/forms", "/app/visualizer"];
+const appPages = ["/app/jobs?new=1", "/app", "/app/insights", "/app/board", "/app/calendar", "/app/routes", "/app/jobs", "/app/customers", "/app/quotes/new", "/app/invoices", "/app/inspections", "/app/messages", "/app/automations", "/app/analytics", "/app/settings", "/app/promotions", "/app/campaigns", "/app/reviews", "/app/integrations", "/app/marketplace", "/app/forms", "/app/visualizer"];
 
 const browser = await chromium.launch();
 const ctx = await browser.newContext(mode === "mobile" ? { ...devices["Pixel 7"] } : { viewport: { width: 1440, height: 900 } });
 const page = await ctx.newPage();
-const name = (p) => (p === "/" ? "home" : p.replace(/^\//, "").replace(/\//g, "_"));
+const name = (p) => (p === "/" ? "home" : p.replace(/^\//, "").replace(/[/?=&]/g, "_"));
 const full = process.env.FULL === "1";
 
 for (const p of publicPages.filter((p) => !only || only.includes(p))) {

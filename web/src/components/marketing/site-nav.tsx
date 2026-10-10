@@ -124,7 +124,7 @@ export function SiteNav() {
             animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
             exit={{ opacity: 0, y: -8, scale: 0.98, filter: "blur(6px)" }}
             transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-            className="glass-2 rim mx-auto mt-2 hidden max-w-6xl rounded-[28px] p-3 lg:block"
+            className="glass-sheet rim mx-auto mt-2 hidden max-w-6xl rounded-[28px] p-3 lg:block"
           >
             <div className="grid grid-cols-3 gap-1">
               {(mega === "features" ? megaFeatures : industryCatalog).map((item) => (
@@ -171,7 +171,7 @@ export function SiteNav() {
             initial={{ opacity: 0, y: -10, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.98 }}
-            className="glass-2 mx-auto mt-2 max-h-[calc(100dvh-90px)] max-w-6xl overflow-y-auto rounded-[28px] p-4 lg:hidden"
+            className="glass-sheet mx-auto mt-2 max-h-[calc(100dvh-90px)] max-w-6xl overflow-y-auto rounded-[28px] p-4 lg:hidden"
           >
             <ul className="space-y-1">
               {links.map((l) => (

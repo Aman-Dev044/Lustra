@@ -50,7 +50,7 @@ export function CustomerPicker({
         <ChevronsUpDown className="size-4 text-ink-4" />
       </button>
       {open && (
-        <div className="glass-2 absolute z-50 mt-2 w-full overflow-hidden rounded-2xl p-1.5">
+        <div className="glass-sheet absolute z-50 mt-2 w-full overflow-hidden rounded-2xl p-1.5">
           <div className="flex items-center gap-2 border-b border-white/[0.07] px-2.5 pb-2">
             <Search className="size-4 text-ink-4" />
             <input

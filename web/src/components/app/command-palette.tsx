@@ -71,7 +71,7 @@ export function CommandPalette({ open, onOpenChange }: { open: boolean; onOpenCh
             animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
             exit={{ opacity: 0, scale: 0.96, y: -6 }}
             transition={{ type: "spring", stiffness: 380, damping: 32 }}
-            className="glass-2 rim relative w-full max-w-2xl overflow-hidden rounded-[26px]"
+            className="glass-sheet rim relative w-full max-w-2xl overflow-hidden rounded-[26px]"
           >
             <Command label="Command palette" shouldFilter={!shown} loop>
               <div className="flex items-center gap-3 border-b border-white/[0.07] px-5">
