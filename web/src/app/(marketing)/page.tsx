@@ -23,6 +23,7 @@ import {
   CTASection,
   FAQSection,
   IndustriesMarquee,
+  GalleryMarquee,
   PricingPreview,
   TestimonialsSection,
 } from "@/components/marketing/sections";
@@ -34,7 +35,7 @@ import { cn } from "@/lib/utils";
 export const metadata = buildMetadata({
   title: "Lustra — Detailing, PPF & Tint Shop Software",
   description:
-    "The spatial operating system for auto appearance shops. Live job board, AI Quote Copilot, online booking, customer portal, payments, inspections, warranty certificates and memberships — from $70/month with unlimited users.",
+    "The operating system for auto appearance shops. Live job board, AI Quote Copilot, online booking, customer portal, payments, inspections, warranty certificates and memberships — from $70/month with unlimited users.",
   path: "/",
   absoluteTitle: true,
 });
@@ -211,60 +212,113 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden pt-32 pb-24 sm:pt-40" aria-labelledby="hero-title">
-        <div className="grid-floor pointer-events-none absolute inset-x-0 top-0 -z-10 h-[760px]" aria-hidden />
-        <Container className="text-center">
-          <Reveal>
-            <Link
-              href="/features/quote-copilot"
-              className="glass inline-flex items-center gap-2 rounded-full py-1 pr-3 pl-1 text-xs text-ink-2 transition hover:text-ink"
-            >
-              <Badge tone="aqua">New</Badge>
-              AI Quote Copilot is live on Pro & Enterprise
-              <ArrowRight className="size-3.5" aria-hidden />
-            </Link>
-          </Reveal>
-          <h1
+      {/* Full-bleed showroom: the photo slowly pushes in while a light band sweeps the frame */}
+      <section className="relative flex min-h-[100svh] items-end overflow-hidden pb-16 sm:pb-24" aria-labelledby="hero-title">
+        <div className="absolute inset-0 -z-10 overflow-hidden" aria-hidden>
+          <Image
+            src="/images/showroom-black.webp"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            quality={85}
+            className="animate-ken-burns object-cover object-[60%_55%]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-void via-void/55 to-void/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-void/90 via-void/40 to-transparent" />
+          <div className="absolute inset-y-0 left-0 w-[35vw] animate-sweep bg-gradient-to-r from-transparent via-white/[0.06] to-transparent [animation-duration:9s]" />
+        </div>
+        <Container className="relative grid items-end gap-12 pt-36 lg:grid-cols-[1.25fr_1fr]">
+          <div>
+            <Reveal>
+              <Link
+                href="/features/quote-copilot"
+                className="glass inline-flex items-center gap-2 rounded-full py-1 pr-3 pl-1 text-xs text-ink-2 transition hover:text-ink"
+              >
+                <Badge tone="iris">New</Badge>
+                AI Quote Copilot is live on Pro & Enterprise
+                <ArrowRight className="size-3.5" aria-hidden />
+              </Link>
+            </Reveal>
+            <h1
               id="hero-title"
-              className="mx-auto mt-7 max-w-5xl text-[42px] leading-[1.02] font-semibold tracking-[-0.045em] text-balance sm:text-6xl lg:text-[84px]"
+              className="mt-7 max-w-4xl text-[44px] leading-[0.98] font-bold text-balance sm:text-6xl lg:text-[86px]"
             >
-              Run your detailing shop <span className="text-spectral">in a whole new dimension.</span>
+              Run your detailing shop <span className="text-spectral">like a flagship showroom.</span>
             </h1>
-            <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-pretty text-ink-2 sm:text-lg">
-              Lustra is the spatial operating system for detailing, ceramic coating, PPF, tint and wrap pros. Book, quote,
+            <p className="mt-7 max-w-xl text-base leading-relaxed text-pretty text-ink-2 sm:text-lg">
+              Lustra is the operating system for detailing, ceramic coating, PPF, tint and wrap pros. Book, quote,
               schedule, inspect, get paid and keep customers coming back — all live, all in one place.
             </p>
-          <Reveal delay={0.18}>
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-              <Button href="/signup" size="lg">
-                Start free <ArrowRight className="size-4" />
-              </Button>
-              <Button href="/visualizer" size="lg" variant="secondary">
-                <Play className="size-4 fill-current" /> See it live
-              </Button>
-            </div>
-            <p className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-ink-3">
-              <span className="flex items-center gap-1.5">
-                <span className="flex text-warning" aria-hidden>
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="size-3 fill-current" />
-                  ))}
+            <Reveal delay={0.18}>
+              <div className="mt-9 flex flex-wrap items-center gap-3">
+                <Button href="/signup" size="lg" className="sheen-loop">
+                  Start free <ArrowRight className="size-4" />
+                </Button>
+                <Button href="/visualizer" size="lg" variant="secondary">
+                  <Play className="size-4 fill-current" /> See it live
+                </Button>
+              </div>
+              <p className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-ink-3">
+                <span className="flex items-center gap-1.5">
+                  <span className="flex text-warning" aria-hidden>
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} className="size-3 fill-current" />
+                    ))}
+                  </span>
+                  4.9 from 1,200+ shops
                 </span>
-                4.9 from 1,200+ shops
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Check className="size-3.5 text-aqua" aria-hidden /> 14-day free trial
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Smartphone className="size-3.5 text-aqua" aria-hidden /> Web, iPhone & Android
-              </span>
-            </p>
-          </Reveal>
+                <span className="flex items-center gap-1.5">
+                  <Check className="size-3.5 text-iris" aria-hidden /> 14-day free trial
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Smartphone className="size-3.5 text-iris" aria-hidden /> Web, iPhone & Android
+                </span>
+              </p>
+            </Reveal>
+          </div>
+          {/* Live product chips floating over the showroom */}
+          <div className="relative hidden h-full min-h-[380px] lg:block" aria-hidden>
+            <div className="glass-2 absolute top-6 right-0 w-72 animate-float rounded-3xl p-4">
+              <p className="flex items-center justify-between text-[11px] text-ink-3">
+                <span className="font-mono">#2087 · Bay 2</span>
+                <Badge tone="iris" dot>
+                  In progress
+                </Badge>
+              </p>
+              <p className="mt-2 text-sm font-semibold text-ink">2024 Porsche 911 Carrera</p>
+              <p className="text-xs text-ink-3">Ceramic 5yr + Stage 1 correction</p>
+              <div className="mt-3 flex gap-1">
+                {[1, 1, 0.6, 0].map((v, i) => (
+                  <span key={i} className="h-1 flex-1 overflow-hidden rounded-full bg-ink/10">
+                    <span className="block h-full rounded-full bg-iris" style={{ width: `${v * 100}%` }} />
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="glass-2 absolute top-44 right-24 w-64 animate-float-slow rounded-3xl p-4 [animation-delay:-3s]">
+              <p className="text-[11px] tracking-[0.16em] text-iris-soft uppercase">Payment received</p>
+              <p className="mt-1 text-2xl font-semibold text-ink">$1,849.00</p>
+              <p className="text-xs text-ink-3">Full front PPF · tip $120 · Apple Pay</p>
+            </div>
+            <div className="glass-2 absolute right-4 bottom-0 w-60 animate-float rounded-3xl p-4 [animation-delay:-5s]">
+              <p className="flex items-center gap-2 text-xs text-ink-2">
+                <span className="size-2 animate-pulse rounded-full bg-success" /> Booked online · 2 min ago
+              </p>
+              <p className="mt-1 text-sm font-medium text-ink">Tesla Model Y · 5-yr ceramic</p>
+            </div>
+          </div>
         </Container>
+      </section>
+
+      {/* ── Product in action ───────────────────────────────────────── */}
+      <section className="relative pt-8" aria-label="Lustra in a working shop">
         <Container>
           <HeroVisual />
         </Container>
       </section>
+
+      <GalleryMarquee />
 
       {/* ── Trust stats ──────────────────────────────────────────────── */}
       <section aria-label="Lustra by the numbers" className="py-10">
@@ -396,7 +450,7 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-void via-void/30 to-transparent lg:from-void" />
                 <div className="glass-2 absolute right-6 bottom-6 flex gap-2 rounded-full p-2" aria-hidden>
-                  {["#e11d48", "#0f172a", "#e5e7eb", "#7c5cff", "#22d3ee", "#a3e635"].map((c) => (
+                  {["#e11d48", "#0f172a", "#e5e7eb", "#ff6a2b", "#45c4ff", "#a3e635"].map((c) => (
                     <span key={c} className="size-7 rounded-full ring-2 ring-ink/20" style={{ background: c }} />
                   ))}
                 </div>

@@ -1,11 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo, Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "sonner";
 import { site } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"], display: "swap" });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"], display: "swap" });
+// Display face for headlines — the width axis gives the expanded, motorsport look.
+const archivo = Archivo({ variable: "--font-archivo", subsets: ["latin"], axes: ["wdth"], display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -27,7 +29,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "en_US",
     url: site.url,
-    title: `${site.name} — The spatial OS for auto appearance shops`,
+    title: `${site.name} — The operating system for auto appearance shops`,
     description: site.description,
   },
   twitter: {
@@ -40,8 +42,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#e7ecf3",
-  colorScheme: "light",
+  themeColor: "#09090b",
+  colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -49,14 +51,14 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${archivo.variable} antialiased`}>
       <body className="min-h-dvh">
         {children}
         <Toaster
-          theme="light"
+          theme="dark"
           position="bottom-right"
           toastOptions={{
-            className: "!rounded-2xl !border !border-white/70 !bg-[#eef2f7] !text-ink !shadow-[10px_10px_24px_rgb(163_177_198/0.6),-8px_-8px_20px_rgb(255_255_255/0.9)]",
+            className: "!rounded-2xl !border !border-white/10 !bg-[#141417] !text-ink !shadow-[0_24px_60px_-20px_rgb(0_0_0/0.9)]",
           }}
         />
       </body>

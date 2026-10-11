@@ -248,12 +248,12 @@ export function InspectionMock() {
         <svg viewBox="0 0 260 110" className="h-full w-full">
           <path
             d="M20 70 C 30 45, 70 38, 95 36 L 150 30 C 175 30, 195 42, 215 52 C 236 56, 244 64, 244 74 L 244 82 L 20 82 Z"
-            fill="rgb(30 42 68 / 0.06)"
-            stroke="rgb(30 42 68 / 0.3)"
+            fill="rgb(255 255 255 / 0.06)"
+            stroke="rgb(255 255 255 / 0.3)"
             strokeWidth="1.5"
           />
-          <circle cx="65" cy="84" r="14" fill="#0b0e1c" stroke="rgb(30 42 68 / 0.3)" />
-          <circle cx="198" cy="84" r="14" fill="#0b0e1c" stroke="rgb(30 42 68 / 0.3)" />
+          <circle cx="65" cy="84" r="14" fill="#0b0e1c" stroke="rgb(255 255 255 / 0.3)" />
+          <circle cx="198" cy="84" r="14" fill="#0b0e1c" stroke="rgb(255 255 255 / 0.3)" />
         </svg>
         {[
           { x: "28%", y: "40%", c: "bg-warning" },
@@ -450,8 +450,8 @@ export function RouteMock() {
           <path d="M20 100 C 60 90, 70 40, 110 50 S 170 100, 200 60 S 240 20, 245 18" fill="none" stroke="url(#rg)" strokeWidth="2.5" strokeDasharray="5 5" />
           <defs>
             <linearGradient id="rg" x1="0" x2="1">
-              <stop stopColor="#a594ff" />
-              <stop offset="1" stopColor="#22d3ee" />
+              <stop stopColor="#ff9a66" />
+              <stop offset="1" stopColor="#45c4ff" />
             </linearGradient>
           </defs>
         </svg>
@@ -506,8 +506,8 @@ export function InsightsMock() {
       </div>
       <svg viewBox="0 0 264 70" className="mt-2 h-16 w-full" preserveAspectRatio="none">
         <polygon points="132,25 220,6 220,22 132,31" fill="rgb(34 211 238 / 0.14)" />
-        <polyline points={pts(actual, 0)} fill="none" stroke="#a594ff" strokeWidth="2" />
-        <polyline points={pts([actual[6]!, ...predicted], 6)} fill="none" stroke="#22d3ee" strokeWidth="2" strokeDasharray="4 4" />
+        <polyline points={pts(actual, 0)} fill="none" stroke="#ff9a66" strokeWidth="2" />
+        <polyline points={pts([actual[6]!, ...predicted], 6)} fill="none" stroke="#45c4ff" strokeWidth="2" strokeDasharray="4 4" />
       </svg>
       <ul className="mt-2 space-y-1.5 text-[11px]">
         {[
@@ -581,7 +581,7 @@ export function ReviewsMock() {
 export function PromoMock() {
   return (
     <MockFrame>
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-iris via-[#5b7cfa] to-aqua p-4 text-white">
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-iris via-[#ff8a3d] to-aqua p-4 text-white">
         <p className="text-[10px] tracking-[0.18em] uppercase opacity-80">E-gift card</p>
         <p className="mt-1 text-2xl font-semibold">$250.00</p>
         <p className="mt-3 font-mono text-[11px] opacity-90">GC-8F3K-2QPL</p>

@@ -42,7 +42,7 @@ export default function FeaturesPage() {
         eyebrow="Platform"
         title={
           <>
-            Fifteen tools. <span className="text-spectral">One live workspace.</span>
+            Twenty-two tools. <span className="text-spectral">One live workspace.</span>
           </>
         }
         description="Every Lustra feature shares the same real-time data, so a booking becomes a quote, a job, an inspection, an invoice and a warranty — without retyping a thing."

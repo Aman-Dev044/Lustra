@@ -228,12 +228,12 @@ function RouteMap({ plan, version, focus, onFocus }: { plan: RoutePlan; version:
       <svg viewBox={`0 0 ${W} ${H}`} className="block w-full" style={{ aspectRatio: `${W}/${H}` }} role="img" aria-label="Route map">
         <defs>
           <radialGradient id="terrain" cx="50%" cy="45%" r="70%">
-            <stop offset="0" stopColor="#f3f6fa" />
-            <stop offset="0.6" stopColor="#e6ebf2" />
-            <stop offset="1" stopColor="#d8dfe9" />
+            <stop offset="0" stopColor="#1a1a1f" />
+            <stop offset="0.6" stopColor="#0f0f12" />
+            <stop offset="1" stopColor="#070709" />
           </radialGradient>
           <pattern id="map-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M40 0H0V40" fill="none" stroke="rgb(30 42 68 / 0.045)" />
+            <path d="M40 0H0V40" fill="none" stroke="rgb(255 255 255 / 0.045)" />
           </pattern>
           <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="4" result="b" />
@@ -282,7 +282,7 @@ function RouteMap({ plan, version, focus, onFocus }: { plan: RoutePlan; version:
             const p = project(j.geo as Pt);
             return (
               <g key={j._id} transform={`translate(${p.x} ${p.y})`}>
-                <circle r="7" fill="#0b0e1c" stroke="rgb(30 42 68 / 0.5)" strokeDasharray="3 3" strokeWidth="1.5" />
+                <circle r="7" fill="#0b0e1c" stroke="rgb(255 255 255 / 0.5)" strokeDasharray="3 3" strokeWidth="1.5" />
                 <title>{`Unassigned · #${j.number} ${j.title}`}</title>
               </g>
             );

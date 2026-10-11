@@ -13,7 +13,7 @@ export default function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #a594ff 0%, #5b7cfa 55%, #22d3ee 100%)",
+          background: "linear-gradient(135deg, #ffb36b 0%, #ff6a2b 55%, #d9380c 100%)",
         }}
       >
         <svg width="110" height="110" viewBox="0 0 64 64" fill="none">

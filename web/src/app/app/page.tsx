@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -73,8 +74,19 @@ export default function DashboardPage() {
     <div className="space-y-5">
       {/* Hero greeting */}
       <Glass tier={2} rim className="relative overflow-hidden rounded-[28px] p-6 sm:p-8">
-        <div className="pointer-events-none absolute -top-24 -right-16 size-72 rounded-full bg-iris/30 blur-3xl" aria-hidden />
-        <div className="pointer-events-none absolute -bottom-28 left-1/3 size-72 rounded-full bg-aqua/20 blur-3xl" aria-hidden />
+        {/* Showroom backdrop: photo on the right, fading into the panel */}
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-full sm:w-3/5" aria-hidden>
+          <Image
+            src="/images/showroom-supercar.webp"
+            alt=""
+            fill
+            sizes="(min-width: 640px) 60vw, 100vw"
+            className="animate-ken-burns object-cover object-[50%_60%] opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-surface-hi via-surface-hi/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-surface-hi/80 to-transparent" />
+        </div>
+        <div className="pointer-events-none absolute -bottom-28 left-1/4 size-72 rounded-full bg-iris/20 blur-3xl" aria-hidden />
         <div className="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-sm text-ink-3">
@@ -364,7 +376,7 @@ function Onboarding() {
 function InsightsCard() {
   const { data, loading } = useApi<Insights>("/insights");
   const score = Math.round(data?.health.score ?? 0);
-  const tone = score >= 75 ? "#34d399" : score >= 50 ? "#22d3ee" : "#fbbf24";
+  const tone = score >= 75 ? "#34d399" : score >= 50 ? "#45c4ff" : "#fbbf24";
   const r = 30;
   const circ = 2 * Math.PI * r;
   const top = [...(data?.opportunities ?? [])].sort((a, b) => b.impact - a.impact).slice(0, 2);
@@ -391,7 +403,7 @@ function InsightsCard() {
         <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center">
           <div className="flex items-center gap-3 sm:flex-col sm:gap-1">
             <svg width="80" height="80" viewBox="0 0 80 80" role="img" aria-label={`Business health ${score} out of 100`}>
-              <circle cx="40" cy="40" r={r} fill="none" stroke="rgb(30 42 68 / 0.08)" strokeWidth="7" />
+              <circle cx="40" cy="40" r={r} fill="none" stroke="rgb(255 255 255 / 0.08)" strokeWidth="7" />
               <circle
                 cx="40"
                 cy="40"

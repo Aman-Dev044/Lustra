@@ -281,8 +281,8 @@ function Car({ config }: { config: VisualizerConfig }) {
   );
 }
 
-// Studio matches the neumorphic surface; sunset / night stay moody for contrast.
-const ENV_BG: Record<EnvPreset, string> = { studio: "#dde3ec", sunset: "#1a0f1c", night: "#04050b" };
+// Studio matches the showroom floor; sunset / night add colour.
+const ENV_BG: Record<EnvPreset, string> = { studio: "#101013", sunset: "#1a0f1c", night: "#04050b" };
 
 function Lighting({ preset }: { preset: EnvPreset }) {
   return (

@@ -13,9 +13,9 @@ export function renderOgImage({ eyebrow, title, subtitle }: { eyebrow: string; t
           height: "100%",
           display: "flex",
           position: "relative",
-          background: "radial-gradient(ellipse at top, #151a3d 0%, #070914 55%, #04050a 100%)",
+          background: "radial-gradient(ellipse at top, #222227 0%, #0d0d10 55%, #09090b 100%)",
           fontFamily: "sans-serif",
-          color: "#f4f6ff",
+          color: "#f5f5f4",
         }}
       >
         <div
@@ -26,7 +26,7 @@ export function renderOgImage({ eyebrow, title, subtitle }: { eyebrow: string; t
             width: 700,
             height: 600,
             borderRadius: 9999,
-            background: "radial-gradient(circle, rgba(124,92,255,0.55), rgba(124,92,255,0) 65%)",
+            background: "radial-gradient(circle, rgba(255,106,43,0.45), rgba(255,106,43,0) 65%)",
           }}
         />
         <div
@@ -37,7 +37,7 @@ export function renderOgImage({ eyebrow, title, subtitle }: { eyebrow: string; t
             width: 760,
             height: 640,
             borderRadius: 9999,
-            background: "radial-gradient(circle, rgba(34,211,238,0.45), rgba(34,211,238,0) 65%)",
+            background: "radial-gradient(circle, rgba(255,255,255,0.12), rgba(255,255,255,0) 65%)",
           }}
         />
         <div
@@ -63,7 +63,7 @@ export function renderOgImage({ eyebrow, title, subtitle }: { eyebrow: string; t
                 width: 56,
                 height: 56,
                 borderRadius: 18,
-                background: "linear-gradient(135deg, #a594ff, #5b7cfa 55%, #22d3ee)",
+                background: "linear-gradient(135deg, #ffb36b, #ff6a2b 55%, #d9380c)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -79,7 +79,7 @@ export function renderOgImage({ eyebrow, title, subtitle }: { eyebrow: string; t
               style={{
                 marginLeft: 16,
                 fontSize: 20,
-                color: "#7ae7f7",
+                color: "#ff9a66",
                 textTransform: "uppercase",
                 letterSpacing: 4,
               }}
@@ -91,7 +91,7 @@ export function renderOgImage({ eyebrow, title, subtitle }: { eyebrow: string; t
             <div style={{ fontSize: title.length > 60 ? 52 : 64, fontWeight: 700, letterSpacing: -2, lineHeight: 1.05, maxWidth: 960 }}>
               {title}
             </div>
-            {subtitle && <div style={{ marginTop: 22, fontSize: 26, color: "rgba(226,232,255,0.72)", maxWidth: 900 }}>{subtitle}</div>}
+            {subtitle && <div style={{ marginTop: 22, fontSize: 26, color: "rgba(245,245,244,0.72)", maxWidth: 900 }}>{subtitle}</div>}
           </div>
         </div>
       </div>

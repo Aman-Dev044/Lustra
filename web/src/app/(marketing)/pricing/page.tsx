@@ -119,7 +119,7 @@ export default function PricingPage() {
               <table className="w-full min-w-[680px] text-sm">
                 <caption className="sr-only">Feature comparison across Express, Pro and Enterprise plans</caption>
                 <thead className="sticky top-0">
-                  <tr className="border-b border-ink/[0.08] bg-surface/85 backdrop-blur">
+                  <tr className="border-b border-ink/[0.08] bg-surface/90 backdrop-blur">
                     <th scope="col" className="w-1/2 px-6 py-5 text-left text-xs font-semibold tracking-[0.1em] text-ink-4 uppercase">
                       Feature
                     </th>

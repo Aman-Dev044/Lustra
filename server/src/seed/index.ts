@@ -112,7 +112,7 @@ export async function seed() {
     address: '2100 S Lamar Blvd, Austin, TX 78704',
     timezone: TZ,
     taxRate: 8.25,
-    brandColor: '#7c5cff',
+    brandColor: '#ff6a2b',
     plan: 'enterprise',
     planInterval: 'yearly',
     addOns: { visualizer: true },

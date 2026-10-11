@@ -13,7 +13,7 @@ import { usePublicDoc } from "@/components/app/use-public";
 export default function PublicQuotePage() {
   const { token } = useParams<{ token: string }>();
   const { entity: quote, setEntity, shop, state } = usePublicDoc<Quote>(`/public/quotes/${token}`, "quote");
-  const brand = shop?.brandColor || "#7c5cff";
+  const brand = shop?.brandColor || "#ff6a2b";
 
   if (state === "loading")
     return (

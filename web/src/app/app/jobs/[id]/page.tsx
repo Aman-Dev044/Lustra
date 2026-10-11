@@ -724,9 +724,9 @@ function Timeline({ job, onSaved }: { job: Job; onSaved: (j: Job) => void }) {
   }
 
   const dot: Record<string, string> = {
-    stage: "#a594ff",
+    stage: "#ff9a66",
     payment: "#34d399",
-    note: "#22d3ee",
+    note: "#45c4ff",
     message: "#60a5fa",
     inspection: "#fbbf24",
     quote: "#f472b6",

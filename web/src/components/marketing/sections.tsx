@@ -115,7 +115,7 @@ export function FAQSection({
 /* ── Final call to action ──────────────────────────────────────────────── */
 
 export function CTASection({
-  title = "Your shop, in a whole new dimension.",
+  title = "Your shop, like a flagship showroom.",
   description = "Start a 14-day free trial. Unlimited users, free data import, no credit card, no contracts.",
 }: {
   title?: string;
@@ -215,6 +215,51 @@ export function IndustriesMarquee() {
               <ind.icon className="size-4 text-aqua-soft" aria-hidden />
               {ind.title}
             </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+/* ── Gallery marquee: a slow-moving strip of real work ─────────────────── */
+
+const galleryShots = [
+  { src: "/images/wheel-bronze.webp", alt: "Bronze forged wheel on a black sports car after a ceramic wheel coating", label: "Wheel & caliper coating" },
+  { src: "/images/interior-luxury.webp", alt: "Freshly detailed luxury interior with cream leather and gloss trim", label: "Interior restoration" },
+  { src: "/images/ppf-install.webp", alt: "Installer squeegeeing paint protection film across a hood", label: "Paint protection film" },
+  { src: "/images/hex-garage.webp", alt: "Supercars under hexagon detailing lights in a studio", label: "Studio finishing" },
+  { src: "/images/wheel-red-caliper.webp", alt: "Black alloy wheel with red brake caliper on a red performance car", label: "Track-pack protection" },
+  { src: "/images/tint-dark.webp", alt: "Dark sedan with ceramic window tint at dusk", label: "Ceramic window tint" },
+  { src: "/images/foam-wash.webp", alt: "Detailer applying snow foam to a red car", label: "Maintenance washes" },
+  { src: "/images/interior-sport.webp", alt: "Sport steering wheel and carbon dashboard after interior detailing", label: "Cockpit detailing" },
+  { src: "/images/wheel-gold.webp", alt: "Gold mesh wheel on a lowered black coupe", label: "Show-car prep" },
+];
+
+export function GalleryMarquee() {
+  const items = [...galleryShots, ...galleryShots];
+  return (
+    <section
+      aria-label="Work from shops on Lustra"
+      className="relative overflow-hidden py-14 [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]"
+    >
+      <ul className="flex w-max animate-marquee-slow gap-5 hover:[animation-play-state:paused]">
+        {items.map((shot, i) => (
+          <li key={`${shot.src}-${i}`} aria-hidden={i >= galleryShots.length || undefined}>
+            <figure className="group sheen relative h-72 w-56 overflow-hidden rounded-[26px] border border-white/10 sm:h-96 sm:w-72">
+              <Image
+                src={shot.src}
+                alt={i >= galleryShots.length ? "" : shot.alt}
+                fill
+                sizes="288px"
+                className="object-cover transition duration-[1200ms] ease-out group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-scrim/85 via-scrim/10 to-transparent" />
+              <figcaption className="on-photo absolute right-4 bottom-4 left-4 text-sm font-medium">
+                <span className="mb-1.5 block h-px w-8 bg-iris" aria-hidden />
+                {shot.label}
+              </figcaption>
+            </figure>
           </li>
         ))}
       </ul>

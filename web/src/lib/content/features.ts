@@ -74,7 +74,7 @@ export const features: FeatureContent[] = [
     eyebrow: "Real-time operations",
     headline: "Every bay, every tech, every car — moving in real time.",
     subhead:
-      "A spatial kanban that syncs across the front desk, the shop floor and your phone in under 100 ms. Drag a Model Y from Prep to Correction and everyone sees it instantly — no refresh, no whiteboard, no shouting across the shop.",
+      "A live kanban that syncs across the front desk, the shop floor and your phone in under 100 ms. Drag a Model Y from Prep to Correction and everyone sees it instantly — no refresh, no whiteboard, no shouting across the shop.",
     image: "/images/garage-night.webp",
     imageAlt: "Sports car parked in a lit garage at night, ready for its next service stage",
     plan: "express",

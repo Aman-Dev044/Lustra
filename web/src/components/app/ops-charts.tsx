@@ -3,16 +3,16 @@
 import type { ReactNode } from "react";
 
 /** Spectral palette for chart series — tuned for contrast against the dark glass field. */
-export const chartColors = ["#7c5cff", "#22d3ee", "#f472b6", "#fb923c", "#34d399", "#60a5fa", "#fbbf24", "#a3e635", "#a594ff", "#38bdf8"];
+export const chartColors = ["#ff6a2b", "#45c4ff", "#f472b6", "#fb923c", "#34d399", "#60a5fa", "#fbbf24", "#a3e635", "#ff9a66", "#38bdf8"];
 
 export const axisProps = {
   stroke: "rgb(103 114 140 / 0.55)",
-  tick: { fill: "#67728c", fontSize: 11 },
+  tick: { fill: "#9b9b98", fontSize: 11 },
   tickLine: false,
   axisLine: false,
 } as const;
 
-export const gridProps = { stroke: "rgb(30 42 68 / 0.06)", strokeDasharray: "3 6", vertical: false } as const;
+export const gridProps = { stroke: "rgb(255 255 255 / 0.06)", strokeDasharray: "3 6", vertical: false } as const;
 
 type TooltipEntry = { name?: ReactNode; value?: number | string; color?: string; dataKey?: unknown; payload?: { fill?: string } };
 

@@ -62,7 +62,7 @@ export default function PublicReviewPage() {
       </PublicShell>
     );
 
-  const brand = data.shop.brandColor || "#7c5cff";
+  const brand = data.shop.brandColor || "#ff6a2b";
   const shown = hover || rating;
 
   return (
@@ -79,7 +79,7 @@ export default function PublicReviewPage() {
               {done.redirect && (
                 <>
                   <p className="mt-6 text-sm text-ink-2">Would you share your review publicly? It helps a small business more than you know.</p>
-                  <Button href={done.redirect} className="mt-4" style={{ background: `linear-gradient(120deg, ${brand}, #22d3ee)` }}>
+                  <Button href={done.redirect} className="mt-4" style={{ background: `linear-gradient(120deg, ${brand}, #45c4ff)` }}>
                     <ExternalLink className="size-4" /> Share on Google
                   </Button>
                 </>
@@ -118,7 +118,7 @@ export default function PublicReviewPage() {
                 className="mt-5 text-left"
                 aria-label="Comment"
               />
-              <Button className="mt-5 w-full" size="lg" onClick={submit} loading={sending} disabled={!rating} style={{ background: `linear-gradient(120deg, ${brand}, #22d3ee)` }}>
+              <Button className="mt-5 w-full" size="lg" onClick={submit} loading={sending} disabled={!rating} style={{ background: `linear-gradient(120deg, ${brand}, #45c4ff)` }}>
                 Submit feedback
               </Button>
             </motion.div>

@@ -7,8 +7,8 @@ import { Check, CircleDollarSign, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const STAGES = [
-  { label: "Scheduled", color: "#a594ff" },
-  { label: "In progress", color: "#22d3ee" },
+  { label: "Scheduled", color: "#ff9a66" },
+  { label: "In progress", color: "#45c4ff" },
   { label: "Quality check", color: "#fbbf24" },
   { label: "Completed", color: "#34d399" },
 ];
@@ -93,7 +93,7 @@ export function HeroVisual() {
               <span
                 key={s.label}
                 className="h-1 flex-1 rounded-full transition-all duration-500"
-                style={{ background: i <= stage ? s.color : "rgb(30 42 68 / 0.1)" }}
+                style={{ background: i <= stage ? s.color : "rgb(255 255 255 / 0.1)" }}
               />
             ))}
           </div>

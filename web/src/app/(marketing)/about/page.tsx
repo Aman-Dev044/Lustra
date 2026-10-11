@@ -29,7 +29,7 @@ const team = [
   { name: "Elena Vasquez", role: "Co-founder & CEO", bio: "Ran a three-bay PPF studio for eight years before deciding the software had to be better." },
   { name: "Rohan Mehta", role: "Co-founder & CTO", bio: "Built real-time trading systems; now builds the live sync engine behind every Lustra board." },
   { name: "Grace Whitfield", role: "VP Customer Success", bio: "Has personally onboarded 900+ shops — and still answers live chat on Saturdays." },
-  { name: "Kenji Arai", role: "Head of Design", bio: "Former spatial computing designer obsessed with depth, light and touch." },
+  { name: "Kenji Arai", role: "Head of Design", bio: "Former automotive UI designer obsessed with light, reflection and motion." },
 ];
 
 const timeline = [
@@ -38,7 +38,7 @@ const timeline = [
   { year: "2023", text: "LustraPay launches with flat, published rates and next-day payouts." },
   { year: "2024", text: "Warranty certificates with QR verification and memberships go live." },
   { year: "2025", text: "AI Quote Copilot and the 3D Visualizer launch. 4,000 shops cross the line." },
-  { year: "2026", text: "The spatial redesign: one calm, live workspace across web, iPhone and Android." },
+  { year: "2026", text: "The Showroom redesign: one cinematic, live workspace across web, iPhone and Android." },
 ];
 
 export default function AboutPage() {

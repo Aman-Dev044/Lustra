@@ -41,8 +41,8 @@ function Slider({
         step={step}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="mt-3 h-2 w-full cursor-pointer appearance-none rounded-full accent-[#22d3ee]"
-        style={{ background: `linear-gradient(90deg, #7c5cff ${0}%, #22d3ee ${pct}%, rgb(30 42 68 / 0.1) ${pct}%)` }}
+        className="mt-3 h-2 w-full cursor-pointer appearance-none rounded-full accent-[#45c4ff]"
+        style={{ background: `linear-gradient(90deg, #ff6a2b ${0}%, #45c4ff ${pct}%, rgb(255 255 255 / 0.1) ${pct}%)` }}
       />
     </div>
   );

@@ -32,7 +32,7 @@ const shopSchema = new Schema(
     currency: { type: String, default: 'USD' },
     taxRate: { type: Number, default: 0, min: 0, max: 50 },
     logoUrl: { type: String, default: '' },
-    brandColor: { type: String, default: '#7c5cff' },
+    brandColor: { type: String, default: '#ff6a2b' },
     plan: { type: String, enum: ['express', 'pro', 'enterprise'], default: 'pro' },
     planInterval: { type: String, enum: ['monthly', 'yearly'], default: 'monthly' },
     addOns: { visualizer: { type: Boolean, default: false } },

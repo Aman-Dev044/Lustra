@@ -78,7 +78,7 @@ export default function PortalPage() {
     );
 
   const { shop, job } = data;
-  const brand = shop.brandColor || "#7c5cff";
+  const brand = shop.brandColor || "#ff6a2b";
   const vehicle = data.vehicle ?? job?.vehicle ?? data.quote?.vehicle ?? data.inspection?.vehicle ?? null;
   const cancelled = job?.stage === "cancelled";
   const current = job ? Math.max(0, rail.findIndex((r) => r.stage === job.stage)) : 0;
@@ -137,7 +137,7 @@ export default function PortalPage() {
                       <span className={cn("h-1 flex-1 rounded-full", i === 0 ? "opacity-0" : done || active ? "" : "bg-ink/10")} style={done || active ? { background: brand } : undefined} />
                       <span
                         className={cn("relative z-10 flex size-8 shrink-0 items-center justify-center rounded-full border-2 transition", done ? "border-transparent" : active ? "border-transparent" : "border-ink/15 bg-surface shadow-neu-inset-sm")}
-                        style={done || active ? { background: `linear-gradient(135deg, ${brand}, #22d3ee)`, boxShadow: active ? `0 0 24px ${brand}` : undefined } : undefined}
+                        style={done || active ? { background: `linear-gradient(135deg, ${brand}, #45c4ff)`, boxShadow: active ? `0 0 24px ${brand}` : undefined } : undefined}
                       >
                         {active && <span className="absolute inset-0 animate-pulse-ring rounded-full" style={{ background: `${brand}66` }} />}
                         {done ? <Check className="size-4 text-white" strokeWidth={3} /> : <span className={cn("size-2 rounded-full", active ? "bg-white" : "bg-ink/25")} />}

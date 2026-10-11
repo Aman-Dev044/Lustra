@@ -36,7 +36,7 @@ export function validateAnswers(form: LeadFormShape, answers: Answers) {
 export function LeadFormRenderer({
   form,
   services = [],
-  brand = "#7c5cff",
+  brand = "#ff6a2b",
   onSubmit,
   submitting,
   preview,
@@ -162,7 +162,7 @@ export function LeadFormRenderer({
             );
         }
       })}
-      <Button type="submit" size="lg" className="w-full" loading={submitting} style={{ background: `linear-gradient(120deg, ${brand}, #22d3ee)` }}>
+      <Button type="submit" size="lg" className="w-full" loading={submitting} style={{ background: `linear-gradient(120deg, ${brand}, #45c4ff)` }}>
         {form.submitLabel || "Request a quote"}
       </Button>
     </form>

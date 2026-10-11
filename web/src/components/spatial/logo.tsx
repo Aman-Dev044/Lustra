@@ -12,9 +12,9 @@ export function LogoMark({ size = 32, className }: { size?: number; className?: 
     <svg width={size} height={size} viewBox="0 0 64 64" fill="none" className={className} aria-hidden>
       <defs>
         <linearGradient id={a} x1="8" y1="6" x2="58" y2="60" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#a594ff" />
-          <stop offset="0.55" stopColor="#5b7cfa" />
-          <stop offset="1" stopColor="#22d3ee" />
+          <stop stopColor="#ffb36b" />
+          <stop offset="0.55" stopColor="#ff6a2b" />
+          <stop offset="1" stopColor="#d9380c" />
         </linearGradient>
         <linearGradient id={b} x1="32" y1="4" x2="32" y2="40" gradientUnits="userSpaceOnUse">
           <stop stopColor="#fff" stopOpacity="0.85" />

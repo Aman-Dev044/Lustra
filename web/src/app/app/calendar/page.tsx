@@ -312,7 +312,7 @@ function CapacityStrip({ day, bays }: { day?: Capacity["days"][number]; bays: nu
             key={h.hour}
             className="flex-1"
             style={{
-              background: r === 0 ? "rgb(30 42 68 / 0.06)" : r >= 1 ? "#fb7185" : r >= 0.6 ? "#fbbf24" : "#22d3ee",
+              background: r === 0 ? "rgb(255 255 255 / 0.06)" : r >= 1 ? "#fb7185" : r >= 0.6 ? "#fbbf24" : "#45c4ff",
               opacity: r === 0 ? 1 : 0.4 + r * 0.6,
             }}
           />

@@ -84,8 +84,8 @@ export const tints: { id: Tint; label: string }[] = [
 
 export const defaultConfig: VisualizerConfig = {
   style: "coupe",
-  colorId: "iris",
-  finish: "satin",
+  colorId: "sunburst",
+  finish: "gloss",
   coverage: "full_front",
   showCoverage: true,
   tint: 35,

@@ -102,7 +102,7 @@ function DevGate({ children }: { children: React.ReactNode }) {
 
 const monogram: Record<IntegrationProvider, { text: string; bg: string }> = {
   quickbooks: { text: "QB", bg: "linear-gradient(135deg,#34d399,#059669)" },
-  stripe: { text: "St", bg: "linear-gradient(135deg,#a594ff,#6d28d9)" },
+  stripe: { text: "St", bg: "linear-gradient(135deg,#ff9a66,#6d28d9)" },
   square: { text: "Sq", bg: "linear-gradient(135deg,#94a3b8,#334155)" },
   zapier: { text: "Zp", bg: "linear-gradient(135deg,#fb923c,#ea580c)" },
   google: { text: "Gb", bg: "linear-gradient(135deg,#60a5fa,#2563eb)" },
@@ -176,7 +176,7 @@ function Providers() {
     <>
       <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
         {(data ?? []).map((i) => {
-          const m = monogram[i.provider] ?? { text: i.name.slice(0, 2), bg: "linear-gradient(135deg,#7c5cff,#22d3ee)" };
+          const m = monogram[i.provider] ?? { text: i.name.slice(0, 2), bg: "linear-gradient(135deg,#ff6a2b,#45c4ff)" };
           const locked = !!i.requiredPlan && planRank[shop.plan] < planRank[i.requiredPlan];
           const connected = i.status === "connected";
           return (

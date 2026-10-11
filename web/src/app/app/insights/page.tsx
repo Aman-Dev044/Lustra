@@ -108,11 +108,11 @@ function HealthCard({ health }: { health: Insights["health"] }) {
         <svg viewBox="0 0 180 180" className="size-full -rotate-90">
           <defs>
             <linearGradient id="health-ring" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stopColor="#7c5cff" />
+              <stop offset="0" stopColor="#ff6a2b" />
               <stop offset="1" stopColor={color} />
             </linearGradient>
           </defs>
-          <circle cx="90" cy="90" r={r} fill="none" stroke="rgb(30 42 68 / 0.07)" strokeWidth="14" />
+          <circle cx="90" cy="90" r={r} fill="none" stroke="rgb(255 255 255 / 0.07)" strokeWidth="14" />
           <motion.circle
             cx="90"
             cy="90"
@@ -143,7 +143,7 @@ function HealthCard({ health }: { health: Insights["health"] }) {
             <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-ink/[0.06]">
               <motion.div
                 className="h-full rounded-full"
-                style={{ background: f.score >= 75 ? "linear-gradient(90deg,#22d3ee,#34d399)" : f.score >= 50 ? "linear-gradient(90deg,#fb923c,#fbbf24)" : "linear-gradient(90deg,#f472b6,#fb7185)" }}
+                style={{ background: f.score >= 75 ? "linear-gradient(90deg,#45c4ff,#34d399)" : f.score >= 50 ? "linear-gradient(90deg,#fb923c,#fbbf24)" : "linear-gradient(90deg,#f472b6,#fb7185)" }}
                 initial={{ width: 0 }}
                 animate={{ width: `${Math.max(3, Math.min(100, f.score))}%` }}
                 transition={{ duration: 1, delay: 0.2 }}
@@ -191,15 +191,15 @@ function ForecastCard({ forecast }: { forecast: Insights["forecast"] }) {
           <ComposedChart data={series} margin={{ top: 8, right: 6, left: -6, bottom: 0 }}>
             <defs>
               <linearGradient id="band" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stopColor="#22d3ee" stopOpacity={0.25} />
-                <stop offset="1" stopColor="#7c5cff" stopOpacity={0.05} />
+                <stop offset="0" stopColor="#45c4ff" stopOpacity={0.25} />
+                <stop offset="1" stopColor="#ff6a2b" stopOpacity={0.05} />
               </linearGradient>
             </defs>
             <CartesianGrid {...gridProps} />
             <XAxis dataKey="label" {...axisProps} minTickGap={28} />
             <YAxis {...axisProps} tickFormatter={(v: number) => formatMoney(v, "USD", true)} width={60} />
             <Tooltip
-              cursor={{ stroke: "rgb(30 42 68 / 0.15)" }}
+              cursor={{ stroke: "rgb(255 255 255 / 0.15)" }}
               content={
                 <GlassTooltip
                   formatter={(v) => (Number.isFinite(v) ? formatMoney(v) : "—")}
@@ -207,8 +207,8 @@ function ForecastCard({ forecast }: { forecast: Insights["forecast"] }) {
               }
             />
             <Area dataKey="band" name="Confidence" stroke="none" fill="url(#band)" isAnimationActive={false} />
-            <Line dataKey="predicted" name="Predicted" stroke="#22d3ee" strokeWidth={2} strokeDasharray="6 5" dot={false} />
-            <Line dataKey="actual" name="Actual" stroke="#a594ff" strokeWidth={2.5} dot={false} connectNulls={false} />
+            <Line dataKey="predicted" name="Predicted" stroke="#45c4ff" strokeWidth={2} strokeDasharray="6 5" dot={false} />
+            <Line dataKey="actual" name="Actual" stroke="#ff9a66" strokeWidth={2.5} dot={false} connectNulls={false} />
           </ComposedChart>
         </ResponsiveContainer>
       </div>

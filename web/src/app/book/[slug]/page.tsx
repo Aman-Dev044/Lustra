@@ -77,7 +77,7 @@ export default function BookingPage() {
 
 function Wizard({ data, slug }: { data: PublicShopData; slug: string }) {
   const { shop, services } = data;
-  const brand = shop.brandColor || "#7c5cff";
+  const brand = shop.brandColor || "#ff6a2b";
   const [step, setStep] = useState(0);
   const [selected, setSelected] = useState<string[]>([]);
   const [vehicle, setVehicle] = useState({ year: "", make: "", model: "", type: "car" as VehicleType, color: "" });
@@ -184,7 +184,7 @@ function Wizard({ data, slug }: { data: PublicShopData; slug: string }) {
           <li key={s} className="flex flex-1 flex-col items-center gap-1.5">
             <span
               className={cn("h-1.5 w-full rounded-full transition-all duration-500", i <= step ? "" : "bg-ink/10")}
-              style={i <= step ? { background: `linear-gradient(90deg, ${brand}, #22d3ee)`, boxShadow: `0 0 12px -2px ${brand}` } : undefined}
+              style={i <= step ? { background: `linear-gradient(90deg, ${brand}, #45c4ff)`, boxShadow: `0 0 12px -2px ${brand}` } : undefined}
             />
             <span className={cn("hidden text-[11px] sm:block", i === step ? "text-ink" : "text-ink-4")} aria-current={i === step ? "step" : undefined}>
               {s}
@@ -305,7 +305,7 @@ function Wizard({ data, slug }: { data: PublicShopData; slug: string }) {
                             "flex w-16 shrink-0 flex-col items-center rounded-2xl border py-3 transition",
                             closed ? "cursor-not-allowed border-ink/5 opacity-30" : on ? "text-white" : "border-ink/10 bg-ink/[0.03] hover:border-ink/25",
                           )}
-                          style={on ? { background: `linear-gradient(160deg, ${brand}, #22d3ee)`, borderColor: "transparent", boxShadow: `0 10px 30px -12px ${brand}` } : undefined}
+                          style={on ? { background: `linear-gradient(160deg, ${brand}, #45c4ff)`, borderColor: "transparent", boxShadow: `0 10px 30px -12px ${brand}` } : undefined}
                           aria-pressed={!!on}
                           aria-label={format(d, "EEEE, MMMM d")}
                         >
@@ -463,7 +463,7 @@ function Success({ shopName, number, token, when, brand }: { shopName: string; n
       Array.from({ length: 28 }, (_, i) => {
         const angle = (i / 28) * Math.PI * 2;
         const dist = 120 + ((i * 37) % 90);
-        return { x: Math.cos(angle) * dist, y: Math.sin(angle) * dist, color: [brand, "#22d3ee", "#f472b6", "#a594ff"][i % 4]!, size: 6 + (i % 4) * 2 };
+        return { x: Math.cos(angle) * dist, y: Math.sin(angle) * dist, color: [brand, "#45c4ff", "#f472b6", "#ff9a66"][i % 4]!, size: 6 + (i % 4) * 2 };
       }),
     [brand],
   );
@@ -490,7 +490,7 @@ function Success({ shopName, number, token, when, brand }: { shopName: string; n
       >
         <span
           className="mx-auto flex size-20 items-center justify-center rounded-full"
-          style={{ background: `linear-gradient(135deg, ${brand}, #22d3ee)`, boxShadow: `0 20px 50px -12px ${brand}` }}
+          style={{ background: `linear-gradient(135deg, ${brand}, #45c4ff)`, boxShadow: `0 20px 50px -12px ${brand}` }}
         >
           <Check className="size-9 text-white" strokeWidth={3} />
         </span>

@@ -23,7 +23,7 @@ export const blockMeta: Record<BlockKind, { label: string; color: string; icon: 
 export const hatchStyle = (kind: BlockKind) => {
   const c = blockMeta[kind].color;
   return {
-    background: `repeating-linear-gradient(135deg, ${c}2e 0 7px, ${c}0d 7px 14px), linear-gradient(180deg, rgb(30 42 68 / 0.04), rgb(30 42 68 / 0.01))`,
+    background: `repeating-linear-gradient(135deg, ${c}2e 0 7px, ${c}0d 7px 14px), linear-gradient(180deg, rgb(255 255 255 / 0.04), rgb(255 255 255 / 0.01))`,
     borderColor: `${c}59`,
   };
 };
@@ -232,7 +232,7 @@ export function SlotChooser({
   onBlock: (kind: BlockKind) => void;
 }) {
   const options = [
-    { key: "job", label: "New job", hint: "Book work into this slot", icon: Wrench, color: "#22d3ee", action: onJob },
+    { key: "job", label: "New job", hint: "Book work into this slot", icon: Wrench, color: "#45c4ff", action: onJob },
     ...(Object.keys(blockMeta) as BlockKind[]).map((k) => ({
       key: k,
       label: blockMeta[k].label,

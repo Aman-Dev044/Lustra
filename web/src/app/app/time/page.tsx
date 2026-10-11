@@ -211,14 +211,14 @@ export default function TimeClockPage() {
                 <BarChart data={chart} margin={{ top: 6, right: 6, left: -18, bottom: 0 }}>
                   <defs>
                     <linearGradient id="hoursBar" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0" stopColor="#22d3ee" />
-                      <stop offset="1" stopColor="#7c5cff" stopOpacity={0.6} />
+                      <stop offset="0" stopColor="#45c4ff" />
+                      <stop offset="1" stopColor="#ff6a2b" stopOpacity={0.6} />
                     </linearGradient>
                   </defs>
                   <CartesianGrid {...gridProps} />
                   <XAxis dataKey="day" {...axisProps} />
                   <YAxis {...axisProps} allowDecimals={false} />
-                  <Tooltip cursor={{ fill: "rgb(30 42 68 / 0.04)" }} content={<GlassTooltip formatter={(v) => `${v} h`} />} />
+                  <Tooltip cursor={{ fill: "rgb(255 255 255 / 0.04)" }} content={<GlassTooltip formatter={(v) => `${v} h`} />} />
                   <Bar dataKey="hours" name="Hours" fill="url(#hoursBar)" radius={[8, 8, 3, 3]} maxBarSize={38} />
                 </BarChart>
               </ResponsiveContainer>

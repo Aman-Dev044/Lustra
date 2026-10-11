@@ -98,12 +98,12 @@ function Memberships() {
       ) : (
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {plans.map((p) => {
-            const color = p.color || "#7c5cff";
+            const color = p.color || "#ff6a2b";
             return (
               <TiltCard key={p._id} max={5}>
                 <div
                   className={cn("rim relative flex h-full flex-col overflow-hidden rounded-[var(--radius-card)] border border-ink/12 p-6", !p.active && "opacity-60")}
-                  style={{ background: `linear-gradient(150deg, ${color}38 0%, rgb(30 42 68 / 0.04) 45%, rgb(30 42 68 / 0.02) 100%)` }}
+                  style={{ background: `linear-gradient(150deg, ${color}38 0%, rgb(255 255 255 / 0.04) 45%, rgb(255 255 255 / 0.02) 100%)` }}
                 >
                   <div className="pointer-events-none absolute -top-16 -right-16 size-48 rounded-full blur-3xl" style={{ background: `${color}55` }} />
                   <div className="relative flex items-start justify-between">
@@ -172,7 +172,7 @@ function Memberships() {
                   <Td className="font-medium text-ink">{customerName(m.customer)}</Td>
                   <Td>
                     <span className="inline-flex items-center gap-2">
-                      <span className="size-2 rounded-full" style={{ background: m.plan?.color || "#7c5cff" }} />
+                      <span className="size-2 rounded-full" style={{ background: m.plan?.color || "#ff6a2b" }} />
                       {m.plan?.name ?? "—"}
                       <span className="text-xs text-ink-4">{m.plan ? `${formatMoney(m.plan.price)}/${m.plan.interval}` : ""}</span>
                     </span>
@@ -216,7 +216,7 @@ function Memberships() {
   );
 }
 
-const COLORS = ["#7c5cff", "#22d3ee", "#f472b6", "#fb923c", "#34d399", "#fbbf24"];
+const COLORS = ["#ff6a2b", "#45c4ff", "#f472b6", "#fb923c", "#34d399", "#fbbf24"];
 
 function PlanModal({ plan, onClose }: { plan: MembershipPlan | "new" | null; onClose: () => void }) {
   const isNew = plan === "new";

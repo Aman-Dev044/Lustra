@@ -13,7 +13,7 @@ import { usePublicDoc } from "@/components/app/use-public";
 export default function PublicInvoicePage() {
   const { token } = useParams<{ token: string }>();
   const { entity: invoice, setEntity, shop, state } = usePublicDoc<Invoice>(`/public/invoices/${token}`, "invoice");
-  const brand = shop?.brandColor || "#7c5cff";
+  const brand = shop?.brandColor || "#ff6a2b";
 
   if (state === "loading")
     return (

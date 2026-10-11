@@ -8,7 +8,7 @@ const sourceMeta: Record<Review["source"], { label: string; letter: string; bg: 
   google: { label: "Google", letter: "G", bg: "linear-gradient(135deg,#60a5fa,#34d399)" },
   facebook: { label: "Facebook", letter: "f", bg: "linear-gradient(135deg,#3b82f6,#1d4ed8)" },
   yelp: { label: "Yelp", letter: "Y", bg: "linear-gradient(135deg,#fb7185,#dc2626)" },
-  lustra: { label: "Lustra", letter: "L", bg: "linear-gradient(135deg,#7c5cff,#22d3ee)" },
+  lustra: { label: "Lustra", letter: "L", bg: "linear-gradient(135deg,#ff6a2b,#45c4ff)" },
 };
 
 /** Neutral monogram for a review source (no third-party brand assets). */

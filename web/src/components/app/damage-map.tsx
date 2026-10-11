@@ -34,9 +34,9 @@ export const viewOptions: { value: InspectionView; label: string }[] = [
 const W = 400;
 const H = 220;
 
-const stroke = { stroke: "rgb(30 42 68 / 0.55)", strokeWidth: 1.6, fill: "url(#dm-body)", strokeLinejoin: "round" as const };
+const stroke = { stroke: "rgb(255 255 255 / 0.55)", strokeWidth: 1.6, fill: "url(#dm-body)", strokeLinejoin: "round" as const };
 const glass = { stroke: "rgb(122 231 247 / 0.45)", strokeWidth: 1.2, fill: "rgb(34 211 238 / 0.08)", strokeLinejoin: "round" as const };
-const wheel = { fill: "rgb(0 0 0 / 0.55)", stroke: "rgb(30 42 68 / 0.35)", strokeWidth: 1.4 };
+const wheel = { fill: "rgb(0 0 0 / 0.55)", stroke: "rgb(255 255 255 / 0.35)", strokeWidth: 1.4 };
 
 function TopView() {
   return (
@@ -47,11 +47,11 @@ function TopView() {
       <rect x="282" y="168" width="34" height="18" rx="6" {...wheel} />
       <path d="M44 110 C44 66 60 46 104 44 L300 44 C340 46 360 62 362 110 C360 158 340 174 300 176 L104 176 C60 174 44 154 44 110 Z" {...stroke} />
       <path d="M150 58 L176 66 L176 154 L150 162 C136 140 136 80 150 58 Z" {...glass} />
-      <rect x="182" y="66" width="86" height="88" rx="12" fill="rgb(30 42 68 / 0.04)" stroke="rgb(30 42 68 / 0.25)" strokeWidth="1.2" />
+      <rect x="182" y="66" width="86" height="88" rx="12" fill="rgb(255 255 255 / 0.04)" stroke="rgb(255 255 255 / 0.25)" strokeWidth="1.2" />
       <path d="M274 68 L298 62 C308 84 308 136 298 158 L274 152 Z" {...glass} />
-      <path d="M150 52 L140 40 L130 42 L140 56 Z M150 168 L140 180 L130 178 L140 164 Z" fill="rgb(30 42 68 / 0.2)" />
-      <path d="M60 80 Q100 76 140 70 M60 140 Q100 144 140 150" stroke="rgb(30 42 68 / 0.18)" fill="none" />
-      <text x="54" y="114" fontSize="9" fill="rgb(30 42 68 / 0.35)">FRONT</text>
+      <path d="M150 52 L140 40 L130 42 L140 56 Z M150 168 L140 180 L130 178 L140 164 Z" fill="rgb(255 255 255 / 0.2)" />
+      <path d="M60 80 Q100 76 140 70 M60 140 Q100 144 140 150" stroke="rgb(255 255 255 / 0.18)" fill="none" />
+      <text x="54" y="114" fontSize="9" fill="rgb(255 255 255 / 0.35)">FRONT</text>
     </g>
   );
 }
@@ -65,13 +65,13 @@ function SideView() {
       />
       <path d="M150 98 L182 70 C188 66 196 66 206 66 L218 66 L218 98 Z" {...glass} />
       <path d="M226 66 L266 66 C278 66 286 70 294 78 L314 98 L226 98 Z" {...glass} />
-      <path d="M96 116 L360 116" stroke="rgb(30 42 68 / 0.15)" fill="none" />
-      <path d="M220 104 L220 156" stroke="rgb(30 42 68 / 0.18)" fill="none" />
+      <path d="M96 116 L360 116" stroke="rgb(255 255 255 / 0.15)" fill="none" />
+      <path d="M220 104 L220 156" stroke="rgb(255 255 255 / 0.18)" fill="none" />
       <circle cx="112" cy="162" r="27" {...wheel} />
-      <circle cx="112" cy="162" r="13" fill="rgb(30 42 68 / 0.08)" stroke="rgb(30 42 68 / 0.3)" />
+      <circle cx="112" cy="162" r="13" fill="rgb(255 255 255 / 0.08)" stroke="rgb(255 255 255 / 0.3)" />
       <circle cx="298" cy="162" r="27" {...wheel} />
-      <circle cx="298" cy="162" r="13" fill="rgb(30 42 68 / 0.08)" stroke="rgb(30 42 68 / 0.3)" />
-      <rect x="40" y="122" width="14" height="8" rx="3" fill="rgb(30 42 68 / 0.5)" />
+      <circle cx="298" cy="162" r="13" fill="rgb(255 255 255 / 0.08)" stroke="rgb(255 255 255 / 0.3)" />
+      <rect x="40" y="122" width="14" height="8" rx="3" fill="rgb(255 255 255 / 0.5)" />
       <rect x="352" y="118" width="12" height="8" rx="3" fill="rgb(251 113 133 / 0.6)" />
     </g>
   );
@@ -84,20 +84,20 @@ function FrontView({ rear = false }: { rear?: boolean }) {
       <rect x="262" y="160" width="34" height="34" rx="8" {...wheel} />
       <path d="M96 176 L92 132 C92 118 100 110 116 106 L140 62 C146 52 156 48 170 48 L230 48 C244 48 254 52 260 62 L284 106 C300 110 308 118 308 132 L304 176 C304 182 300 184 294 184 L106 184 C100 184 96 182 96 176 Z" {...stroke} />
       <path d="M146 100 L162 62 C164 58 168 56 174 56 L226 56 C232 56 236 58 238 62 L254 100 Z" {...glass} />
-      <path d="M116 106 L92 96 L88 104 L112 112 Z M284 106 L308 96 L312 104 L288 112 Z" fill="rgb(30 42 68 / 0.2)" />
+      <path d="M116 106 L92 96 L88 104 L112 112 Z M284 106 L308 96 L312 104 L288 112 Z" fill="rgb(255 255 255 / 0.2)" />
       {rear ? (
         <>
           <rect x="108" y="122" width="52" height="16" rx="6" fill="rgb(251 113 133 / 0.55)" />
           <rect x="240" y="122" width="52" height="16" rx="6" fill="rgb(251 113 133 / 0.55)" />
-          <rect x="170" y="146" width="60" height="18" rx="3" fill="rgb(30 42 68 / 0.12)" stroke="rgb(30 42 68 / 0.3)" />
-          <text x="183" y="159" fontSize="9" fill="rgb(30 42 68 / 0.4)">PLATE</text>
+          <rect x="170" y="146" width="60" height="18" rx="3" fill="rgb(255 255 255 / 0.12)" stroke="rgb(255 255 255 / 0.3)" />
+          <text x="183" y="159" fontSize="9" fill="rgb(255 255 255 / 0.4)">PLATE</text>
         </>
       ) : (
         <>
-          <rect x="108" y="120" width="52" height="16" rx="6" fill="rgb(30 42 68 / 0.55)" />
-          <rect x="240" y="120" width="52" height="16" rx="6" fill="rgb(30 42 68 / 0.55)" />
-          <rect x="168" y="132" width="64" height="26" rx="8" fill="rgb(0 0 0 / 0.35)" stroke="rgb(30 42 68 / 0.25)" />
-          <path d="M172 140 H228 M172 146 H228 M172 152 H228" stroke="rgb(30 42 68 / 0.15)" />
+          <rect x="108" y="120" width="52" height="16" rx="6" fill="rgb(255 255 255 / 0.55)" />
+          <rect x="240" y="120" width="52" height="16" rx="6" fill="rgb(255 255 255 / 0.55)" />
+          <rect x="168" y="132" width="64" height="26" rx="8" fill="rgb(0 0 0 / 0.35)" stroke="rgb(255 255 255 / 0.25)" />
+          <path d="M172 140 H228 M172 146 H228 M172 152 H228" stroke="rgb(255 255 255 / 0.15)" />
         </>
       )}
     </g>

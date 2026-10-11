@@ -129,12 +129,12 @@ function Dashboard({ data, range }: { data: AnalyticsOverview; range: Range }) {
             <ComposedChart data={series} margin={{ top: 8, right: 4, left: -8, bottom: 0 }}>
               <defs>
                 <linearGradient id="revFill" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stopColor="#7c5cff" stopOpacity={0.55} />
-                  <stop offset="1" stopColor="#7c5cff" stopOpacity={0} />
+                  <stop offset="0" stopColor="#ff6a2b" stopOpacity={0.55} />
+                  <stop offset="1" stopColor="#ff6a2b" stopOpacity={0} />
                 </linearGradient>
                 <linearGradient id="revStroke" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0" stopColor="#a594ff" />
-                  <stop offset="1" stopColor="#22d3ee" />
+                  <stop offset="0" stopColor="#ff9a66" />
+                  <stop offset="1" stopColor="#45c4ff" />
                 </linearGradient>
               </defs>
               <CartesianGrid {...gridProps} />
@@ -142,7 +142,7 @@ function Dashboard({ data, range }: { data: AnalyticsOverview; range: Range }) {
               <YAxis yAxisId="rev" {...axisProps} tickFormatter={(v: number) => formatMoney(v, "USD", true)} width={64} />
               <YAxis yAxisId="jobs" orientation="right" {...axisProps} allowDecimals={false} width={32} />
               <Tooltip
-                cursor={{ stroke: "rgb(30 42 68 / 0.15)" }}
+                cursor={{ stroke: "rgb(255 255 255 / 0.15)" }}
                 content={<GlassTooltip formatter={(v, n) => (n === "Revenue" ? formatMoney(v) : formatNumber(v))} />}
               />
               <Bar yAxisId="jobs" dataKey="jobs" name="Jobs" fill="rgb(34 211 238 / 0.35)" radius={[6, 6, 2, 2]} maxBarSize={16} />
@@ -213,7 +213,7 @@ function Dashboard({ data, range }: { data: AnalyticsOverview; range: Range }) {
                 <CartesianGrid {...gridProps} horizontal={false} vertical />
                 <XAxis type="number" {...axisProps} allowDecimals={false} />
                 <YAxis type="category" dataKey="label" {...axisProps} width={78} />
-                <Tooltip cursor={{ fill: "rgb(30 42 68 / 0.04)" }} content={<GlassTooltip />} />
+                <Tooltip cursor={{ fill: "rgb(255 255 255 / 0.04)" }} content={<GlassTooltip />} />
                 <Bar dataKey="count" name="Customers" radius={[3, 8, 8, 3]} maxBarSize={18}>
                   {data.sources.map((_, i) => (
                     <Cell key={i} fill={chartColors[i % chartColors.length]} />
@@ -265,8 +265,8 @@ function Dashboard({ data, range }: { data: AnalyticsOverview; range: Range }) {
                       className="mx-auto h-full rounded-lg transition-all"
                       style={{
                         width: `${Math.max(6, (p.count / maxPipeline) * 100)}%`,
-                        background: `linear-gradient(90deg, ${meta?.color ?? "#7c5cff"}55, ${meta?.color ?? "#7c5cff"})`,
-                        boxShadow: `0 0 18px -4px ${meta?.color ?? "#7c5cff"}`,
+                        background: `linear-gradient(90deg, ${meta?.color ?? "#ff6a2b"}55, ${meta?.color ?? "#ff6a2b"})`,
+                        boxShadow: `0 0 18px -4px ${meta?.color ?? "#ff6a2b"}`,
                       }}
                     />
                   </div>
@@ -290,7 +290,7 @@ function ProfitSection({ data, range }: { data: AnalyticsOverview; range: Range 
   const profit = revenue - materials - labor;
   const margin = revenue ? (profit / revenue) * 100 : 0;
   const bars = [
-    { label: "Revenue", value: revenue, color: "#7c5cff" },
+    { label: "Revenue", value: revenue, color: "#ff6a2b" },
     { label: "Materials (est.)", value: -materials, color: "#fb923c" },
     { label: "Labor & commissions", value: -labor, color: "#f472b6" },
     { label: "Gross profit", value: profit, color: "#34d399" },
@@ -398,7 +398,7 @@ function CapacityHeatmap() {
                             style={{
                               background:
                                 ratio < 0
-                                  ? "repeating-linear-gradient(45deg, rgb(30 42 68 / 0.02) 0 3px, transparent 3px 6px)"
+                                  ? "repeating-linear-gradient(45deg, rgb(255 255 255 / 0.02) 0 3px, transparent 3px 6px)"
                                   : ratio === 0
                                     ? "rgb(34 211 238 / 0.08)"
                                     : `rgb(124 92 255 / ${0.25 + ratio * 0.7})`,

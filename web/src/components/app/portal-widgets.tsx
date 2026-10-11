@@ -35,7 +35,7 @@ export function Section({ title, icon, children, action }: { title: string; icon
 
 /* ── Quote approval ────────────────────────────────────────────────────── */
 
-export function QuoteApproval({ quote, onChanged, brand = "#7c5cff" }: { quote: Quote; onChanged: (q: Quote) => void; brand?: string }) {
+export function QuoteApproval({ quote, onChanged, brand = "#ff6a2b" }: { quote: Quote; onChanged: (q: Quote) => void; brand?: string }) {
   const [items, setItems] = useState(quote.items.map((i) => ({ ...i, selected: i.optional ? i.selected !== false : true })));
   const [signature, setSignature] = useState("");
   const [busy, setBusy] = useState<"approve" | "decline" | null>(null);
@@ -120,7 +120,7 @@ export function QuoteApproval({ quote, onChanged, brand = "#7c5cff" }: { quote: 
               onClick={() => void act("approve")}
               loading={busy === "approve"}
               disabled={signature.trim().length < 2 || !!busy}
-              style={{ background: `linear-gradient(120deg, ${brand}, #22d3ee)` }}
+              style={{ background: `linear-gradient(120deg, ${brand}, #45c4ff)` }}
             >
               <PenLine className="size-4" /> Approve & sign · {formatMoney(totals.total)}
             </Button>
@@ -136,7 +136,7 @@ export function QuoteApproval({ quote, onChanged, brand = "#7c5cff" }: { quote: 
 
 /* ── Invoice payment ───────────────────────────────────────────────────── */
 
-export function InvoicePay({ invoice, onChanged, brand = "#7c5cff" }: { invoice: Invoice; onChanged: (i: Invoice) => void; brand?: string }) {
+export function InvoicePay({ invoice, onChanged, brand = "#ff6a2b" }: { invoice: Invoice; onChanged: (i: Invoice) => void; brand?: string }) {
   const [tipPct, setTipPct] = useState(0);
   const [card, setCard] = useState({ name: "", number: "", exp: "", cvc: "" });
   const [paying, setPaying] = useState(false);
@@ -230,7 +230,7 @@ export function InvoicePay({ invoice, onChanged, brand = "#7c5cff" }: { invoice:
           />
         </div>
       </div>
-      <Button className="w-full" size="lg" onClick={pay} loading={paying} disabled={!cardOk} style={{ background: `linear-gradient(120deg, ${brand}, #22d3ee)` }}>
+      <Button className="w-full" size="lg" onClick={pay} loading={paying} disabled={!cardOk} style={{ background: `linear-gradient(120deg, ${brand}, #45c4ff)` }}>
         <CreditCard className="size-4" /> Pay {formatMoney(balance + tip)}
       </Button>
       <p className="text-center text-[11px] text-ink-4">Demo checkout — no real card is charged.</p>
@@ -240,7 +240,7 @@ export function InvoicePay({ invoice, onChanged, brand = "#7c5cff" }: { invoice:
 
 /* ── Inspection sign-off ───────────────────────────────────────────────── */
 
-export function InspectionSign({ inspection, onChanged, brand = "#7c5cff" }: { inspection: Inspection; onChanged: (i: Inspection) => void; brand?: string }) {
+export function InspectionSign({ inspection, onChanged, brand = "#ff6a2b" }: { inspection: Inspection; onChanged: (i: Inspection) => void; brand?: string }) {
   const [name, setName] = useState("");
   const [busy, setBusy] = useState(false);
   const signed = inspection.status === "signed";
@@ -306,7 +306,7 @@ export function InspectionSign({ inspection, onChanged, brand = "#7c5cff" }: { i
           <Field label="Type your full name to acknowledge" hint="Confirms the recorded condition before work begins.">
             <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="Full name" className="font-serif text-lg italic" autoComplete="name" />
           </Field>
-          <Button className="w-full" onClick={sign} loading={busy} disabled={name.trim().length < 2} style={{ background: `linear-gradient(120deg, ${brand}, #22d3ee)` }}>
+          <Button className="w-full" onClick={sign} loading={busy} disabled={name.trim().length < 2} style={{ background: `linear-gradient(120deg, ${brand}, #45c4ff)` }}>
             <PenLine className="size-4" /> Sign inspection
           </Button>
         </div>

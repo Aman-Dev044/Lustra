@@ -242,7 +242,7 @@ function NewQuoteView() {
                             <div className="h-2 overflow-hidden rounded-full bg-ink/[0.06]">
                               <motion.div
                                 className="h-full rounded-full"
-                                style={{ background: confidence > 75 ? "linear-gradient(90deg,#7c5cff,#34d399)" : confidence > 50 ? "linear-gradient(90deg,#7c5cff,#22d3ee)" : "linear-gradient(90deg,#fb923c,#fbbf24)" }}
+                                style={{ background: confidence > 75 ? "linear-gradient(90deg,#ff6a2b,#34d399)" : confidence > 50 ? "linear-gradient(90deg,#ff6a2b,#45c4ff)" : "linear-gradient(90deg,#fb923c,#fbbf24)" }}
                                 initial={{ width: 0 }}
                                 animate={{ width: `${confidence}%` }}
                                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}

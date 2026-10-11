@@ -68,7 +68,7 @@ export function Modal({
         {open && (
           <div className="fixed inset-0 z-[80] flex items-end justify-center p-0 sm:items-center sm:p-6">
             <motion.div
-              className="absolute inset-0 bg-[#aeb9cc]/45 backdrop-blur-[6px]"
+              className="absolute inset-0 bg-black/65 backdrop-blur-[6px]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -146,7 +146,7 @@ export function Drawer({
         {open && (
           <div className="fixed inset-0 z-[80]">
             <motion.div
-              className="absolute inset-0 bg-[#aeb9cc]/40 backdrop-blur-[4px]"
+              className="absolute inset-0 bg-black/55 backdrop-blur-[3px]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -221,7 +221,7 @@ export function Segmented<T extends string>({
             {active && (
               <motion.span
                 layoutId={`seg-${id}`}
-                className="absolute inset-0 rounded-full border border-white/70 bg-gradient-to-br from-[#f3f6fa] to-[#e2e7ef] shadow-[3px_3px_8px_rgb(163_177_198/0.6),-3px_-3px_8px_rgb(255_255_255/0.95)]"
+                className="absolute inset-0 rounded-full border border-white/15 bg-gradient-to-b from-white/[0.14] to-white/[0.06] shadow-[inset_0_1px_0_rgb(255_255_255/0.2),0_4px_14px_-4px_rgb(0_0_0/0.8)]"
                 transition={{ type: "spring", stiffness: 420, damping: 34 }}
               />
             )}

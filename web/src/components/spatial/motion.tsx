@@ -91,23 +91,31 @@ export function TiltCard({
   );
 }
 
-/** Soft ambient field behind the neumorphic surface: a gentle top-left light source plus slow pastel drift. */
+/** Showroom lighting: an overhead spotlight cone, a warm floor bounce, a slow light beam and film grain. */
 export function AuroraBackground({ className, intensity = 1 }: { className?: string; intensity?: number }) {
   return (
     <div aria-hidden className={cn("pointer-events-none fixed inset-0 -z-10 overflow-hidden", className)}>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_0%,#f4f7fb_0%,#e7ecf3_45%,#dfe5ee_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_-10%,#1d1d22_0%,#0d0d10_42%,#09090b_75%)]" />
+      {/* Overhead spotlight cone */}
       <div
-        className="absolute -top-[25%] -left-[10%] h-[70vh] w-[70vw] rounded-full blur-[110px] animate-aurora"
-        style={{ background: "radial-gradient(circle, rgb(124 108 240 / 0.22), transparent 65%)", opacity: intensity }}
+        className="absolute -top-[30%] left-1/2 h-[85vh] w-[70vw] -translate-x-1/2 blur-[90px]"
+        style={{
+          background: "radial-gradient(ellipse at top, rgb(255 255 255 / 0.11), transparent 62%)",
+          opacity: intensity,
+        }}
       />
+      {/* Warm bounce from the floor */}
       <div
-        className="absolute top-[15%] -right-[15%] h-[60vh] w-[60vw] rounded-full blur-[110px] animate-aurora [animation-delay:-9s]"
-        style={{ background: "radial-gradient(circle, rgb(25 185 218 / 0.18), transparent 65%)", opacity: intensity }}
+        className="absolute -bottom-[35%] left-[15%] h-[60vh] w-[70vw] rounded-full blur-[130px] animate-aurora"
+        style={{ background: "radial-gradient(circle, rgb(255 106 43 / 0.16), transparent 65%)", opacity: intensity }}
       />
+      {/* Cool rim light */}
       <div
-        className="absolute -bottom-[25%] left-[20%] h-[60vh] w-[70vw] rounded-full blur-[130px] animate-aurora [animation-delay:-16s]"
-        style={{ background: "radial-gradient(circle, rgb(221 63 141 / 0.1), transparent 65%)", opacity: intensity }}
+        className="absolute top-[18%] -right-[20%] h-[55vh] w-[50vw] rounded-full blur-[120px] animate-aurora [animation-delay:-11s]"
+        style={{ background: "radial-gradient(circle, rgb(69 196 255 / 0.08), transparent 65%)", opacity: intensity }}
       />
+      {/* A slow beam travelling across the floor */}
+      <div className="absolute inset-y-0 left-0 w-[30vw] animate-sweep bg-gradient-to-r from-transparent via-white/[0.025] to-transparent [animation-duration:14s]" />
       <div className="noise absolute inset-0" />
     </div>
   );

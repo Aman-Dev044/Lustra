@@ -128,7 +128,7 @@ function NavGroups({ collapsed }: { collapsed: boolean }) {
                     {active && (
                       <motion.span
                         layoutId="nav-active"
-                        className="absolute inset-0 rounded-2xl border border-white/40 bg-surface-lo shadow-[var(--shadow-neu-inset)]"
+                        className="absolute inset-0 rounded-2xl border border-white/[0.08] bg-gradient-to-r from-iris/[0.16] to-white/[0.03] before:absolute before:top-2 before:bottom-2 before:left-0 before:w-[3px] before:rounded-full before:bg-iris before:shadow-[0_0_12px_var(--color-iris)]"
                         transition={{ type: "spring", stiffness: 420, damping: 36 }}
                       />
                     )}

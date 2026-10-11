@@ -46,15 +46,15 @@ const buttonBase =
 
 const buttonVariants: Record<ButtonVariant, string> = {
   primary:
-    "bg-spectral text-white shadow-[inset_1px_1px_0_rgb(255_255_255/0.35),6px_6px_14px_rgb(163_177_198/0.75),-6px_-6px_14px_rgb(255_255_255/0.95),0_10px_22px_-10px_rgb(108_92_231/0.65)] hover:-translate-y-0.5 hover:shadow-[inset_1px_1px_0_rgb(255_255_255/0.35),9px_9px_20px_rgb(163_177_198/0.8),-8px_-8px_18px_rgb(255_255_255/1),0_14px_28px_-10px_rgb(16_180_214/0.6)] active:shadow-[inset_4px_4px_10px_rgb(40_30_120/0.45),inset_-3px_-3px_8px_rgb(255_255_255/0.25)]",
+    "sheen bg-spectral text-white shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_10px_28px_-10px_rgb(255_106_43/0.75)] hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_16px_40px_-10px_rgb(255_106_43/0.9)] active:shadow-[inset_0_2px_8px_rgb(120_30_0/0.5)]",
   secondary:
-    "neu text-ink hover:-translate-y-0.5 hover:shadow-[var(--shadow-neu-lg)] active:shadow-[var(--shadow-neu-inset)]",
+    "sheen neu text-ink hover:-translate-y-0.5 hover:border-white/20 hover:shadow-[var(--shadow-neu-lg)] active:shadow-[var(--shadow-neu-inset)]",
   ghost: "text-ink-2 hover:text-ink hover:bg-ink/[0.05] active:shadow-[var(--shadow-neu-inset-sm)]",
   danger:
     "neu text-danger hover:-translate-y-0.5 hover:shadow-[var(--shadow-neu-lg)] active:shadow-[var(--shadow-neu-inset)]",
   outline:
     "border border-ink/12 text-ink hover:bg-ink/[0.04] hover:-translate-y-0.5 active:shadow-[var(--shadow-neu-inset-sm)]",
-  light: "neu-raised text-ink hover:-translate-y-0.5 active:shadow-[var(--shadow-neu-inset)]",
+  light: "sheen bg-white text-[#0b0b0d] hover:-translate-y-0.5 hover:bg-white/90 shadow-[0_10px_30px_-10px_rgb(255_255_255/0.35)]",
 };
 
 const buttonSizes: Record<ButtonSize, string> = {
@@ -99,7 +99,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
 export type Tone = "neutral" | "iris" | "aqua" | "success" | "warning" | "danger" | "info" | "plasma" | "ember";
 
 const toneClasses: Record<Tone, string> = {
-  neutral: "bg-surface-lo text-ink-2 border-white/60 shadow-[var(--shadow-neu-inset-sm)]",
+  neutral: "bg-ink/[0.06] text-ink-2 border-ink/10",
   iris: "bg-iris/12 text-iris-soft border-iris/25",
   aqua: "bg-aqua/12 text-aqua-soft border-aqua/25",
   success: "bg-success/12 text-success border-success/30",
@@ -139,7 +139,7 @@ export function Badge({
 
 // Inputs are carved wells in the surface; focus adds a soft accent halo.
 const controlBase =
-  "w-full rounded-[var(--radius-control)] border border-white/50 bg-surface-lo px-3.5 text-sm text-ink placeholder:text-ink-4 shadow-[var(--shadow-neu-inset)] transition-[box-shadow,border-color] duration-200 focus:border-iris/40 focus:outline-none focus:shadow-[var(--shadow-neu-inset-sm),0_0_0_4px_rgb(108_92_231/0.14)] disabled:opacity-60";
+  "w-full rounded-[var(--radius-control)] border border-white/[0.07] bg-surface-lo px-3.5 text-sm text-ink placeholder:text-ink-4 shadow-[var(--shadow-neu-inset)] transition-[box-shadow,border-color] duration-200 focus:border-iris/50 focus:outline-none focus:shadow-[var(--shadow-neu-inset-sm),0_0_0_4px_rgb(255_106_43/0.14)] disabled:opacity-60";
 
 export const Input = forwardRef<HTMLInputElement, ComponentProps<"input">>(function Input({ className, ...rest }, ref) {
   return <input ref={ref} className={cn(controlBase, "h-11", className)} {...rest} />;
@@ -161,7 +161,7 @@ export const Select = forwardRef<HTMLSelectElement, ComponentProps<"select">>(fu
       ref={ref}
       className={cn(
         controlBase,
-        "h-11 appearance-none bg-[url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2367728c' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")] bg-[length:12px] bg-[right_14px_center] bg-no-repeat pr-9 [&>option]:bg-white",
+        "h-11 appearance-none bg-[url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239b9b98' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")] bg-[length:12px] bg-[right_14px_center] bg-no-repeat pr-9 [&>option]:bg-white",
         className,
       )}
       {...rest}
@@ -225,15 +225,15 @@ export function Switch({
       disabled={disabled}
       onClick={() => onChange(!checked)}
       className={cn(
-        "relative inline-flex h-7 w-12 shrink-0 items-center rounded-full border border-white/50 transition-colors duration-300 disabled:opacity-50",
+        "relative inline-flex h-7 w-12 shrink-0 items-center rounded-full border border-white/[0.08] transition-colors duration-300 disabled:opacity-50",
         checked
-          ? "bg-gradient-to-r from-iris to-aqua shadow-[inset_2px_2px_6px_rgb(40_30_120/0.35),inset_-2px_-2px_6px_rgb(255_255_255/0.25)]"
+          ? "bg-spectral shadow-[inset_0_1px_3px_rgb(120_30_0/0.45),0_0_16px_-2px_rgb(255_106_43/0.6)]"
           : "bg-surface-lo shadow-[var(--shadow-neu-inset)]",
       )}
     >
       <span
         className={cn(
-          "inline-block size-5 rounded-full bg-gradient-to-br from-white to-[#e6ebf3] shadow-[2px_2px_5px_rgb(120_135_165/0.55),-1px_-1px_3px_rgb(255_255_255/0.9)] transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]",
+          "inline-block size-5 rounded-full bg-gradient-to-b from-white to-[#d9d9d6] shadow-[0_2px_6px_rgb(0_0_0/0.6)] transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]",
           checked ? "translate-x-[25px]" : "translate-x-[3px]",
         )}
       />
@@ -253,7 +253,7 @@ export function Avatar({ name, size = 32, className }: { name?: string | null; s
         height: size,
         fontSize: Math.max(10, size * 0.38),
         background: `linear-gradient(135deg, hsl(${hue} 70% 58%), hsl(${(hue + 50) % 360} 75% 45%))`,
-        boxShadow: "inset 1px 1px 0 rgb(255 255 255 / 0.35), 3px 3px 8px rgb(163 177 198 / 0.7), -2px -2px 6px rgb(255 255 255 / 0.9)",
+        boxShadow: "inset 0 1px 0 rgb(255 255 255 / 0.3), 0 4px 12px -4px rgb(0 0 0 / 0.7)",
       }}
       aria-hidden
     >
@@ -301,7 +301,7 @@ export function Kbd({ children, className }: { children: ReactNode; className?: 
   return (
     <kbd
       className={cn(
-        "inline-flex h-5 min-w-5 items-center justify-center rounded-md border border-white/60 bg-surface px-1.5 font-mono text-[10px] text-ink-3 shadow-[var(--shadow-neu-sm)]",
+        "inline-flex h-5 min-w-5 items-center justify-center rounded-md border border-white/10 bg-ink/[0.05] px-1.5 font-mono text-[10px] text-ink-3",
         className,
       )}
     >

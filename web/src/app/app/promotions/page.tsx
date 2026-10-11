@@ -352,8 +352,8 @@ function CouponModal({ coupon, onClose }: { coupon: Coupon | "new" | null; onClo
 
 const giftStatusTone = { active: "success", depleted: "neutral", void: "danger" } as const;
 const giftGradients = [
-  "linear-gradient(135deg,#7c5cff 0%,#3b2a8f 45%,#0e1430 100%)",
-  "linear-gradient(135deg,#22d3ee 0%,#155e75 45%,#0b1424 100%)",
+  "linear-gradient(135deg,#ff6a2b 0%,#3b2a8f 45%,#0e1430 100%)",
+  "linear-gradient(135deg,#45c4ff 0%,#155e75 45%,#0b1424 100%)",
   "linear-gradient(135deg,#f472b6 0%,#7c2d5f 45%,#140c1f 100%)",
   "linear-gradient(135deg,#fb923c 0%,#7c3a14 45%,#160e0a 100%)",
 ];

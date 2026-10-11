@@ -92,7 +92,7 @@ function ShopTab() {
     email: shop.email ?? "",
     website: shop.website ?? "",
     address: shop.address ?? "",
-    brandColor: shop.brandColor || "#7c5cff",
+    brandColor: shop.brandColor || "#ff6a2b",
     taxRate: String(shop.taxRate ?? 0),
     timezone: shop.timezone,
     currency: shop.currency,
@@ -227,7 +227,7 @@ function ShopTab() {
         </Field>
         <p className="mt-6 mb-2 text-xs font-medium text-ink-2">Preview</p>
         <div className="glass-2 overflow-hidden rounded-3xl">
-          <div className="h-20" style={{ background: `linear-gradient(135deg, ${form.brandColor}, #22d3ee)` }} />
+          <div className="h-20" style={{ background: `linear-gradient(135deg, ${form.brandColor}, #45c4ff)` }} />
           <div className="p-4">
             <p className="font-semibold">{form.name || "Your shop"}</p>
             <p className="text-xs text-ink-3">{form.phone || "(555) 000-0000"}</p>

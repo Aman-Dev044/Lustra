@@ -19,7 +19,7 @@ export interface PublicShop {
 
 /** Minimal branded frame for customer-facing pages (booking, portal, verification). */
 export function PublicShell({ shop, children, wide }: { shop?: PublicShop | null; children: ReactNode; wide?: boolean }) {
-  const color = shop?.brandColor || "#7c5cff";
+  const color = shop?.brandColor || "#ff6a2b";
   return (
     <div className="relative min-h-dvh">
       <AuroraBackground intensity={0.7} />
@@ -32,7 +32,7 @@ export function PublicShell({ shop, children, wide }: { shop?: PublicShop | null
             ) : (
               <span
                 className="flex size-9 shrink-0 items-center justify-center rounded-xl text-sm font-semibold text-white"
-                style={{ background: `linear-gradient(135deg, ${color}, #22d3ee)` }}
+                style={{ background: `linear-gradient(135deg, ${color}, #45c4ff)` }}
                 aria-hidden
               >
                 {initials(shop?.name ?? "?")}

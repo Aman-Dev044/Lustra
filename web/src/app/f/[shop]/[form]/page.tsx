@@ -60,7 +60,7 @@ export default function PublicLeadFormPage() {
       </PublicShell>
     );
 
-  const brand = data.shop.brandColor || "#7c5cff";
+  const brand = data.shop.brandColor || "#ff6a2b";
 
   return (
     <PublicShell shop={data.shop}>
@@ -72,7 +72,7 @@ export default function PublicLeadFormPage() {
             transition={{ type: "spring", stiffness: 220, damping: 18 }}
             className="glass-2 rim mt-6 rounded-[32px] p-10 text-center"
           >
-            <span className="mx-auto flex size-16 items-center justify-center rounded-full" style={{ background: `linear-gradient(135deg, ${brand}, #22d3ee)`, boxShadow: `0 20px 50px -14px ${brand}` }}>
+            <span className="mx-auto flex size-16 items-center justify-center rounded-full" style={{ background: `linear-gradient(135deg, ${brand}, #45c4ff)`, boxShadow: `0 20px 50px -14px ${brand}` }}>
               <Check className="size-8 text-white" strokeWidth={3} />
             </span>
             <h1 className="mt-5 text-2xl font-semibold tracking-tight">Request received</h1>

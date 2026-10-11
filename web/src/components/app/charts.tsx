@@ -60,20 +60,20 @@ export function RevenueAreaChart({
       <AreaChart data={data} margin={{ top: 10, right: 6, left: -12, bottom: 0 }}>
         <defs>
           <linearGradient id="rev-stroke" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#7c5cff" />
-            <stop offset="100%" stopColor="#22d3ee" />
+            <stop offset="0%" stopColor="#ff6a2b" />
+            <stop offset="100%" stopColor="#45c4ff" />
           </linearGradient>
           <linearGradient id="rev-fill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#7c5cff" stopOpacity={0.45} />
-            <stop offset="60%" stopColor="#22d3ee" stopOpacity={0.08} />
-            <stop offset="100%" stopColor="#22d3ee" stopOpacity={0} />
+            <stop offset="0%" stopColor="#ff6a2b" stopOpacity={0.45} />
+            <stop offset="60%" stopColor="#45c4ff" stopOpacity={0.08} />
+            <stop offset="100%" stopColor="#45c4ff" stopOpacity={0} />
           </linearGradient>
         </defs>
-        <CartesianGrid stroke="rgb(30 42 68 / 0.05)" vertical={false} />
+        <CartesianGrid stroke="rgb(255 255 255 / 0.05)" vertical={false} />
         <XAxis dataKey="date" {...axisProps} tickFormatter={shortDate} minTickGap={28} />
         <YAxis {...axisProps} tickFormatter={(v) => formatMoney(Number(v), "USD", true)} width={56} />
         <Tooltip
-          cursor={{ stroke: "rgb(30 42 68 / 0.15)", strokeDasharray: "4 4" }}
+          cursor={{ stroke: "rgb(255 255 255 / 0.15)", strokeDasharray: "4 4" }}
           content={(p) => (
             <GlassTooltip
               active={p.active}
@@ -90,7 +90,7 @@ export function RevenueAreaChart({
           stroke="url(#rev-stroke)"
           strokeWidth={2.5}
           fill="url(#rev-fill)"
-          activeDot={{ r: 5, fill: "#10b4d6", stroke: "#eef2f8", strokeWidth: 3 }}
+          activeDot={{ r: 5, fill: "#45c4ff", stroke: "#eef2f8", strokeWidth: 3 }}
         />
       </AreaChart>
     </ResponsiveContainer>

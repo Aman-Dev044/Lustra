@@ -13,7 +13,7 @@ import { usePublicDoc } from "@/components/app/use-public";
 export default function PublicInspectionPage() {
   const { token } = useParams<{ token: string }>();
   const { entity: inspection, setEntity, shop, state } = usePublicDoc<Inspection>(`/public/inspections/${token}`, "inspection");
-  const brand = shop?.brandColor || "#7c5cff";
+  const brand = shop?.brandColor || "#ff6a2b";
 
   if (state === "loading")
     return (
