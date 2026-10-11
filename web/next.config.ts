@@ -1,7 +1,7 @@
 import path from "node:path";
 import type { NextConfig } from "next";
 
-const API_ORIGIN = process.env.API_ORIGIN ?? "http://localhost:4000";
+const API_ORIGIN = process.env.API_ORIGIN ?? "http://localhost:8879";
 
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },

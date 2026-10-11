@@ -6,13 +6,13 @@ Urable, with the same pricing tiers and a much deeper, real-time, AI-assisted fe
 
 ```
 NEWCLIENTPROJECT/
-  server/   Node.js + Express 5 + Mongoose 9 (TypeScript, ESM, run with tsx)   → http://localhost:4000
-  web/      Next.js 16 App Router + Tailwind v4 + motion + three.js            → http://localhost:3000
+  server/   Node.js + Express 5 + Mongoose 9 (TypeScript, ESM, run with tsx)   → http://localhost:8879
+  web/      Next.js 16 App Router + Tailwind v4 + motion + three.js            → http://localhost:8878
 ```
 
 The web app proxies `/api/*` and `/uploads/*` to the server via `next.config.ts` rewrites, so the browser only
-ever talks to `localhost:3000` and the auth cookie is first-party. Socket.io connects directly to
-`NEXT_PUBLIC_SOCKET_URL` (default `http://localhost:4000`) with `withCredentials: true`.
+ever talks to `localhost:8878` and the auth cookie is first-party. Socket.io connects directly to
+`NEXT_PUBLIC_SOCKET_URL` (default `http://localhost:8879`) with `withCredentials: true`.
 
 ## Pricing (identical to Urable)
 

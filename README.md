@@ -4,8 +4,8 @@ Full-stack shop-management platform (Urable feature parity + next-gen features) 
 
 | Part | Stack | Port |
 |------|-------|------|
-| `web/` | Next.js 16 (App Router, Cache Components), Tailwind v4, motion, three.js / R3F, Socket.io client | 3000 |
-| `server/` | Node.js, Express 5, Mongoose 9 (MongoDB), Socket.io, zod, JWT | 4000 |
+| `web/` | Next.js 16 (App Router, Cache Components), Tailwind v4, motion, three.js / R3F, Socket.io client | 8878 |
+| `server/` | Node.js, Express 5, Mongoose 9 (MongoDB), Socket.io, zod, JWT | 8879 |
 | `e2e/` | Playwright end-to-end + SEO suite | — |
 
 Specs: [ARCHITECTURE.md](ARCHITECTURE.md) (core) · [ARCHITECTURE-PHASE2.md](ARCHITECTURE-PHASE2.md) (parity + advanced).
@@ -18,10 +18,10 @@ Requirements: Node 20+ (tested on 24), MongoDB 6+ running on `mongodb://127.0.0.
 npm run install:all                     # root + server + web dependencies
 cp server/.env.example server/.env      # then set a long random JWT_SECRET
 npm run seed                            # demo shop "Apex Auto Spa"
-npm run dev                             # API :4000 + web :3000 (hot reload)
+npm run dev                             # API :8879 + web :8878 (hot reload)
 ```
 
-Open http://localhost:3000 — log in with **demo@lustra.app / demo1234** (Enterprise plan + 3D Visualizer).
+Open http://localhost:8878 — log in with **demo@lustra.app / demo1234** (Enterprise plan + 3D Visualizer).
 Other demo staff: priya@, diego@, jordan@, tyler@, aaliyah@apexautospa.com (same password).
 
 Production: `npm run build && npm start`.

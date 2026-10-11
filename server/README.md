@@ -6,7 +6,7 @@ Node.js + Express 5 + Mongoose 9 (TypeScript, ESM). The full contract is in [`..
 cp .env.example .env   # MongoDB on mongodb://127.0.0.1:27017/lustra by default
 npm install
 npm run seed           # demo shop "Apex Auto Spa" → demo@lustra.app / demo1234
-npm run dev            # http://localhost:4000 (tsx watch)
+npm run dev            # http://localhost:8879 (tsx watch)
 npm test               # vitest + supertest against the lustra_test database
 npm run typecheck
 ```

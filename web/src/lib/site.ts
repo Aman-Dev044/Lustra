@@ -4,7 +4,7 @@ export const site = {
   tagline: "The showroom-grade operating system for detailing, PPF, tint & wrap shops",
   description:
     "Lustra is the all-in-one shop management platform for auto detailing, ceramic coating, PPF, window tint, vinyl wrap and marine pros. Real-time job board, AI Quote Copilot, online booking, payments, digital inspections, warranty certificates and a 3D visualizer — on web, iPhone and Android.",
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:8878").replace(/\/$/, ""),
   email: "hello@lustra.app",
   supportEmail: "support@lustra.app",
   phone: "+1 (512) 555-0142",

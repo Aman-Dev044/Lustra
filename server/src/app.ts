@@ -1,6 +1,7 @@
 import express, { Router } from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
+import { corsOptions } from './lib/cors.js';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import { rateLimit } from 'express-rate-limit';
@@ -59,7 +60,7 @@ export function createApp() {
       crossOriginResourcePolicy: { policy: 'cross-origin' },
     }),
   );
-  app.use(cors({ origin: config.clientUrl, credentials: true }));
+  app.use(cors(corsOptions));
   app.use(express.json({ limit: '5mb' })); // imports send up to 5,000 rows
   app.use(express.urlencoded({ extended: false, limit: '1mb' }));
   app.use(cookieParser());

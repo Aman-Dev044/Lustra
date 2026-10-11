@@ -1,6 +1,6 @@
 import type { Server as HttpServer } from 'node:http';
 import { Server } from 'socket.io';
-import { config } from '../config.js';
+import { corsOptions } from './cors.js';
 import { tokenFromCookieHeader, verifyToken } from './auth.js';
 import { User } from '../models/User.js';
 
@@ -16,7 +16,7 @@ function presencePayload(shopId: string) {
 
 export function initRealtime(server: HttpServer): Server {
   io = new Server(server, {
-    cors: { origin: config.clientUrl, credentials: true },
+    cors: { origin: corsOptions.origin, credentials: true },
   });
 
   io.use((socket, next) => {

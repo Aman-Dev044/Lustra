@@ -40,7 +40,7 @@ export function RealtimeProvider({ children }: { children: ReactNode }) {
   const [presence, setPresence] = useState<Presence>([]);
 
   useEffect(() => {
-    const url = process.env.NEXT_PUBLIC_SOCKET_URL ?? "http://localhost:4000";
+    const url = process.env.NEXT_PUBLIC_SOCKET_URL ?? "http://localhost:8879";
     const s = io(url, { withCredentials: true, transports: ["websocket", "polling"] });
     // Publishing the live connection object is exactly the external-system sync effects are for.
     // eslint-disable-next-line react-hooks/set-state-in-effect

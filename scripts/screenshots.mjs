@@ -5,7 +5,7 @@ import { join } from "node:path";
 
 const out = process.argv[2] ?? "screenshots";
 const mode = process.argv[3] ?? "desktop";
-const base = process.env.E2E_BASE_URL ?? "http://localhost:3000";
+const base = process.env.E2E_BASE_URL ?? "http://localhost:8878";
 const only = process.env.ONLY?.split(",");
 mkdirSync(out, { recursive: true });
 
