@@ -68,7 +68,7 @@ export function Modal({
         {open && (
           <div className="fixed inset-0 z-[80] flex items-end justify-center p-0 sm:items-center sm:p-6">
             <motion.div
-              className="absolute inset-0 bg-[#02030a]/70 backdrop-blur-sm"
+              className="absolute inset-0 bg-[#aeb9cc]/45 backdrop-blur-[6px]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -90,7 +90,7 @@ export function Modal({
               transition={{ type: "spring", stiffness: 320, damping: 30 }}
             >
               {(title || description) && (
-                <div className="flex items-start justify-between gap-4 border-b border-white/[0.07] px-6 pt-6 pb-4">
+                <div className="flex items-start justify-between gap-4 border-b border-ink/[0.07] px-6 pt-6 pb-4">
                   <div>
                     {title && (
                       <h2 id={titleId} className="text-lg font-semibold tracking-tight text-ink">
@@ -101,7 +101,7 @@ export function Modal({
                   </div>
                   <button
                     onClick={onClose}
-                    className="rounded-full p-2 text-ink-3 transition hover:bg-white/10 hover:text-ink"
+                    className="neu-press rounded-full p-2 text-ink-3 shadow-[var(--shadow-neu-sm)] hover:text-ink"
                     aria-label="Close"
                   >
                     <X className="size-4" />
@@ -110,7 +110,7 @@ export function Modal({
               )}
               <div className="flex-1 overflow-y-auto px-6 py-5">{children}</div>
               {footer && (
-                <div className="flex flex-wrap items-center justify-end gap-2 border-t border-white/[0.07] bg-black/10 px-6 py-4">
+                <div className="flex flex-wrap items-center justify-end gap-2 border-t border-ink/[0.07] bg-surface-lo px-6 py-4">
                   {footer}
                 </div>
               )}
@@ -146,7 +146,7 @@ export function Drawer({
         {open && (
           <div className="fixed inset-0 z-[80]">
             <motion.div
-              className="absolute inset-0 bg-[#02030a]/60 backdrop-blur-[2px]"
+              className="absolute inset-0 bg-[#aeb9cc]/40 backdrop-blur-[4px]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -162,11 +162,11 @@ export function Drawer({
               exit={{ x: "105%" }}
               transition={{ type: "spring", stiffness: 300, damping: 34 }}
             >
-              <div className="flex items-center justify-between border-b border-white/[0.07] px-6 py-4">
+              <div className="flex items-center justify-between border-b border-ink/[0.07] px-6 py-4">
                 <h2 className="text-base font-semibold text-ink">{title}</h2>
                 <button
                   onClick={onClose}
-                  className="rounded-full p-2 text-ink-3 transition hover:bg-white/10 hover:text-ink"
+                  className="neu-press rounded-full p-2 text-ink-3 shadow-[var(--shadow-neu-sm)] hover:text-ink"
                   aria-label="Close"
                 >
                   <X className="size-4" />
@@ -174,7 +174,7 @@ export function Drawer({
               </div>
               <div className="flex-1 overflow-y-auto px-6 py-5">{children}</div>
               {footer && (
-                <div className="flex items-center justify-end gap-2 border-t border-white/[0.07] px-6 py-4">{footer}</div>
+                <div className="flex items-center justify-end gap-2 border-t border-ink/[0.07] px-6 py-4">{footer}</div>
               )}
             </motion.aside>
           </div>
@@ -221,7 +221,7 @@ export function Segmented<T extends string>({
             {active && (
               <motion.span
                 layoutId={`seg-${id}`}
-                className="absolute inset-0 rounded-full border border-white/15 bg-white/[0.12] shadow-[inset_0_1px_0_rgb(255_255_255/0.2),0_4px_14px_-4px_rgb(0_0_0/0.6)]"
+                className="absolute inset-0 rounded-full border border-white/70 bg-gradient-to-br from-[#f3f6fa] to-[#e2e7ef] shadow-[3px_3px_8px_rgb(163_177_198/0.6),-3px_-3px_8px_rgb(255_255_255/0.95)]"
                 transition={{ type: "spring", stiffness: 420, damping: 34 }}
               />
             )}
@@ -271,7 +271,7 @@ export function Menu({
             {items.map((item, i) => {
               const cls = cn(
                 "flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-left text-sm transition",
-                item.danger ? "text-danger hover:bg-danger/10" : "text-ink-2 hover:bg-white/[0.08] hover:text-ink",
+                item.danger ? "text-danger hover:bg-danger/10" : "text-ink-2 hover:bg-surface-lo hover:text-ink hover:shadow-[var(--shadow-neu-inset-sm)]",
               );
               return item.href ? (
                 <a key={i} href={item.href} className={cls} role="menuitem">
@@ -329,7 +329,7 @@ export function ConfirmDialog({
       size="sm"
       footer={
         <>
-          <button className="h-9 rounded-full px-4 text-sm text-ink-2 hover:bg-white/[0.06]" onClick={onClose}>
+          <button className="h-9 rounded-full px-4 text-sm text-ink-2 hover:bg-ink/[0.06]" onClick={onClose}>
             Cancel
           </button>
           <button

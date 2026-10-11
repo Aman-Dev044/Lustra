@@ -95,7 +95,7 @@ function CustomersView() {
               key={t}
               onClick={() => setTag(tag === t ? "" : t)}
               aria-pressed={tag === t}
-              className={`rounded-full border px-3 py-1 text-xs transition ${tag === t ? "border-aqua/40 bg-aqua/10 text-ink" : "border-white/[0.08] text-ink-3 hover:text-ink"}`}
+              className={`rounded-full border px-3 py-1 text-xs transition ${tag === t ? "border-aqua/40 bg-aqua/10 text-ink" : "border-ink/[0.08] text-ink-3 hover:text-ink"}`}
             >
               #{t}
             </button>
@@ -168,10 +168,10 @@ function CustomersView() {
                 </tbody>
               </Table>
             </div>
-            <ul className="divide-y divide-white/[0.05] md:hidden">
+            <ul className="divide-y divide-ink/[0.05] md:hidden">
               {data.items.map((c) => (
                 <li key={c._id}>
-                  <Link href={`/app/customers/${c._id}`} className="flex items-center gap-3 px-4 py-3 active:bg-white/[0.05]">
+                  <Link href={`/app/customers/${c._id}`} className="flex items-center gap-3 px-4 py-3 active:bg-ink/[0.05]">
                     <Avatar name={customerName(c)} size={38} />
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm text-ink">{customerName(c)}</p>

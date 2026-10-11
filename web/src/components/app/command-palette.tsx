@@ -51,7 +51,7 @@ export function CommandPalette({ open, onOpenChange }: { open: boolean; onOpenCh
   };
 
   const itemCls =
-    "flex cursor-pointer items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-ink-2 data-[selected=true]:bg-white/[0.09] data-[selected=true]:text-ink";
+    "flex cursor-pointer items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-ink-2 data-[selected=true]:bg-ink/[0.09] data-[selected=true]:text-ink";
   const groupCls =
     "[&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:pt-3 [&_[cmdk-group-heading]]:pb-1.5 [&_[cmdk-group-heading]]:text-[10px] [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:tracking-[0.14em] [&_[cmdk-group-heading]]:text-ink-4 [&_[cmdk-group-heading]]:uppercase";
 
@@ -60,7 +60,7 @@ export function CommandPalette({ open, onOpenChange }: { open: boolean; onOpenCh
       {open && (
         <div className="fixed inset-0 z-[90] flex items-start justify-center px-4 pt-[12vh]">
           <motion.div
-            className="absolute inset-0 bg-[#02030a]/70 backdrop-blur-sm"
+            className="absolute inset-0 bg-[#b8c2d3]/40 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -74,7 +74,7 @@ export function CommandPalette({ open, onOpenChange }: { open: boolean; onOpenCh
             className="glass-sheet rim relative w-full max-w-2xl overflow-hidden rounded-[26px]"
           >
             <Command label="Command palette" shouldFilter={!shown} loop>
-              <div className="flex items-center gap-3 border-b border-white/[0.07] px-5">
+              <div className="flex items-center gap-3 border-b border-ink/[0.07] px-5">
                 <Search className="size-4 text-ink-3" aria-hidden />
                 <Command.Input
                   autoFocus

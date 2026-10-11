@@ -130,7 +130,7 @@ function Campaigns() {
             </thead>
             <tbody>
               {campaigns.map((c) => (
-                <tr key={c._id} className="cursor-pointer hover:bg-white/[0.03]" onClick={() => setDraft({ ...c })}>
+                <tr key={c._id} className="cursor-pointer hover:bg-ink/[0.03]" onClick={() => setDraft({ ...c })}>
                   <Td>
                     <span className="flex items-center gap-2.5">
                       {c.channel === "sms" ? <MessageSquare className="size-4 text-aqua-soft" /> : <Mail className="size-4 text-info" />}
@@ -230,7 +230,7 @@ function Composer({ initial, onBack }: { initial: Draft; onBack: () => void }) {
       <PageHeader
         title={
           <span className="flex items-center gap-3">
-            <button onClick={onBack} className="rounded-full p-2 text-ink-3 hover:bg-white/10 hover:text-ink" aria-label="Back to campaigns">
+            <button onClick={onBack} className="rounded-full p-2 text-ink-3 hover:bg-ink/10 hover:text-ink" aria-label="Back to campaigns">
               <ArrowLeft className="size-5" />
             </button>
             {d.name || "Untitled campaign"}
@@ -286,7 +286,7 @@ function Composer({ initial, onBack }: { initial: Draft; onBack: () => void }) {
                     type="button"
                     disabled={sent}
                     onClick={() => setD({ ...d, segment: { type: s.type, value: s.type === "lapsed" ? 120 : s.type === "tag" ? "" : undefined } })}
-                    className={cn("flex items-start gap-3 rounded-2xl border p-3.5 text-left transition", on ? "border-aqua/50 bg-aqua/10 shadow-[var(--shadow-glow-aqua)]" : "border-white/[0.08] bg-white/[0.02] hover:border-white/20")}
+                    className={cn("flex items-start gap-3 rounded-2xl border p-3.5 text-left transition", on ? "border-aqua/50 bg-aqua/10 shadow-[var(--shadow-glow-aqua)]" : "border-ink/[0.08] bg-ink/[0.02] hover:border-ink/20")}
                     aria-pressed={on}
                   >
                     <s.icon className={cn("mt-0.5 size-4 shrink-0", on ? "text-aqua" : "text-ink-3")} />
@@ -313,7 +313,7 @@ function Composer({ initial, onBack }: { initial: Draft; onBack: () => void }) {
               <div className="mt-4 flex items-center gap-3">
                 <div className="flex -space-x-2">
                   {preview.sample.slice(0, 6).map((c) => (
-                    <span key={c._id} className="rounded-full ring-2 ring-[#0b0e1c]" title={customerName(c)}>
+                    <span key={c._id} className="rounded-full ring-2 ring-void" title={customerName(c)}>
                       <Avatar name={customerName(c)} size={30} />
                     </span>
                   ))}
@@ -362,7 +362,7 @@ function Composer({ initial, onBack }: { initial: Draft; onBack: () => void }) {
 
         <div className="xl:sticky xl:top-24 xl:self-start">
           <p className="mb-2 px-1 text-xs font-medium tracking-wide text-ink-3 uppercase">Live preview</p>
-          <div className="mx-auto w-[300px] rounded-[44px] border border-white/15 bg-[#05060c] p-3 shadow-[var(--shadow-lift)]">
+          <div className="mx-auto w-[300px] rounded-[44px] border border-ink/15 bg-[#05060c] p-3 shadow-[var(--shadow-lift)]">
             <div className="relative overflow-hidden rounded-[34px] bg-[linear-gradient(180deg,#0f1328,#070914)]">
               <div className="mx-auto mt-2 h-6 w-24 rounded-full bg-black" />
               <div className="px-4 pt-4 pb-3 text-center">
@@ -372,7 +372,7 @@ function Composer({ initial, onBack }: { initial: Draft; onBack: () => void }) {
               </div>
               <div className="min-h-[340px] px-3 pb-6">
                 {d.channel === "email" && d.subject && <p className="mb-2 px-1 text-xs font-semibold text-ink">{d.subject}</p>}
-                <div className={cn("max-w-[90%] rounded-3xl rounded-bl-lg px-3.5 py-2.5 text-[13px] leading-relaxed whitespace-pre-wrap", d.channel === "sms" ? "bg-white/[0.12] text-ink" : "bg-white text-[#111]")}>
+                <div className={cn("max-w-[90%] rounded-3xl rounded-bl-lg px-3.5 py-2.5 text-[13px] leading-relaxed whitespace-pre-wrap", d.channel === "sms" ? "bg-ink/[0.12] text-ink" : "bg-white text-[#111]")}>
                   {rendered || <span className="opacity-50">Your message…</span>}
                 </div>
                 <p className="mt-1 px-2 text-[10px] text-ink-4">Now</p>

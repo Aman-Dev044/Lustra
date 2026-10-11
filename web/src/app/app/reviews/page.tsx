@@ -70,7 +70,7 @@ function Reviews() {
                   <span className="flex w-8 items-center gap-0.5 text-ink-3">
                     {n} <Star className="size-3 fill-warning text-warning" />
                   </span>
-                  <span className="h-2 flex-1 overflow-hidden rounded-full bg-white/[0.06]">
+                  <span className="h-2 flex-1 overflow-hidden rounded-full bg-ink/[0.06]">
                     <span className="block h-full rounded-full bg-gradient-to-r from-warning to-ember" style={{ width: `${pct}%` }} />
                   </span>
                   <span className="w-8 text-right text-ink-4 tabular-nums">{c}</span>
@@ -79,13 +79,13 @@ function Reviews() {
             })}
           </ul>
           <div className="space-y-3">
-            <div className="rounded-2xl bg-white/[0.04] p-3">
+            <div className="rounded-2xl bg-ink/[0.04] p-3">
               <p className="text-[11px] text-ink-4">Response rate</p>
               <p className="text-xl font-semibold tabular-nums">{Math.round(summary.responseRate)}%</p>
             </div>
             <div className="flex flex-wrap gap-1.5">
               {bySourceList(summary.bySource).map(([s, n]) => (
-                <span key={s} className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-2 py-1 text-[11px] text-ink-2">
+                <span key={s} className="inline-flex items-center gap-1.5 rounded-full border border-ink/10 px-2 py-1 text-[11px] text-ink-2">
                   <SourceMark source={s as Review["source"]} size={16} /> {n}
                 </span>
               ))}
@@ -111,7 +111,7 @@ function Reviews() {
               key={s}
               onClick={() => setSource(s)}
               aria-pressed={source === s}
-              className={cn("inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs transition", source === s ? "border-aqua/50 bg-aqua/15 text-aqua-soft" : "border-white/10 text-ink-3 hover:text-ink")}
+              className={cn("inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs transition", source === s ? "border-aqua/50 bg-aqua/15 text-aqua-soft" : "border-ink/10 text-ink-3 hover:text-ink")}
             >
               {s !== "all" && <SourceMark source={s as Review["source"]} size={14} />}
               {s === "all" ? "All sources" : sourceLabel(s)}
@@ -191,7 +191,7 @@ function ReviewCard({ review }: { review: Review }) {
             <span className="text-xs text-ink-4">{relativeTime(review.createdAt)}</span>
             {review.status !== "replied" && <Badge tone="warning">Needs reply</Badge>}
             {customer && (
-              <Link href={`/app/customers/${customer._id}`} className="text-xs text-aqua-soft hover:text-white">
+              <Link href={`/app/customers/${customer._id}`} className="text-xs text-aqua-soft hover:text-ink">
                 View customer
               </Link>
             )}
@@ -199,7 +199,7 @@ function ReviewCard({ review }: { review: Review }) {
           {review.comment && <p className="mt-2 text-sm leading-relaxed text-ink-2">{review.comment}</p>}
 
           {review.reply && !replying && (
-            <div className="mt-3 rounded-2xl border-l-2 border-iris bg-white/[0.04] px-4 py-3">
+            <div className="mt-3 rounded-2xl border-l-2 border-iris bg-ink/[0.04] px-4 py-3">
               <p className="text-[11px] text-ink-4">Your reply · {relativeTime(review.repliedAt)}</p>
               <p className="mt-1 text-sm text-ink-2">{review.reply}</p>
             </div>
@@ -213,7 +213,7 @@ function ReviewCard({ review }: { review: Review }) {
                     <button
                       key={i}
                       onClick={() => setText(s)}
-                      className={cn("rounded-2xl border px-3 py-2 text-left text-xs transition", text === s ? "border-iris/50 bg-iris/15 text-ink" : "border-white/10 text-ink-3 hover:text-ink")}
+                      className={cn("rounded-2xl border px-3 py-2 text-left text-xs transition", text === s ? "border-iris/50 bg-iris/15 text-ink" : "border-ink/10 text-ink-3 hover:text-ink")}
                     >
                       <Sparkles className="mr-1.5 inline size-3 text-iris-soft" /> {s}
                     </button>

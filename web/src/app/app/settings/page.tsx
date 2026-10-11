@@ -169,7 +169,7 @@ function ShopTab() {
             </Select>
           </Field>
         </div>
-        <div className="mt-6 border-t border-white/[0.07] pt-5">
+        <div className="mt-6 border-t border-ink/[0.07] pt-5">
           <h3 className="text-sm font-semibold">Routing depot</h3>
           <p className="mb-3 text-xs text-ink-4">Where mobile routes start and end. Used by route optimization and ETAs.</p>
           <div className="grid gap-3 sm:grid-cols-[1fr_140px_140px]">
@@ -219,7 +219,7 @@ function ShopTab() {
               type="color"
               value={form.brandColor}
               onChange={set("brandColor")}
-              className="h-11 w-14 cursor-pointer rounded-xl border border-white/10 bg-transparent"
+              className="h-11 w-14 cursor-pointer rounded-xl border border-ink/10 bg-transparent"
               aria-label="Brand color"
             />
             <Input value={form.brandColor} onChange={set("brandColor")} className="font-mono" />
@@ -275,7 +275,7 @@ function ServicesTab() {
 
   return (
     <Glass className="overflow-hidden">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/[0.07] p-4">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-ink/[0.07] p-4">
         <Select value={category} onChange={(e) => setCategory(e.target.value as typeof category)} className="h-10 w-48 rounded-full" aria-label="Category filter">
           <option value="all">All categories</option>
           {(Object.keys(categoryMeta) as ServiceCategory[]).map((c) => (
@@ -311,7 +311,7 @@ function ServicesTab() {
           </thead>
           <tbody>
             {items.map((s) => (
-              <tr key={s._id} className="hover:bg-white/[0.03]">
+              <tr key={s._id} className="hover:bg-ink/[0.03]">
                 <Td>
                   <p className="font-medium text-ink">{s.name}</p>
                   {s.description && <p className="line-clamp-1 max-w-sm text-xs text-ink-4">{s.description}</p>}
@@ -331,7 +331,7 @@ function ServicesTab() {
                   <Switch checked={s.active} onChange={(v) => void toggle(s, "active", v)} label={`${s.name} active`} />
                 </Td>
                 <Td className="text-right whitespace-nowrap">
-                  <button onClick={() => setEditing(s)} className="rounded-full p-2 text-ink-4 hover:bg-white/10 hover:text-ink" aria-label={`Edit ${s.name}`}>
+                  <button onClick={() => setEditing(s)} className="rounded-full p-2 text-ink-4 hover:bg-ink/10 hover:text-ink" aria-label={`Edit ${s.name}`}>
                     <Pencil className="size-4" />
                   </button>
                   <button onClick={() => setDeleting(s)} className="rounded-full p-2 text-ink-4 hover:bg-danger/10 hover:text-danger" aria-label={`Delete ${s.name}`}>
@@ -555,7 +555,7 @@ function BookingTab() {
             </Button>
           </div>
         )}
-        <label className="flex items-center justify-between gap-4 rounded-2xl bg-white/[0.04] px-4 py-3">
+        <label className="flex items-center justify-between gap-4 rounded-2xl bg-ink/[0.04] px-4 py-3">
           <span>
             <span className="block text-sm font-medium text-ink">Accept online bookings</span>
             <span className="text-xs text-ink-4">Customers pick services and real-time slots that respect your bays.</span>
@@ -593,7 +593,7 @@ function BookingTab() {
         <h3 className="mt-7 mb-3 text-sm font-semibold">Working hours</h3>
         <div className="space-y-1.5">
           {b.workingHours.map((h) => (
-            <div key={h.day} className="flex flex-wrap items-center gap-3 rounded-2xl bg-white/[0.03] px-4 py-2">
+            <div key={h.day} className="flex flex-wrap items-center gap-3 rounded-2xl bg-ink/[0.03] px-4 py-2">
               <span className="w-24 text-sm text-ink">{DAYS[h.day]}</span>
               <Switch checked={!h.closed} onChange={(v) => setDay(h.day, { closed: !v })} label={`${DAYS[h.day]} open`} />
               {h.closed ? (
@@ -632,7 +632,7 @@ function BookingTab() {
           <p className="flex items-center gap-2 text-sm font-semibold">
             <Code2 className="size-4 text-aqua-soft" /> Embed on your website
           </p>
-          <pre className="mt-3 overflow-x-auto rounded-2xl bg-black/40 p-3 font-mono text-[11px] leading-relaxed whitespace-pre-wrap text-ink-3">{embed}</pre>
+          <pre className="mt-3 overflow-x-auto rounded-2xl bg-ink/40 p-3 font-mono text-[11px] leading-relaxed whitespace-pre-wrap text-ink-3">{embed}</pre>
           <Button size="sm" variant="secondary" className="mt-3 w-full" onClick={() => copy(embed, "Embed code")}>
             <Copy className="size-4" /> Copy embed code
           </Button>
@@ -749,7 +749,7 @@ function BillingTab() {
       <div className="grid gap-4 lg:grid-cols-2">
         <Glass className="p-6">
           <p className="mb-4 text-sm font-semibold">Payment method</p>
-          <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-[linear-gradient(135deg,#2a1f6b,#0e1430_55%,#0b3b4a)] p-5 shadow-[var(--shadow-lift)]">
+          <div className="relative overflow-hidden rounded-3xl border border-ink/15 bg-[linear-gradient(135deg,#2a1f6b,#0e1430_55%,#0b3b4a)] p-5 shadow-[var(--shadow-lift)]">
             <div className="pointer-events-none absolute -top-10 -right-10 size-40 rounded-full bg-aqua/30 blur-2xl" />
             <CreditCard className="size-6 text-white/80" />
             <p className="mt-8 font-mono text-lg tracking-[0.2em] text-white">•••• •••• •••• 4242</p>

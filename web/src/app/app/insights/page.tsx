@@ -112,7 +112,7 @@ function HealthCard({ health }: { health: Insights["health"] }) {
               <stop offset="1" stopColor={color} />
             </linearGradient>
           </defs>
-          <circle cx="90" cy="90" r={r} fill="none" stroke="rgb(255 255 255 / 0.07)" strokeWidth="14" />
+          <circle cx="90" cy="90" r={r} fill="none" stroke="rgb(30 42 68 / 0.07)" strokeWidth="14" />
           <motion.circle
             cx="90"
             cy="90"
@@ -140,7 +140,7 @@ function HealthCard({ health }: { health: Insights["health"] }) {
               <span className="text-ink-2">{f.label}</span>
               <span className="text-ink tabular-nums">{Math.round(f.score)}</span>
             </div>
-            <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-white/[0.06]">
+            <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-ink/[0.06]">
               <motion.div
                 className="h-full rounded-full"
                 style={{ background: f.score >= 75 ? "linear-gradient(90deg,#22d3ee,#34d399)" : f.score >= 50 ? "linear-gradient(90deg,#fb923c,#fbbf24)" : "linear-gradient(90deg,#f472b6,#fb7185)" }}
@@ -199,7 +199,7 @@ function ForecastCard({ forecast }: { forecast: Insights["forecast"] }) {
             <XAxis dataKey="label" {...axisProps} minTickGap={28} />
             <YAxis {...axisProps} tickFormatter={(v: number) => formatMoney(v, "USD", true)} width={60} />
             <Tooltip
-              cursor={{ stroke: "rgb(255 255 255 / 0.15)" }}
+              cursor={{ stroke: "rgb(30 42 68 / 0.15)" }}
               content={
                 <GlassTooltip
                   formatter={(v) => (Number.isFinite(v) ? formatMoney(v) : "—")}
@@ -253,7 +253,7 @@ function Opportunities({ items }: { items: Opportunity[] }) {
             const Icon = oppIcon[o.kind] ?? Gem;
             return (
               <motion.div key={o.id} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
-                <Glass className="flex h-full flex-col p-5 transition hover:-translate-y-0.5 hover:border-white/20">
+                <Glass className="flex h-full flex-col p-5 transition hover:-translate-y-0.5 hover:border-ink/20">
                   <div className="flex items-start gap-3">
                     <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-iris/40 to-aqua/30 text-white">
                       <Icon className="size-5" />
@@ -286,7 +286,7 @@ function Opportunities({ items }: { items: Opportunity[] }) {
 function ChurnTable({ rows }: { rows: Insights["churnRisk"] }) {
   return (
     <Glass className="mt-6 overflow-hidden">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/[0.07] p-5">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-ink/[0.07] p-5">
         <div>
           <h2 className="text-sm font-semibold">Churn-risk radar</h2>
           <p className="text-xs text-ink-4">Customers overdue versus their own visit rhythm</p>
@@ -312,7 +312,7 @@ function ChurnTable({ rows }: { rows: Insights["churnRisk"] }) {
           </thead>
           <tbody>
             {rows.map((r) => (
-              <tr key={r.customer._id} className="hover:bg-white/[0.03]">
+              <tr key={r.customer._id} className="hover:bg-ink/[0.03]">
                 <Td>
                   <Link href={`/app/customers/${r.customer._id}`} className="flex items-center gap-2.5 text-ink hover:text-aqua-soft">
                     <Avatar name={customerName(r.customer)} size={28} />

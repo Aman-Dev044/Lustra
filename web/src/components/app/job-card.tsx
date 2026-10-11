@@ -25,7 +25,7 @@ export function JobCard({ job, highlight, dragging }: { job: Job; highlight?: bo
     <div
       className={cn(
         "glass group relative rounded-[18px] p-3.5 transition-all duration-300",
-        dragging ? "scale-[1.03] rotate-[1.5deg] shadow-[var(--shadow-lift)]" : "hover:-translate-y-0.5 hover:border-white/20",
+        dragging ? "scale-[1.03] rotate-[1.5deg] shadow-[var(--shadow-lift)]" : "hover:-translate-y-0.5 hover:border-ink/20",
         highlight && "shadow-[var(--shadow-glow-aqua)]",
       )}
     >
@@ -68,14 +68,14 @@ export function JobCard({ job, highlight, dragging }: { job: Job; highlight?: bo
         <span className="text-sm font-semibold text-ink tabular-nums">{formatMoney(job.totals?.total, "USD", true)}</span>
       </div>
       {total > 0 && (
-        <div className="mt-2.5 h-1 overflow-hidden rounded-full bg-white/[0.06]">
+        <div className="mt-2.5 h-1 overflow-hidden rounded-full bg-ink/[0.06]">
           <div className="h-full rounded-full bg-gradient-to-r from-iris to-aqua" style={{ width: `${(done / total) * 100}%` }} />
         </div>
       )}
       {job.assignees?.length > 0 && (
         <div className="mt-3 flex -space-x-1.5">
           {job.assignees.slice(0, 4).map((u) => (
-            <span key={u._id} className="rounded-full ring-2 ring-[#10132a]" title={u.name}>
+            <span key={u._id} className="rounded-full ring-2 ring-void" title={u.name}>
               <Avatar name={u.name} size={22} />
             </span>
           ))}

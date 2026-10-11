@@ -39,7 +39,7 @@ export function GlassTooltip({
 }
 
 export const axisProps = {
-  stroke: "rgb(226 232 255 / 0.32)",
+  stroke: "rgb(103 114 140 / 0.55)",
   fontSize: 11,
   tickLine: false,
   axisLine: false,
@@ -69,11 +69,11 @@ export function RevenueAreaChart({
             <stop offset="100%" stopColor="#22d3ee" stopOpacity={0} />
           </linearGradient>
         </defs>
-        <CartesianGrid stroke="rgb(255 255 255 / 0.05)" vertical={false} />
+        <CartesianGrid stroke="rgb(30 42 68 / 0.05)" vertical={false} />
         <XAxis dataKey="date" {...axisProps} tickFormatter={shortDate} minTickGap={28} />
         <YAxis {...axisProps} tickFormatter={(v) => formatMoney(Number(v), "USD", true)} width={56} />
         <Tooltip
-          cursor={{ stroke: "rgb(255 255 255 / 0.15)", strokeDasharray: "4 4" }}
+          cursor={{ stroke: "rgb(30 42 68 / 0.15)", strokeDasharray: "4 4" }}
           content={(p) => (
             <GlassTooltip
               active={p.active}
@@ -90,7 +90,7 @@ export function RevenueAreaChart({
           stroke="url(#rev-stroke)"
           strokeWidth={2.5}
           fill="url(#rev-fill)"
-          activeDot={{ r: 5, fill: "#22d3ee", stroke: "#04050a", strokeWidth: 2 }}
+          activeDot={{ r: 5, fill: "#10b4d6", stroke: "#eef2f8", strokeWidth: 3 }}
         />
       </AreaChart>
     </ResponsiveContainer>

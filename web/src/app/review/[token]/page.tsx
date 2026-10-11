@@ -104,7 +104,7 @@ export default function PublicReviewPage() {
                     className="rounded-full p-1"
                   >
                     <Star
-                      className={cn("size-11 transition-colors", n <= shown ? "fill-warning text-warning drop-shadow-[0_0_14px_rgb(251_191_36/0.6)]" : "text-white/20")}
+                      className={cn("size-11 transition-colors", n <= shown ? "fill-warning text-warning drop-shadow-[0_0_14px_rgb(251_191_36/0.6)]" : "text-ink/15")}
                       strokeWidth={1.5}
                     />
                   </motion.button>

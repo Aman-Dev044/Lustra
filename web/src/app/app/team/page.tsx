@@ -114,7 +114,7 @@ export default function TeamPage() {
                 {canEdit && u._id !== me._id && u.role !== "owner" && (
                   <Menu
                     trigger={
-                      <button className="rounded-full p-1.5 text-ink-4 hover:bg-white/10 hover:text-ink" aria-label={`Actions for ${u.name}`}>
+                      <button className="rounded-full p-1.5 text-ink-4 hover:bg-ink/10 hover:text-ink" aria-label={`Actions for ${u.name}`}>
                         <MoreHorizontal className="size-4" />
                       </button>
                     }
@@ -144,7 +144,7 @@ export default function TeamPage() {
                   </p>
                 )}
               </div>
-              <div className="mt-4 grid grid-cols-2 gap-2 border-t border-white/[0.06] pt-3 text-xs">
+              <div className="mt-4 grid grid-cols-2 gap-2 border-t border-ink/[0.06] pt-3 text-xs">
                 <div>
                   <p className="text-ink-4">Hourly</p>
                   <p className="text-ink tabular-nums">{u.hourlyRate ? formatMoney(u.hourlyRate) : "—"}</p>
@@ -162,7 +162,7 @@ export default function TeamPage() {
 
       {isManager && (
         <Glass className="mt-6 overflow-hidden">
-          <div className="flex flex-col gap-3 border-b border-white/[0.07] p-5 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-3 border-b border-ink/[0.07] p-5 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h2 className="text-sm font-semibold">Earnings & payroll</h2>
               <p className="text-xs text-ink-4">
@@ -208,7 +208,7 @@ export default function TeamPage() {
               </thead>
               <tbody>
                 {earnings.map((r) => (
-                  <tr key={r.user._id} className="hover:bg-white/[0.03]">
+                  <tr key={r.user._id} className="hover:bg-ink/[0.03]">
                     <Td>
                       <span className="flex items-center gap-2.5">
                         <Avatar name={r.user.name} size={28} />
@@ -223,7 +223,7 @@ export default function TeamPage() {
                     <Td className="text-right font-semibold text-ink tabular-nums">{formatMoney(r.total)}</Td>
                   </tr>
                 ))}
-                <tr className="bg-white/[0.03]">
+                <tr className="bg-ink/[0.03]">
                   <Td className="font-semibold text-ink">Total</Td>
                   <Td className="text-right font-semibold tabular-nums">{totals.hours.toFixed(1)}</Td>
                   <Td className="text-right font-semibold tabular-nums">{formatMoney(totals.wages)}</Td>
@@ -236,7 +236,7 @@ export default function TeamPage() {
             </Table>
           )}
           {!showCommission && (
-            <p className="border-t border-white/[0.06] px-5 py-3 text-xs text-ink-4">Commission tracking is available on the Enterprise plan.</p>
+            <p className="border-t border-ink/[0.06] px-5 py-3 text-xs text-ink-4">Commission tracking is available on the Enterprise plan.</p>
           )}
         </Glass>
       )}

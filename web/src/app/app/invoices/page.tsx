@@ -116,7 +116,7 @@ function InvoicesView() {
               aria-pressed={statuses.includes(s)}
               className={cn(
                 "rounded-full border px-3 py-1.5 text-xs transition",
-                statuses.includes(s) ? "border-white/25 bg-white/[0.1] text-ink" : "border-white/[0.08] text-ink-3 hover:text-ink",
+                statuses.includes(s) ? "border-ink/25 bg-ink/[0.1] text-ink" : "border-ink/[0.08] text-ink-3 hover:text-ink",
               )}
             >
               {invoiceStatusMeta[s].label}
@@ -173,7 +173,7 @@ function InvoicesView() {
                 </tbody>
               </Table>
             </div>
-            <ul className="divide-y divide-white/[0.05] md:hidden">
+            <ul className="divide-y divide-ink/[0.05] md:hidden">
               {data.items.map((i) => (
                 <li key={i._id}>
                   <Link href={`/app/invoices/${i._id}`} className="flex items-center gap-3 px-4 py-3.5">

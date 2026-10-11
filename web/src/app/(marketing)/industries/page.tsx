@@ -43,7 +43,7 @@ export default function IndustriesPage() {
                   <TiltCard max={5}>
                     <Link
                       href={`/industries/${entry.slug}`}
-                      className="group glass-2 relative flex h-80 flex-col justify-end overflow-hidden rounded-[28px] p-6"
+                      className="group glass-2 on-photo relative flex h-80 flex-col justify-end overflow-hidden rounded-[28px] p-6"
                     >
                       <Image
                         src={ind.image}
@@ -52,7 +52,7 @@ export default function IndustriesPage() {
                         sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
                         className="-z-10 object-cover opacity-70 transition duration-700 group-hover:scale-105 group-hover:opacity-90"
                       />
-                      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#04050a] via-[#04050a]/50 to-transparent" />
+                      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-scrim/90 via-scrim/45 to-transparent" />
                       <span className="glass mb-auto flex size-11 items-center justify-center rounded-2xl text-aqua-soft">
                         <entry.icon className="size-5" aria-hidden />
                       </span>

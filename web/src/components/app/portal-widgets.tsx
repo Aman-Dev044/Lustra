@@ -65,7 +65,7 @@ export function QuoteApproval({ quote, onChanged, brand = "#7c5cff" }: { quote: 
 
   return (
     <div>
-      <ul className="divide-y divide-white/[0.06]">
+      <ul className="divide-y divide-ink/[0.06]">
         {items.map((it, idx) => (
           <li key={it._id ?? idx} className={cn("flex items-start gap-3 py-3", it.selected === false && "opacity-50")}>
             <div className="min-w-0 flex-1">
@@ -85,7 +85,7 @@ export function QuoteApproval({ quote, onChanged, brand = "#7c5cff" }: { quote: 
           </li>
         ))}
       </ul>
-      <div className="mt-3 rounded-2xl bg-white/[0.03] p-4">
+      <div className="mt-3 rounded-2xl bg-ink/[0.03] p-4">
         <TotalsPanel totals={totals} />
       </div>
       {quote.notes && <p className="mt-4 text-sm whitespace-pre-wrap text-ink-3">{quote.notes}</p>}
@@ -197,7 +197,7 @@ export function InvoicePay({ invoice, onChanged, brand = "#7c5cff" }: { invoice:
               key={p}
               type="button"
               onClick={() => setTipPct(p)}
-              className={cn("rounded-xl border py-2.5 text-sm transition", tipPct === p ? "text-white" : "border-white/10 bg-white/[0.03] text-ink-2 hover:border-white/25")}
+              className={cn("rounded-xl border py-2.5 text-sm transition", tipPct === p ? "text-white" : "border-ink/10 bg-ink/[0.03] text-ink-2 hover:border-ink/25")}
               style={tipPct === p ? { background: brand, borderColor: brand } : undefined}
             >
               {p === 0 ? "No tip" : `${p}%`}
@@ -264,7 +264,7 @@ export function InspectionSign({ inspection, onChanged, brand = "#7c5cff" }: { i
       {inspection.markers.length > 0 ? (
         <ul className="space-y-1.5">
           {inspection.markers.map((m, i) => (
-            <li key={m._id ?? i} className="flex items-start gap-3 rounded-xl bg-white/[0.03] px-3 py-2 text-sm">
+            <li key={m._id ?? i} className="flex items-start gap-3 rounded-xl bg-ink/[0.03] px-3 py-2 text-sm">
               <span className="mt-1.5 size-2.5 shrink-0 rounded-full" style={{ background: severityMeta[m.severity].color }} />
               <span className="flex-1">
                 <span className="text-ink">{damageKinds.find((k) => k.value === m.kind)?.label}</span>

@@ -40,8 +40,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#04050a",
-  colorScheme: "dark",
+  themeColor: "#e7ecf3",
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -53,10 +53,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-dvh">
         {children}
         <Toaster
-          theme="dark"
+          theme="light"
           position="bottom-right"
           toastOptions={{
-            className: "!rounded-2xl !border !border-white/15 !bg-[#11142a]/90 !backdrop-blur-xl !text-ink",
+            className: "!rounded-2xl !border !border-white/70 !bg-[#eef2f7] !text-ink !shadow-[10px_10px_24px_rgb(163_177_198/0.6),-8px_-8px_20px_rgb(255_255_255/0.9)]",
           }}
         />
       </body>

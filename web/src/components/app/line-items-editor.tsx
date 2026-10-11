@@ -38,7 +38,7 @@ export function LineItemsEditor({
   return (
     <div>
       <div className="glass-inset overflow-hidden rounded-2xl">
-        <div className="hidden grid-cols-[1fr_70px_110px_110px_36px] gap-3 border-b border-white/[0.06] px-4 py-2.5 text-[11px] font-semibold tracking-[0.08em] text-ink-4 uppercase sm:grid">
+        <div className="hidden grid-cols-[1fr_70px_110px_110px_36px] gap-3 border-b border-ink/[0.06] px-4 py-2.5 text-[11px] font-semibold tracking-[0.08em] text-ink-4 uppercase sm:grid">
           <span>Item</span>
           <span className="text-right">Qty</span>
           <span className="text-right">Price</span>
@@ -50,7 +50,7 @@ export function LineItemsEditor({
           <div
             key={it._id ?? i}
             className={cn(
-              "grid grid-cols-[1fr_auto] gap-3 border-b border-white/[0.04] px-4 py-3 last:border-0 sm:grid-cols-[1fr_70px_110px_110px_36px] sm:items-center",
+              "grid grid-cols-[1fr_auto] gap-3 border-b border-ink/[0.04] px-4 py-3 last:border-0 sm:grid-cols-[1fr_70px_110px_110px_36px] sm:items-center",
               it.selected === false && "opacity-50",
             )}
           >
@@ -61,7 +61,7 @@ export function LineItemsEditor({
                   value={it.name}
                   readOnly={readOnly}
                   onChange={(e) => update(i, { name: e.target.value })}
-                  className="w-full rounded-lg bg-transparent px-1 py-1 text-sm font-medium text-ink focus:bg-white/[0.05] focus:outline-none"
+                  className="w-full rounded-lg bg-transparent px-1 py-1 text-sm font-medium text-ink focus:bg-ink/[0.05] focus:outline-none"
                   aria-label="Item name"
                 />
                 <input
@@ -69,7 +69,7 @@ export function LineItemsEditor({
                   readOnly={readOnly}
                   placeholder={readOnly ? "" : "Add a description"}
                   onChange={(e) => update(i, { description: e.target.value })}
-                  className="w-full rounded-lg bg-transparent px-1 py-0.5 text-xs text-ink-3 placeholder:text-ink-4 focus:bg-white/[0.05] focus:outline-none"
+                  className="w-full rounded-lg bg-transparent px-1 py-0.5 text-xs text-ink-3 placeholder:text-ink-4 focus:bg-ink/[0.05] focus:outline-none"
                   aria-label="Item description"
                 />
                 {allowOptional && (
@@ -93,7 +93,7 @@ export function LineItemsEditor({
                 value={it.qty}
                 readOnly={readOnly}
                 onChange={(e) => update(i, { qty: Math.max(0, Number(e.target.value)) })}
-                className="w-14 rounded-lg bg-white/[0.04] px-2 py-1.5 text-right text-sm tabular-nums focus:bg-white/[0.08] focus:outline-none sm:w-full"
+                className="w-14 rounded-lg bg-ink/[0.04] px-2 py-1.5 text-right text-sm tabular-nums focus:bg-ink/[0.08] focus:outline-none sm:w-full"
                 aria-label="Quantity"
               />
               <input
@@ -103,7 +103,7 @@ export function LineItemsEditor({
                 value={it.unitPrice}
                 readOnly={readOnly}
                 onChange={(e) => update(i, { unitPrice: Math.max(0, Number(e.target.value)) })}
-                className="w-24 rounded-lg bg-white/[0.04] px-2 py-1.5 text-right text-sm tabular-nums focus:bg-white/[0.08] focus:outline-none sm:w-full"
+                className="w-24 rounded-lg bg-ink/[0.04] px-2 py-1.5 text-right text-sm tabular-nums focus:bg-ink/[0.08] focus:outline-none sm:w-full"
                 aria-label="Unit price"
               />
               <span className="hidden text-right text-sm font-medium text-ink tabular-nums sm:block">
@@ -178,7 +178,7 @@ export function TotalsPanel({ totals, extra }: { totals: Totals & { paid?: numbe
       {row("Subtotal", totals.subtotal)}
       {totals.discount > 0 && row("Discount", -totals.discount)}
       {row("Tax", totals.tax)}
-      <div className="my-2 h-px bg-white/[0.08]" />
+      <div className="my-2 h-px bg-ink/[0.08]" />
       {row("Total", totals.total, true)}
       {totals.tips ? row("Tips", totals.tips) : null}
       {totals.paid !== undefined && row("Paid", totals.paid)}

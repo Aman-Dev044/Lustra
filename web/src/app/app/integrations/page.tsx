@@ -255,7 +255,7 @@ function Providers() {
       <Modal open={!!log} onClose={() => setLog(null)} title={`${log?.name ?? ""} sync log`}>
         <ol className="space-y-1.5 font-mono text-xs">
           {log?.lines.map((l, i) => (
-            <li key={i} className="rounded-xl bg-black/30 px-3 py-2 text-ink-2">
+            <li key={i} className="rounded-xl bg-surface-lo px-3 py-2 text-ink-2">
               {l}
             </li>
           ))}
@@ -298,13 +298,13 @@ function CopyField({ value, mono = true, label }: { value: string; mono?: boolea
 function CodeBlock({ code }: { code: string }) {
   return (
     <div className="relative">
-      <pre className="overflow-x-auto rounded-2xl bg-black/50 p-4 font-mono text-[11px] leading-relaxed text-ink-2">{code}</pre>
+      <pre className="overflow-x-auto rounded-2xl bg-ink/40 p-4 font-mono text-[11px] leading-relaxed text-ink-2">{code}</pre>
       <button
         onClick={() => {
           void navigator.clipboard.writeText(code);
           toast.success("Snippet copied");
         }}
-        className="absolute top-2 right-2 rounded-lg bg-white/10 p-1.5 text-ink-3 hover:text-ink"
+        className="absolute top-2 right-2 rounded-lg bg-ink/10 p-1.5 text-ink-3 hover:text-ink"
         aria-label="Copy snippet"
       >
         <Copy className="size-3.5" />
@@ -393,7 +393,7 @@ function ApiKeys() {
               </thead>
               <tbody>
                 {keys.map((k) => (
-                  <tr key={k._id} className={cn("hover:bg-white/[0.03]", k.revokedAt && "opacity-50")}>
+                  <tr key={k._id} className={cn("hover:bg-ink/[0.03]", k.revokedAt && "opacity-50")}>
                     <Td className="text-ink">{k.name}</Td>
                     <Td className="font-mono text-xs">{k.prefix}••••••••</Td>
                     <Td>{relativeTime(k.createdAt)}</Td>
@@ -542,7 +542,7 @@ function Webhooks() {
                   <Button size="xs" variant="secondary" onClick={() => void test(h)} loading={testing === h._id}>
                     <Send className="size-3.5" /> Test
                   </Button>
-                  <button onClick={() => setEditing(h)} className="rounded-full p-1.5 text-ink-4 hover:bg-white/10 hover:text-ink" aria-label="Edit webhook">
+                  <button onClick={() => setEditing(h)} className="rounded-full p-1.5 text-ink-4 hover:bg-ink/10 hover:text-ink" aria-label="Edit webhook">
                     <Pencil className="size-4" />
                   </button>
                   <button onClick={() => setDeleting(h)} className="rounded-full p-1.5 text-ink-4 hover:bg-danger/10 hover:text-danger" aria-label="Delete webhook">
@@ -567,14 +567,14 @@ function Webhooks() {
                   <Copy className="size-3.5" />
                 </button>
               </div>
-              <button onClick={() => setOpen(open === h._id ? null : h._id)} className="mt-3 text-xs text-aqua-soft hover:text-white">
+              <button onClick={() => setOpen(open === h._id ? null : h._id)} className="mt-3 text-xs text-aqua-soft hover:text-ink">
                 {open === h._id ? "Hide" : "Show"} recent deliveries ({h.deliveries.length})
               </button>
               {open === h._id && (
                 <ul className="mt-2 space-y-1">
                   {h.deliveries.length === 0 && <li className="text-xs text-ink-4">No deliveries yet — send a test.</li>}
                   {[...h.deliveries].reverse().map((d, i) => (
-                    <li key={i} className="flex items-center gap-3 rounded-xl bg-black/25 px-3 py-2 font-mono text-[11px]">
+                    <li key={i} className="flex items-center gap-3 rounded-xl bg-surface-lo px-3 py-2 font-mono text-[11px]">
                       {d.status === "success" ? <CheckCircle2 className="size-3.5 text-success" /> : <XCircle className="size-3.5 text-danger" />}
                       <span className="text-ink-2">{d.event}</span>
                       <span className="text-ink-4">{d.code ?? "—"}</span>
@@ -659,7 +659,7 @@ function WebhookModal({ hook, onClose }: { hook: Webhook | "new" | null; onClose
                   type="button"
                   aria-pressed={on}
                   onClick={() => setForm({ ...form, events: on ? form.events.filter((x) => x !== ev) : [...form.events, ev] })}
-                  className={cn("rounded-full border px-3 py-1 font-mono text-[11px] transition", on ? "border-iris/50 bg-iris/15 text-iris-soft" : "border-white/10 text-ink-3 hover:text-ink")}
+                  className={cn("rounded-full border px-3 py-1 font-mono text-[11px] transition", on ? "border-iris/50 bg-iris/15 text-iris-soft" : "border-ink/10 text-ink-3 hover:text-ink")}
                 >
                   {ev}
                 </button>
@@ -767,7 +767,7 @@ function ImportExport() {
               key={e}
               href={`/api/export/${e}`}
               download={`lustra-${e}.csv`}
-              className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-sm text-ink-2 transition hover:border-aqua/40 hover:text-ink"
+              className="flex items-center justify-between rounded-2xl border border-ink/10 bg-ink/[0.03] px-3 py-2.5 text-sm text-ink-2 transition hover:border-aqua/40 hover:text-ink"
             >
               {titleCase(e)} <Download className="size-4" />
             </a>
@@ -795,7 +795,7 @@ function ImportExport() {
               </p>
               <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
                 {header.map((h, i) => (
-                  <div key={i} className="flex items-center gap-2 rounded-2xl bg-white/[0.03] px-3 py-2">
+                  <div key={i} className="flex items-center gap-2 rounded-2xl bg-ink/[0.03] px-3 py-2">
                     <span className="min-w-0 flex-1 truncate text-xs text-ink">{h || `Column ${i + 1}`}</span>
                     <ArrowRight className="size-3.5 text-ink-4" />
                     <Select value={mapping[i] ?? ""} onChange={(e) => setMapping({ ...mapping, [i]: e.target.value as ImportKey | "" })} className="h-8 w-36 text-xs" aria-label={`Map ${h}`}>
@@ -840,7 +840,7 @@ function ImportExport() {
               {!hasName && <span className="text-xs text-warning">Map a first-name or full-name column to continue.</span>}
             </div>
             {result && (
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+              <div className="rounded-2xl border border-ink/10 bg-ink/[0.03] p-4">
                 <div className="grid grid-cols-3 gap-3 text-center">
                   {(
                     [

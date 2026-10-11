@@ -23,8 +23,8 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
             sizes="50vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#04050a] via-[#04050a]/40 to-[#04050a]/30" />
-          <div className="relative flex h-full flex-col justify-between p-10">
+          <div className="absolute inset-0 bg-gradient-to-t from-scrim/90 via-scrim/45 to-scrim/30" />
+          <div className="on-photo relative flex h-full flex-col justify-between p-10">
             <Logo />
             <div>
               <div className="flex gap-0.5 text-warning" aria-label="Rated 4.9 out of 5">

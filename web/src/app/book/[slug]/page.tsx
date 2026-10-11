@@ -183,7 +183,7 @@ function Wizard({ data, slug }: { data: PublicShopData; slug: string }) {
         {steps.map((s, i) => (
           <li key={s} className="flex flex-1 flex-col items-center gap-1.5">
             <span
-              className={cn("h-1.5 w-full rounded-full transition-all duration-500", i <= step ? "" : "bg-white/10")}
+              className={cn("h-1.5 w-full rounded-full transition-all duration-500", i <= step ? "" : "bg-ink/10")}
               style={i <= step ? { background: `linear-gradient(90deg, ${brand}, #22d3ee)`, boxShadow: `0 0 12px -2px ${brand}` } : undefined}
             />
             <span className={cn("hidden text-[11px] sm:block", i === step ? "text-ink" : "text-ink-4")} aria-current={i === step ? "step" : undefined}>
@@ -218,14 +218,14 @@ function Wizard({ data, slug }: { data: PublicShopData; slug: string }) {
                               aria-pressed={on}
                               className={cn(
                                 "relative rounded-2xl border p-4 text-left transition-all",
-                                on ? "bg-white/[0.08]" : "border-white/10 bg-white/[0.03] hover:-translate-y-0.5 hover:border-white/20",
+                                on ? "bg-ink/[0.08]" : "border-ink/10 bg-ink/[0.03] hover:-translate-y-0.5 hover:border-ink/20",
                               )}
                               style={on ? { borderColor: brand, boxShadow: `0 0 0 1px ${brand}, 0 12px 30px -14px ${brand}` } : undefined}
                             >
                               <span className="flex items-start justify-between gap-3">
                                 <span className="text-sm font-medium text-ink">{s.name}</span>
                                 <span
-                                  className={cn("flex size-5 shrink-0 items-center justify-center rounded-full border", on ? "border-transparent" : "border-white/20")}
+                                  className={cn("flex size-5 shrink-0 items-center justify-center rounded-full border", on ? "border-transparent" : "border-ink/20")}
                                   style={on ? { background: brand } : undefined}
                                 >
                                   {on && <Check className="size-3 text-white" />}
@@ -303,7 +303,7 @@ function Wizard({ data, slug }: { data: PublicShopData; slug: string }) {
                           }}
                           className={cn(
                             "flex w-16 shrink-0 flex-col items-center rounded-2xl border py-3 transition",
-                            closed ? "cursor-not-allowed border-white/5 opacity-30" : on ? "text-white" : "border-white/10 bg-white/[0.03] hover:border-white/25",
+                            closed ? "cursor-not-allowed border-ink/5 opacity-30" : on ? "text-white" : "border-ink/10 bg-ink/[0.03] hover:border-ink/25",
                           )}
                           style={on ? { background: `linear-gradient(160deg, ${brand}, #22d3ee)`, borderColor: "transparent", boxShadow: `0 10px 30px -12px ${brand}` } : undefined}
                           aria-pressed={!!on}
@@ -323,7 +323,7 @@ function Wizard({ data, slug }: { data: PublicShopData; slug: string }) {
                     </div>
                   ) : date && slots ? (
                     slots.filter((s) => s.available).length === 0 ? (
-                      <p className="rounded-2xl bg-white/[0.04] px-4 py-6 text-center text-sm text-ink-3">Fully booked — try another day.</p>
+                      <p className="rounded-2xl bg-ink/[0.04] px-4 py-6 text-center text-sm text-ink-3">Fully booked — try another day.</p>
                     ) : (
                       <div className="grid grid-cols-3 gap-2 sm:grid-cols-4">
                         {slots.map((s) => {
@@ -336,7 +336,7 @@ function Wizard({ data, slug }: { data: PublicShopData; slug: string }) {
                               onClick={() => setSlot(s)}
                               className={cn(
                                 "rounded-xl border py-2.5 text-sm tabular-nums transition",
-                                !s.available ? "cursor-not-allowed border-white/5 text-ink-4 line-through opacity-40" : on ? "text-white" : "border-white/10 bg-white/[0.03] hover:border-white/25",
+                                !s.available ? "cursor-not-allowed border-ink/5 text-ink-4 line-through opacity-40" : on ? "text-white" : "border-ink/10 bg-ink/[0.03] hover:border-ink/25",
                               )}
                               style={on ? { background: brand, borderColor: brand } : undefined}
                             >
@@ -377,21 +377,21 @@ function Wizard({ data, slug }: { data: PublicShopData; slug: string }) {
                 <div>
                   <h2 className="mb-5 text-lg font-semibold">Review & confirm</h2>
                   <dl className="space-y-4 text-sm">
-                    <div className="flex items-start gap-3 rounded-2xl bg-white/[0.04] p-4">
+                    <div className="flex items-start gap-3 rounded-2xl bg-ink/[0.04] p-4">
                       <CalendarCheck2 className="mt-0.5 size-5" style={{ color: brand }} />
                       <div>
                         <dt className="text-xs text-ink-4">When</dt>
                         <dd className="text-ink">{slot ? format(new Date(slot.start), "EEEE, MMMM d 'at' h:mm a") : "—"}</dd>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3 rounded-2xl bg-white/[0.04] p-4">
+                    <div className="flex items-start gap-3 rounded-2xl bg-ink/[0.04] p-4">
                       <Car className="mt-0.5 size-5" style={{ color: brand }} />
                       <div>
                         <dt className="text-xs text-ink-4">Vehicle</dt>
                         <dd className="text-ink">{[vehicle.year, vehicle.make, vehicle.model].filter(Boolean).join(" ")}{vehicle.color ? ` · ${vehicle.color}` : ""}</dd>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3 rounded-2xl bg-white/[0.04] p-4">
+                    <div className="flex items-start gap-3 rounded-2xl bg-ink/[0.04] p-4">
                       <Sparkles className="mt-0.5 size-5" style={{ color: brand }} />
                       <div>
                         <dt className="text-xs text-ink-4">Contact</dt>
@@ -441,7 +441,7 @@ function Wizard({ data, slug }: { data: PublicShopData; slug: string }) {
               ))}
             </ul>
           )}
-          <div className="my-4 h-px bg-white/10" />
+          <div className="my-4 h-px bg-ink/10" />
           <div className="flex justify-between text-sm">
             <span className="text-ink-3">Estimated time</span>
             <span className="tabular-nums">{formatDuration(duration)}</span>
@@ -450,7 +450,7 @@ function Wizard({ data, slug }: { data: PublicShopData; slug: string }) {
             <span className="text-ink-3">Estimate</span>
             <span className="text-2xl font-semibold tabular-nums">{formatMoney(total).replace(".00", "")}</span>
           </div>
-          {slot && <p className="mt-4 rounded-xl bg-white/[0.05] px-3 py-2 text-xs text-ink-2">{format(new Date(slot.start), "EEE, MMM d · h:mm a")}</p>}
+          {slot && <p className="mt-4 rounded-xl bg-ink/[0.05] px-3 py-2 text-xs text-ink-2">{format(new Date(slot.start), "EEE, MMM d · h:mm a")}</p>}
         </aside>
       </div>
     </div>

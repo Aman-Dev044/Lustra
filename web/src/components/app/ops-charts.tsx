@@ -6,13 +6,13 @@ import type { ReactNode } from "react";
 export const chartColors = ["#7c5cff", "#22d3ee", "#f472b6", "#fb923c", "#34d399", "#60a5fa", "#fbbf24", "#a3e635", "#a594ff", "#38bdf8"];
 
 export const axisProps = {
-  stroke: "rgb(226 232 255 / 0.25)",
-  tick: { fill: "rgb(226 232 255 / 0.5)", fontSize: 11 },
+  stroke: "rgb(103 114 140 / 0.55)",
+  tick: { fill: "#67728c", fontSize: 11 },
   tickLine: false,
   axisLine: false,
 } as const;
 
-export const gridProps = { stroke: "rgb(255 255 255 / 0.06)", strokeDasharray: "3 6", vertical: false } as const;
+export const gridProps = { stroke: "rgb(30 42 68 / 0.06)", strokeDasharray: "3 6", vertical: false } as const;
 
 type TooltipEntry = { name?: ReactNode; value?: number | string; color?: string; dataKey?: unknown; payload?: { fill?: string } };
 

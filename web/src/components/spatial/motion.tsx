@@ -91,22 +91,22 @@ export function TiltCard({
   );
 }
 
-/** Ambient volumetric light field that sits behind every spatial surface. */
+/** Soft ambient field behind the neumorphic surface: a gentle top-left light source plus slow pastel drift. */
 export function AuroraBackground({ className, intensity = 1 }: { className?: string; intensity?: number }) {
   return (
     <div aria-hidden className={cn("pointer-events-none fixed inset-0 -z-10 overflow-hidden", className)}>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,#121735_0%,#070914_45%,#04050a_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_0%,#f4f7fb_0%,#e7ecf3_45%,#dfe5ee_100%)]" />
       <div
-        className="absolute -top-[20%] -left-[10%] h-[70vh] w-[70vw] rounded-full blur-[120px] animate-aurora"
-        style={{ background: "radial-gradient(circle, rgb(124 92 255 / 0.55), transparent 65%)", opacity: 0.55 * intensity }}
+        className="absolute -top-[25%] -left-[10%] h-[70vh] w-[70vw] rounded-full blur-[110px] animate-aurora"
+        style={{ background: "radial-gradient(circle, rgb(124 108 240 / 0.22), transparent 65%)", opacity: intensity }}
       />
       <div
-        className="absolute top-[10%] -right-[15%] h-[60vh] w-[60vw] rounded-full blur-[120px] animate-aurora [animation-delay:-8s]"
-        style={{ background: "radial-gradient(circle, rgb(34 211 238 / 0.45), transparent 65%)", opacity: 0.45 * intensity }}
+        className="absolute top-[15%] -right-[15%] h-[60vh] w-[60vw] rounded-full blur-[110px] animate-aurora [animation-delay:-9s]"
+        style={{ background: "radial-gradient(circle, rgb(25 185 218 / 0.18), transparent 65%)", opacity: intensity }}
       />
       <div
-        className="absolute -bottom-[25%] left-[20%] h-[60vh] w-[70vw] rounded-full blur-[140px] animate-aurora [animation-delay:-14s]"
-        style={{ background: "radial-gradient(circle, rgb(244 114 182 / 0.28), transparent 65%)", opacity: 0.5 * intensity }}
+        className="absolute -bottom-[25%] left-[20%] h-[60vh] w-[70vw] rounded-full blur-[130px] animate-aurora [animation-delay:-16s]"
+        style={{ background: "radial-gradient(circle, rgb(221 63 141 / 0.1), transparent 65%)", opacity: intensity }}
       />
       <div className="noise absolute inset-0" />
     </div>

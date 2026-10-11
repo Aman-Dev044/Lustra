@@ -1,6 +1,6 @@
 # Lustra — the spatial OS for detailing, PPF, tint & wrap shops
 
-Full-stack shop-management platform (Urable feature parity + next-gen features) with a Spatial UI theme.
+Full-stack shop-management platform (Urable feature parity + next-gen features) with a clean Neumorphic (soft UI) theme and motion throughout.
 
 | Part | Stack | Port |
 |------|-------|------|

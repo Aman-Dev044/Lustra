@@ -140,7 +140,7 @@ function Certificates() {
               </thead>
               <tbody>
                 {data.items.map((c) => (
-                  <tr key={c._id} onClick={() => setPreview(c)} className="cursor-pointer transition-colors hover:bg-white/[0.04]">
+                  <tr key={c._id} onClick={() => setPreview(c)} className="cursor-pointer transition-colors hover:bg-ink/[0.04]">
                     <Td className="font-mono text-xs text-aqua-soft">{c.code}</Td>
                     <Td className="font-medium text-ink">{c.product}</Td>
                     <Td>{customerName(c.customer)}</Td>
@@ -333,7 +333,7 @@ function IssueModal({
                 onClick={() => setForm({ ...form, years: p.years })}
                 className={cn(
                   "rounded-full border px-4 py-1.5 text-sm transition",
-                  form.years === p.years ? "border-aqua/50 bg-aqua/15 text-aqua-soft" : "border-white/10 text-ink-3 hover:text-ink",
+                  form.years === p.years ? "border-aqua/50 bg-aqua/15 text-aqua-soft" : "border-ink/10 text-ink-3 hover:text-ink",
                 )}
               >
                 {p.label}
@@ -419,7 +419,7 @@ function PreviewModal({ certificate, onClose, onChanged }: { certificate: Certif
 function CertificateCard({ certificate, url }: { certificate: Certificate; url: string }) {
   const { shop } = useAuth();
   return (
-    <div className="rim relative overflow-hidden rounded-[26px] border border-white/15 bg-[linear-gradient(135deg,#141a3a_0%,#0b0e1c_55%,#0c2430_100%)] p-7 shadow-[var(--shadow-lift)]">
+    <div className="rim relative overflow-hidden rounded-[26px] border border-ink/15 bg-[linear-gradient(135deg,#141a3a_0%,#0b0e1c_55%,#0c2430_100%)] p-7 shadow-[var(--shadow-lift)]">
       <div className="pointer-events-none absolute -top-24 -right-24 size-72 rounded-full bg-iris/30 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 -left-16 size-64 rounded-full bg-aqua/20 blur-3xl" />
       <div className="relative flex items-start justify-between gap-6">
@@ -455,7 +455,7 @@ function CertificateCard({ certificate, url }: { certificate: Certificate; url: 
           <span className="font-mono text-xs tracking-widest text-ink-2">{certificate.code}</span>
         </div>
       </div>
-      <div className="relative mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-xs text-ink-4">
+      <div className="relative mt-6 flex items-center justify-between border-t border-ink/10 pt-4 text-xs text-ink-4">
         <span>{shop.name}</span>
         <span className="inline-flex items-center gap-1.5">
           <LogoMark size={14} /> Verified by Lustra

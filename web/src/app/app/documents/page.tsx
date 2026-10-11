@@ -131,7 +131,7 @@ function Documents() {
           onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && fileRef.current?.click()}
           className={cn(
             "flex cursor-pointer flex-col items-center justify-center gap-2 rounded-3xl border-2 border-dashed py-10 text-center transition",
-            dragging ? "scale-[1.01] border-aqua bg-aqua/10" : "border-white/12 hover:border-white/25 hover:bg-white/[0.02]",
+            dragging ? "scale-[1.01] border-aqua bg-aqua/10" : "border-ink/12 hover:border-ink/25 hover:bg-ink/[0.02]",
           )}
         >
           <UploadCloud className={cn("size-9 transition", dragging ? "text-aqua" : "text-ink-3")} />
@@ -152,7 +152,7 @@ function Documents() {
               key={c}
               onClick={() => setCategory(c)}
               aria-pressed={category === c}
-              className={cn("rounded-full border px-3 py-1.5 text-xs transition", category === c ? "border-aqua/50 bg-aqua/15 text-aqua-soft" : "border-white/10 text-ink-3 hover:text-ink")}
+              className={cn("rounded-full border px-3 py-1.5 text-xs transition", category === c ? "border-aqua/50 bg-aqua/15 text-aqua-soft" : "border-ink/10 text-ink-3 hover:text-ink")}
             >
               {c === "all" ? "All" : titleCase(c)}
             </button>
@@ -185,7 +185,7 @@ function Documents() {
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {docs.map((d) => (
             <button key={d._id} onClick={() => setPreview(d)} className="glass group overflow-hidden rounded-[var(--radius-card)] text-left transition hover:-translate-y-0.5">
-              <div className="flex aspect-[4/3] items-center justify-center overflow-hidden bg-black/30">
+              <div className="flex aspect-[4/3] items-center justify-center overflow-hidden bg-surface-lo">
                 {isImage(d.mime) ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={d.url} alt={d.name} className="size-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
@@ -218,7 +218,7 @@ function Documents() {
             </thead>
             <tbody>
               {docs.map((d) => (
-                <tr key={d._id} className="cursor-pointer hover:bg-white/[0.03]" onClick={() => setPreview(d)}>
+                <tr key={d._id} className="cursor-pointer hover:bg-ink/[0.03]" onClick={() => setPreview(d)}>
                   <Td>
                     <span className="flex items-center gap-2.5 text-ink">
                       <FileIcon mime={d.mime} className="size-4 text-ink-3" />
@@ -232,7 +232,7 @@ function Documents() {
                   <Td className="tabular-nums">{fmtSize(d.size)}</Td>
                   <Td>{formatDate(d.createdAt)}</Td>
                   <Td className="text-right">
-                    <a href={d.url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="rounded-full p-2 text-ink-4 hover:bg-white/10 hover:text-ink" aria-label={`Open ${d.name}`}>
+                    <a href={d.url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="rounded-full p-2 text-ink-4 hover:bg-ink/10 hover:text-ink" aria-label={`Open ${d.name}`}>
                       <ExternalLink className="inline size-4" />
                     </a>
                   </Td>
@@ -269,7 +269,7 @@ function Documents() {
               <Button variant="danger" size="sm" onClick={() => setDeleting(preview)}>
                 <Trash2 className="size-4" /> Delete
               </Button>
-              <a href={preview.url} download={preview.name} className="inline-flex h-9 items-center gap-2 rounded-full border border-white/15 px-4 text-sm text-ink hover:bg-white/[0.06]">
+              <a href={preview.url} download={preview.name} className="inline-flex h-9 items-center gap-2 rounded-full border border-ink/15 px-4 text-sm text-ink hover:bg-ink/[0.06]">
                 <Download className="size-4" /> Download
               </a>
               <Button size="sm" href={preview.url}>

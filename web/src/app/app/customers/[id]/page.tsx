@@ -184,11 +184,11 @@ export default function CustomerDetailPage() {
               </Button>
             </div>
             {(data.vehicles ?? []).length === 0 ? (
-              <p className="rounded-2xl border border-dashed border-white/10 py-8 text-center text-sm text-ink-4">No vehicles on file.</p>
+              <p className="rounded-2xl border border-dashed border-ink/10 py-8 text-center text-sm text-ink-4">No vehicles on file.</p>
             ) : (
               <div className="grid gap-3 sm:grid-cols-2">
                 {data.vehicles.map((v) => (
-                  <div key={v._id} className="group relative flex items-center gap-3 rounded-2xl border border-white/[0.07] bg-white/[0.03] p-3.5 transition hover:border-white/15">
+                  <div key={v._id} className="group relative flex items-center gap-3 rounded-2xl border border-ink/[0.07] bg-ink/[0.03] p-3.5 transition hover:border-ink/15">
                     <span className="glass flex size-11 shrink-0 items-center justify-center rounded-xl text-aqua-soft">
                       <Car className="size-5" />
                     </span>
@@ -201,7 +201,7 @@ export default function CustomerDetailPage() {
                     <Badge>{v.size}</Badge>
                     <button
                       onClick={() => setVehicleModal({ open: true, vehicle: v })}
-                      className="rounded-full p-1.5 text-ink-4 opacity-0 transition group-hover:opacity-100 hover:bg-white/10 hover:text-ink focus:opacity-100"
+                      className="rounded-full p-1.5 text-ink-4 opacity-0 transition group-hover:opacity-100 hover:bg-ink/10 hover:text-ink focus:opacity-100"
                       aria-label={`Edit ${vehicleLabel(v)}`}
                     >
                       <Pencil className="size-3.5" />
@@ -227,7 +227,7 @@ export default function CustomerDetailPage() {
                 ]}
               />
             </div>
-            <ul className="divide-y divide-white/[0.05]">
+            <ul className="divide-y divide-ink/[0.05]">
               {tab === "jobs" &&
                 (data.jobs ?? []).map((j) => (
                   <HistoryRow key={j._id} href={`/app/jobs/${j._id}`} ref_={`#${j.number}`} title={j.title} meta={formatDate(j.scheduledStart ?? j.createdAt)} badge={<StageBadge stage={j.stage} />} amount={j.totals?.total} />
@@ -273,7 +273,7 @@ export default function CustomerDetailPage() {
                     href={`https://www.google.com/maps/search/?api=1&query=${geo.lat},${geo.lng}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ml-auto shrink-0 text-xs text-aqua-soft hover:text-white"
+                    className="ml-auto shrink-0 text-xs text-aqua-soft hover:text-ink"
                     title={`${geo.lat.toFixed(4)}, ${geo.lng.toFixed(4)}`}
                   >
                     Map ↗
@@ -281,11 +281,11 @@ export default function CustomerDetailPage() {
                 )}
               </li>
             </ul>
-            <div className="mt-4 flex items-center justify-between rounded-2xl bg-white/[0.04] px-3 py-2.5 text-xs text-ink-2">
+            <div className="mt-4 flex items-center justify-between rounded-2xl bg-ink/[0.04] px-3 py-2.5 text-xs text-ink-2">
               Marketing messages
               <Switch checked={c.marketingOptIn} onChange={(v) => updateCustomer({ marketingOptIn: v }, v ? "Opted in" : "Opted out")} label="Marketing opt-in" />
             </div>
-            {c.notes && <p className="mt-4 rounded-2xl bg-white/[0.03] p-3 text-sm whitespace-pre-wrap text-ink-3">{c.notes}</p>}
+            {c.notes && <p className="mt-4 rounded-2xl bg-ink/[0.03] p-3 text-sm whitespace-pre-wrap text-ink-3">{c.notes}</p>}
           </Glass>
 
           <TagsEditor tags={c.tags ?? []} onSave={(tags) => updateCustomer({ tags })} />
@@ -293,7 +293,7 @@ export default function CustomerDetailPage() {
           <Glass className="p-5">
             <div className="mb-3 flex items-center justify-between">
               <h2 className="text-sm font-semibold">Messages</h2>
-              <Link href={`/app/messages?customer=${id}`} className="text-xs text-aqua-soft hover:text-white">
+              <Link href={`/app/messages?customer=${id}`} className="text-xs text-aqua-soft hover:text-ink">
                 Open inbox →
               </Link>
             </div>
@@ -306,7 +306,7 @@ export default function CustomerDetailPage() {
                     <div
                       className={cn(
                         "max-w-[85%] rounded-2xl px-3 py-2 text-xs",
-                        m.direction === "outbound" ? "rounded-br-md bg-iris/25 text-ink" : "rounded-bl-md bg-white/[0.07] text-ink-2",
+                        m.direction === "outbound" ? "rounded-br-md bg-iris/25 text-ink" : "rounded-bl-md bg-ink/[0.07] text-ink-2",
                       )}
                     >
                       <p className="line-clamp-3">{m.body}</p>
@@ -327,7 +327,7 @@ export default function CustomerDetailPage() {
               </h2>
               <ul className="space-y-2">
                 {data.certificates.map((cert) => (
-                  <li key={cert._id} className="flex items-center justify-between gap-3 rounded-xl bg-white/[0.03] px-3 py-2">
+                  <li key={cert._id} className="flex items-center justify-between gap-3 rounded-xl bg-ink/[0.03] px-3 py-2">
                     <div className="min-w-0">
                       <p className="truncate text-sm text-ink">{cert.product}</p>
                       <p className="text-[11px] text-ink-4">
@@ -348,7 +348,7 @@ export default function CustomerDetailPage() {
               </h2>
               <ul className="space-y-2">
                 {data.memberships.map((m) => (
-                  <li key={m._id} className="flex items-center justify-between gap-3 rounded-xl bg-white/[0.03] px-3 py-2">
+                  <li key={m._id} className="flex items-center justify-between gap-3 rounded-xl bg-ink/[0.03] px-3 py-2">
                     <div>
                       <p className="text-sm text-ink">{m.plan?.name}</p>
                       <p className="text-[11px] text-ink-4">
@@ -419,7 +419,7 @@ function HistoryRow({
 }) {
   return (
     <li>
-      <Link href={href} className="flex items-center gap-3 rounded-xl px-2 py-3 transition hover:bg-white/[0.04]">
+      <Link href={href} className="flex items-center gap-3 rounded-xl px-2 py-3 transition hover:bg-ink/[0.04]">
         <span className="w-16 shrink-0 font-mono text-[11px] text-ink-4">{ref_}</span>
         <span className="min-w-0 flex-1">
           <span className="block truncate text-sm text-ink">{title}</span>
@@ -441,7 +441,7 @@ function TagsEditor({ tags, onSave }: { tags: string[]; onSave: (tags: string[])
         {tags.map((t) => (
           <span key={t} className="inline-flex items-center gap-1 rounded-full border border-iris/30 bg-iris/10 py-0.5 pr-1 pl-2.5 text-xs text-iris-soft">
             #{t}
-            <button onClick={() => onSave(tags.filter((x) => x !== t))} className="rounded-full p-0.5 hover:bg-white/10" aria-label={`Remove tag ${t}`}>
+            <button onClick={() => onSave(tags.filter((x) => x !== t))} className="rounded-full p-0.5 hover:bg-ink/10" aria-label={`Remove tag ${t}`}>
               <X className="size-3" />
             </button>
           </span>
@@ -459,7 +459,7 @@ function TagsEditor({ tags, onSave }: { tags: string[]; onSave: (tags: string[])
             onChange={(e) => setValue(e.target.value)}
             placeholder="+ add tag"
             aria-label="Add tag"
-            className="h-6 w-24 rounded-full bg-transparent px-2 text-xs text-ink placeholder:text-ink-4 focus:bg-white/[0.06] focus:outline-none"
+            className="h-6 w-24 rounded-full bg-transparent px-2 text-xs text-ink placeholder:text-ink-4 focus:bg-ink/[0.06] focus:outline-none"
           />
         </form>
       </div>

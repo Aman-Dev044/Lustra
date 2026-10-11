@@ -173,7 +173,7 @@ export default function DashboardPage() {
         <Glass className="p-5">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-sm font-semibold">Pipeline</h2>
-            <Link href="/app/board" className="text-xs text-aqua-soft hover:text-white">
+            <Link href="/app/board" className="text-xs text-aqua-soft hover:text-ink">
               Open board →
             </Link>
           </div>
@@ -185,7 +185,7 @@ export default function DashboardPage() {
         <Glass className="p-5">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-sm font-semibold">Today</h2>
-            <Link href="/app/calendar" className="text-xs text-aqua-soft hover:text-white">
+            <Link href="/app/calendar" className="text-xs text-aqua-soft hover:text-ink">
               Calendar →
             </Link>
           </div>
@@ -208,13 +208,13 @@ export default function DashboardPage() {
               className="py-8"
             />
           ) : (
-            <ol className="relative space-y-2 before:absolute before:top-2 before:bottom-2 before:left-[54px] before:w-px before:bg-white/[0.08]">
+            <ol className="relative space-y-2 before:absolute before:top-2 before:bottom-2 before:left-[54px] before:w-px before:bg-ink/[0.08]">
               {todayJobs.map((j) => (
                 <li key={j._id}>
-                  <Link href={`/app/jobs/${j._id}`} className="group flex items-center gap-4 rounded-2xl p-2 transition hover:bg-white/[0.05]">
+                  <Link href={`/app/jobs/${j._id}`} className="group flex items-center gap-4 rounded-2xl p-2 transition hover:bg-ink/[0.05]">
                     <span className="w-10 shrink-0 text-right text-xs text-ink-3 tabular-nums">{formatTime(j.scheduledStart)}</span>
                     <span
-                      className="relative z-10 size-2.5 shrink-0 rounded-full ring-4 ring-[#0b0e1c]"
+                      className="relative z-10 size-2.5 shrink-0 rounded-full ring-4 ring-void"
                       style={{ background: stageMeta[j.stage].color, boxShadow: `0 0 12px ${stageMeta[j.stage].color}` }}
                       aria-hidden
                     />
@@ -296,7 +296,7 @@ function Pipeline({ pipeline }: { pipeline?: AnalyticsOverview["pipeline"] }) {
             </span>
             <span className="font-medium text-ink tabular-nums">{formatMoney(p.value, "USD", true)}</span>
           </div>
-          <div className="h-2 overflow-hidden rounded-full bg-white/[0.05]">
+          <div className="h-2 overflow-hidden rounded-full bg-ink/[0.05]">
             <div
               className="h-full rounded-full transition-[width] duration-700"
               style={{
@@ -332,7 +332,7 @@ function Onboarding() {
             <h2 className="text-sm font-semibold">Finish setting up</h2>
             <Badge tone="iris">{steps.length - remaining}/{steps.length}</Badge>
           </div>
-          <div className="mt-2.5 h-1.5 overflow-hidden rounded-full bg-white/[0.06]">
+          <div className="mt-2.5 h-1.5 overflow-hidden rounded-full bg-ink/[0.06]">
             <div className="h-full rounded-full bg-gradient-to-r from-iris to-aqua" style={{ width: `${pct}%` }} />
           </div>
         </div>
@@ -345,7 +345,7 @@ function Onboarding() {
                   href={s.href}
                   className={cn(
                     "flex items-center gap-2.5 rounded-2xl border px-3 py-2.5 text-sm transition",
-                    ok ? "border-success/20 bg-success/[0.06] text-ink-3 line-through" : "border-white/[0.08] bg-white/[0.03] text-ink-2 hover:border-aqua/40 hover:text-ink",
+                    ok ? "border-success/20 bg-success/[0.06] text-ink-3 line-through" : "border-ink/[0.08] bg-ink/[0.03] text-ink-2 hover:border-aqua/40 hover:text-ink",
                   )}
                 >
                   {ok ? <CheckCircle2 className="size-4 shrink-0 text-success" /> : <Circle className="size-4 shrink-0 text-ink-4" />}
@@ -375,7 +375,7 @@ function InsightsCard() {
         <h2 className="flex items-center gap-2 text-sm font-semibold">
           <BrainCircuit className="size-4 text-iris-soft" /> AI Insights
         </h2>
-        <Link href="/app/insights" className="text-xs text-aqua-soft hover:text-white">
+        <Link href="/app/insights" className="text-xs text-aqua-soft hover:text-ink">
           All insights →
         </Link>
       </div>
@@ -391,7 +391,7 @@ function InsightsCard() {
         <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center">
           <div className="flex items-center gap-3 sm:flex-col sm:gap-1">
             <svg width="80" height="80" viewBox="0 0 80 80" role="img" aria-label={`Business health ${score} out of 100`}>
-              <circle cx="40" cy="40" r={r} fill="none" stroke="rgb(255 255 255 / 0.08)" strokeWidth="7" />
+              <circle cx="40" cy="40" r={r} fill="none" stroke="rgb(30 42 68 / 0.08)" strokeWidth="7" />
               <circle
                 cx="40"
                 cy="40"
@@ -415,7 +415,7 @@ function InsightsCard() {
             {top.length === 0 && <li className="text-sm text-ink-4">No open opportunities — nice and tidy.</li>}
             {top.map((o) => (
               <li key={o.id}>
-                <Link href={o.action.href} className="group flex items-center gap-3 rounded-2xl bg-white/[0.04] px-3.5 py-2.5 transition hover:bg-white/[0.08]">
+                <Link href={o.action.href} className="group flex items-center gap-3 rounded-2xl bg-ink/[0.04] px-3.5 py-2.5 transition hover:bg-ink/[0.08]">
                   <span className="min-w-0 flex-1">
                     <span className="block truncate text-sm text-ink">{o.title}</span>
                     <span className="block truncate text-[11px] text-ink-4">{o.description}</span>
@@ -442,11 +442,11 @@ function RouteCard({ jobs }: { jobs: Job[] }) {
         <h2 className="flex items-center gap-2 text-sm font-semibold">
           <Route className="size-4 text-aqua-soft" /> Today&apos;s route
         </h2>
-        <Link href="/app/routes" className="text-xs text-aqua-soft hover:text-white">
+        <Link href="/app/routes" className="text-xs text-aqua-soft hover:text-ink">
           Optimize →
         </Link>
       </div>
-      <ol className="relative space-y-2.5 before:absolute before:top-3 before:bottom-3 before:left-[11px] before:w-px before:border-l before:border-dashed before:border-white/15">
+      <ol className="relative space-y-2.5 before:absolute before:top-3 before:bottom-3 before:left-[11px] before:w-px before:border-l before:border-dashed before:border-ink/15">
         {ordered.slice(0, 4).map((j, i) => (
           <li key={j._id}>
             <Link href={`/app/jobs/${j._id}`} className="relative flex items-center gap-3 rounded-xl py-0.5 hover:text-aqua-soft">

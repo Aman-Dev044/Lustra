@@ -208,7 +208,7 @@ export function JobCreateModal({
                     onClick={() => setAssignees((a) => (on ? a.filter((x) => x !== u._id) : [...a, u._id]))}
                     className={cn(
                       "inline-flex items-center gap-2 rounded-full border py-1 pr-3 pl-1 text-xs transition",
-                      on ? "border-aqua/50 bg-aqua/10 text-ink" : "border-white/10 text-ink-3 hover:border-white/20 hover:text-ink",
+                      on ? "border-aqua/50 bg-aqua/10 text-ink" : "border-ink/10 text-ink-3 hover:border-ink/20 hover:text-ink",
                     )}
                   >
                     <Avatar name={u.name} size={22} />
@@ -219,7 +219,7 @@ export function JobCreateModal({
             {team && team.length === 0 && <span className="text-xs text-ink-4">No team members yet.</span>}
           </div>
         </div>
-        <div className="rounded-2xl border border-white/[0.07] bg-white/[0.03] p-3.5 sm:col-span-2">
+        <div className="rounded-2xl border border-ink/[0.07] bg-ink/[0.03] p-3.5 sm:col-span-2">
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-2.5">
               <Truck className="size-4 text-aqua-soft" aria-hidden />

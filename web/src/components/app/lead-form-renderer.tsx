@@ -119,7 +119,7 @@ export function LeadFormRenderer({
                         type="button"
                         aria-pressed={on}
                         onClick={() => set(f.key, on ? sel.filter((x) => x !== s._id) : [...sel, s._id])}
-                        className={cn("inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm transition", on ? "text-white" : "border-white/12 bg-white/[0.03] text-ink-2 hover:border-white/25")}
+                        className={cn("inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm transition", on ? "text-white" : "border-ink/12 bg-ink/[0.03] text-ink-2 hover:border-ink/25")}
                         style={on ? { background: brand, borderColor: brand } : undefined}
                       >
                         {on && <Check className="size-3.5" />}
@@ -140,7 +140,7 @@ export function LeadFormRenderer({
                     type="checkbox"
                     checked={!!answers[f.key]}
                     onChange={(e) => set(f.key, e.target.checked)}
-                    className="mt-0.5 size-4 rounded border-white/20 bg-black/30"
+                    className="mt-0.5 size-4 rounded border-ink/20 bg-surface-lo"
                     style={{ accentColor: brand }}
                   />
                   {label}

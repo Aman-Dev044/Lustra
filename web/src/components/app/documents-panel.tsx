@@ -31,10 +31,10 @@ export function DocumentsPanel({ jobId, customerId, bare }: { jobId?: string; cu
 
   if (!enabled) {
     return (
-      <div className={cn("flex items-center gap-3 rounded-2xl border border-dashed border-white/10 px-4 py-3 text-xs text-ink-3", !bare && "glass")}>
+      <div className={cn("flex items-center gap-3 rounded-2xl border border-dashed border-ink/10 px-4 py-3 text-xs text-ink-3", !bare && "glass")}>
         <Lock className="size-4 shrink-0 text-ink-4" />
         <span className="flex-1">Store signed waivers, contracts and receipts with every job — included on Pro.</span>
-        <Link href="/app/settings?tab=billing" className="font-medium text-aqua-soft hover:text-white">
+        <Link href="/app/settings?tab=billing" className="font-medium text-aqua-soft hover:text-ink">
           Upgrade
         </Link>
       </div>
@@ -84,7 +84,7 @@ export function DocumentsPanel({ jobId, customerId, bare }: { jobId?: string; cu
         </h2>
       )}
       <div
-        className="mb-3 flex flex-wrap items-center gap-2 rounded-2xl border border-dashed border-white/12 bg-white/[0.02] p-3"
+        className="mb-3 flex flex-wrap items-center gap-2 rounded-2xl border border-dashed border-ink/12 bg-ink/[0.02] p-3"
         onDragOver={(e) => e.preventDefault()}
         onDrop={(e) => {
           e.preventDefault();
@@ -113,7 +113,7 @@ export function DocumentsPanel({ jobId, customerId, bare }: { jobId?: string; cu
           {docs.map((d) => {
             const Icon = d.mime?.startsWith("image/") ? FileImage : FileText;
             return (
-              <li key={d._id} className="group flex items-center gap-3 rounded-xl px-2 py-2 hover:bg-white/[0.04]">
+              <li key={d._id} className="group flex items-center gap-3 rounded-xl px-2 py-2 hover:bg-ink/[0.04]">
                 <span className="glass flex size-9 shrink-0 items-center justify-center rounded-lg text-aqua-soft">
                   <Icon className="size-4" />
                 </span>

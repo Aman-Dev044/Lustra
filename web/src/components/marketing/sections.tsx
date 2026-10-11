@@ -95,7 +95,7 @@ export function FAQSection({
         <div className="mt-12 space-y-3">
           {faqs.map((f, i) => (
             <Reveal key={f.q} delay={i * 0.04}>
-              <details className="group glass rounded-[22px] px-6 py-1 open:bg-white/[0.07]">
+              <details className="group glass rounded-[22px] px-6 py-1 open:bg-ink/[0.07]">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-4 text-left text-[15px] font-medium text-ink [&::-webkit-details-marker]:hidden">
                   {f.q}
                   <span className="glass-inset flex size-8 shrink-0 items-center justify-center rounded-full transition group-open:rotate-45">
@@ -173,14 +173,14 @@ export function TestimonialsSection({ limit = 6 }: { limit?: number }) {
           {testimonials.slice(0, limit).map((t, i) => (
             <Reveal key={t.name} delay={(i % 3) * 0.06} className="mb-4 break-inside-avoid">
               <Glass as="figure" className="relative p-6">
-                <Quote className="absolute top-5 right-5 size-8 text-white/[0.06]" aria-hidden />
+                <Quote className="absolute top-5 right-5 size-8 text-ink/[0.07]" aria-hidden />
                 <div className="flex gap-0.5 text-warning" aria-label="5 out of 5 stars">
                   {Array.from({ length: 5 }).map((_, s) => (
                     <Star key={s} className="size-3.5 fill-current" aria-hidden />
                   ))}
                 </div>
                 <blockquote className="mt-4 text-[15px] leading-relaxed text-ink">“{t.quote}”</blockquote>
-                <figcaption className="mt-5 flex items-center justify-between gap-3 border-t border-white/[0.06] pt-4">
+                <figcaption className="mt-5 flex items-center justify-between gap-3 border-t border-ink/[0.06] pt-4">
                   <div>
                     <p className="text-sm font-medium text-ink">{t.name}</p>
                     <p className="text-xs text-ink-3">
@@ -302,7 +302,7 @@ export function SpatialImage({
     <div className={cn("glass-2 rim relative overflow-hidden rounded-[30px] p-2", className)}>
       <div className="relative h-full overflow-hidden rounded-[24px]">
         <Image src={src} alt={alt} fill priority={priority} sizes={sizes} className="object-cover" quality={75} />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#04050a]/70 via-transparent to-transparent" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-t from-scrim/60 via-transparent to-transparent" aria-hidden />
         {children}
       </div>
     </div>

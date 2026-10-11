@@ -171,10 +171,10 @@ export default function CalendarPage() {
             Today
           </Button>
           <div className="glass flex items-center rounded-full">
-            <button onClick={() => shift(-1)} className="rounded-full p-2 text-ink-2 hover:bg-white/10 hover:text-ink" aria-label="Previous">
+            <button onClick={() => shift(-1)} className="rounded-full p-2 text-ink-2 hover:bg-ink/10 hover:text-ink" aria-label="Previous">
               <ChevronLeft className="size-4" />
             </button>
-            <button onClick={() => shift(1)} className="rounded-full p-2 text-ink-2 hover:bg-white/10 hover:text-ink" aria-label="Next">
+            <button onClick={() => shift(1)} className="rounded-full p-2 text-ink-2 hover:bg-ink/10 hover:text-ink" aria-label="Next">
               <ChevronRight className="size-4" />
             </button>
           </div>
@@ -211,16 +211,16 @@ export default function CalendarPage() {
           <div className="overflow-x-auto">
             <div className={cn(view === "week" ? "min-w-[860px]" : bays > 3 ? "min-w-[720px]" : "")}>
               {/* Column headers */}
-              <div className="flex border-b border-white/[0.07]">
+              <div className="flex border-b border-ink/[0.07]">
                 <div className="w-14 shrink-0" />
                 {view === "week"
                   ? days.map((d) => (
-                      <div key={d.toISOString()} className="flex-1 border-l border-white/[0.05] px-2 py-2.5 text-center">
+                      <div key={d.toISOString()} className="flex-1 border-l border-ink/[0.05] px-2 py-2.5 text-center">
                         <button onClick={() => { setAnchor(d); setView("day"); }} className="group">
                           <span className="block text-[11px] tracking-wider text-ink-4 uppercase">{format(d, "EEE")}</span>
                           <span
                             className={cn(
-                              "mt-0.5 inline-flex size-8 items-center justify-center rounded-full text-sm font-semibold group-hover:bg-white/10",
+                              "mt-0.5 inline-flex size-8 items-center justify-center rounded-full text-sm font-semibold group-hover:bg-ink/10",
                               isSameDay(d, now) && "bg-spectral text-white shadow-[var(--shadow-glow-iris)]",
                             )}
                           >
@@ -231,7 +231,7 @@ export default function CalendarPage() {
                       </div>
                     ))
                   : Array.from({ length: bays }, (_, b) => (
-                      <div key={b} className="flex-1 border-l border-white/[0.05] px-2 py-3 text-center text-xs font-medium text-ink-2">
+                      <div key={b} className="flex-1 border-l border-ink/[0.05] px-2 py-3 text-center text-xs font-medium text-ink-2">
                         Bay {b + 1}
                         {b === 0 && capacity && <CapacityStrip day={capacity.days.find((c) => isSameDay(parseISO(c.date), anchor))} bays={capacity.bays} />}
                       </div>
@@ -312,7 +312,7 @@ function CapacityStrip({ day, bays }: { day?: Capacity["days"][number]; bays: nu
             key={h.hour}
             className="flex-1"
             style={{
-              background: r === 0 ? "rgb(255 255 255 / 0.06)" : r >= 1 ? "#fb7185" : r >= 0.6 ? "#fbbf24" : "#22d3ee",
+              background: r === 0 ? "rgb(30 42 68 / 0.06)" : r >= 1 ? "#fb7185" : r >= 0.6 ? "#fbbf24" : "#22d3ee",
               opacity: r === 0 ? 1 : 0.4 + r * 0.6,
             }}
           />
@@ -461,7 +461,7 @@ function TimeColumns({
         return (
           <div
             key={col.key}
-            className={cn("relative flex-1 border-l border-white/[0.05]", isToday && view === "week" && "bg-white/[0.015]")}
+            className={cn("relative flex-1 border-l border-ink/[0.05]", isToday && view === "week" && "bg-ink/[0.015]")}
             onPointerDown={(e) => {
               if (!e.altKey || e.target !== e.currentTarget || !ref.current) return;
               e.preventDefault();
@@ -484,7 +484,7 @@ function TimeColumns({
             }}
           >
             {HOURS.map((h) => (
-              <div key={h} style={{ top: (h - HOUR_START) * HOUR_H }} className="pointer-events-none absolute inset-x-0 border-t border-white/[0.045]" />
+              <div key={h} style={{ top: (h - HOUR_START) * HOUR_H }} className="pointer-events-none absolute inset-x-0 border-t border-ink/[0.045]" />
             ))}
             {colBlocks.map(({ b, seg }) => {
               const meta = blockMeta[b.kind];
@@ -541,7 +541,7 @@ function TimeColumns({
                   onPointerDown={(e) => begin(e, j, "move")}
                   className={cn(
                     "group absolute cursor-grab touch-none overflow-hidden rounded-xl border px-2 py-1 text-left backdrop-blur-md transition-shadow select-none active:cursor-grabbing",
-                    active ? "z-30 shadow-[var(--shadow-lift)] ring-1 ring-white/40" : "z-10 hover:z-20 hover:shadow-[var(--shadow-float)]",
+                    active ? "z-30 shadow-[var(--shadow-lift)] ring-1 ring-ink/40" : "z-10 hover:z-20 hover:shadow-[var(--shadow-float)]",
                   )}
                   style={{
                     top,
@@ -568,7 +568,7 @@ function TimeColumns({
                     className="absolute inset-x-0 bottom-0 h-2 cursor-ns-resize opacity-0 group-hover:opacity-100"
                     aria-hidden
                   >
-                    <span className="mx-auto mt-0.5 block h-1 w-8 rounded-full bg-white/50" />
+                    <span className="mx-auto mt-0.5 block h-1 w-8 rounded-full bg-ink/50" />
                   </span>
                 </div>
               );
@@ -631,7 +631,7 @@ function MonthGrid({
   const today = new Date();
   return (
     <Glass className="overflow-hidden rounded-[24px]">
-      <div className="grid grid-cols-7 border-b border-white/[0.07]">
+      <div className="grid grid-cols-7 border-b border-ink/[0.07]">
         {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((d) => (
           <div key={d} className="py-2.5 text-center text-[11px] tracking-wider text-ink-4 uppercase">
             {d}
@@ -645,14 +645,14 @@ function MonthGrid({
             <div
               key={d.toISOString()}
               className={cn(
-                "min-h-[110px] border-r border-b border-white/[0.05] p-1.5 sm:p-2",
-                !isSameMonth(d, anchor) && "bg-black/20 opacity-50",
+                "min-h-[110px] border-r border-b border-ink/[0.05] p-1.5 sm:p-2",
+                !isSameMonth(d, anchor) && "bg-surface-lo opacity-50",
               )}
             >
               <button
                 onClick={() => onDay(d)}
                 className={cn(
-                  "mb-1 inline-flex size-7 items-center justify-center rounded-full text-xs hover:bg-white/10",
+                  "mb-1 inline-flex size-7 items-center justify-center rounded-full text-xs hover:bg-ink/10",
                   isSameDay(d, today) ? "bg-spectral font-semibold text-white" : "text-ink-2",
                 )}
                 aria-label={format(d, "EEEE, MMMM d")}
@@ -678,7 +678,7 @@ function MonthGrid({
                   <li key={j._id}>
                     <button
                       onClick={() => onJob(j)}
-                      className="flex w-full items-center gap-1.5 truncate rounded-md px-1.5 py-0.5 text-left text-[10px] text-ink-2 hover:bg-white/[0.08]"
+                      className="flex w-full items-center gap-1.5 truncate rounded-md px-1.5 py-0.5 text-left text-[10px] text-ink-2 hover:bg-ink/[0.08]"
                       style={{ background: `${stageMeta[j.stage].color}1f` }}
                     >
                       <span className="size-1.5 shrink-0 rounded-full" style={{ background: stageMeta[j.stage].color }} />
@@ -690,7 +690,7 @@ function MonthGrid({
                 ))}
                 {dayJobs.length > 3 && (
                   <li>
-                    <button onClick={() => onDay(d)} className="px-1.5 text-[10px] text-aqua-soft hover:text-white">
+                    <button onClick={() => onDay(d)} className="px-1.5 text-[10px] text-aqua-soft hover:text-ink">
                       +{dayJobs.length - 3} more
                     </button>
                   </li>

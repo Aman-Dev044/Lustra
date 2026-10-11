@@ -64,7 +64,7 @@ function Inbox() {
       />
       <Glass className="grid h-[calc(100dvh-210px)] min-h-[520px] overflow-hidden lg:grid-cols-[340px_1fr]">
         {/* Threads */}
-        <aside className={cn("flex min-h-0 flex-col border-white/[0.07] lg:border-r", selectedId && "hidden lg:flex")}>
+        <aside className={cn("flex min-h-0 flex-col border-ink/[0.07] lg:border-r", selectedId && "hidden lg:flex")}>
           <div className="p-3">
             <div className="glass-inset flex h-10 items-center gap-2 rounded-full px-4">
               <Search className="size-4 text-ink-4" aria-hidden />
@@ -93,7 +93,7 @@ function Inbox() {
                     onClick={() => select(t.customer._id)}
                     className={cn(
                       "flex w-full items-start gap-3 rounded-2xl px-3 py-3 text-left transition",
-                      active ? "bg-white/[0.09]" : "hover:bg-white/[0.05]",
+                      active ? "bg-ink/[0.09]" : "hover:bg-ink/[0.05]",
                     )}
                   >
                     <Avatar name={customerName(t.customer)} size={38} />
@@ -108,7 +108,7 @@ function Inbox() {
                           {t.lastMessage?.body}
                         </span>
                         {t.unread > 0 && (
-                          <span className="flex h-4.5 min-w-4.5 items-center justify-center rounded-full bg-aqua px-1 text-[10px] font-bold text-[#04121a]">
+                          <span className="flex h-4.5 min-w-4.5 items-center justify-center rounded-full bg-aqua px-1 text-[10px] font-bold text-white">
                             {t.unread}
                           </span>
                         )}
@@ -222,8 +222,8 @@ function Conversation({ customer, unread, onBack }: { customer: Customer; unread
 
   return (
     <>
-      <header className="flex items-center gap-3 border-b border-white/[0.07] px-4 py-3">
-        <button onClick={onBack} className="rounded-full p-2 text-ink-3 hover:bg-white/10 lg:hidden" aria-label="Back to conversations">
+      <header className="flex items-center gap-3 border-b border-ink/[0.07] px-4 py-3">
+        <button onClick={onBack} className="rounded-full p-2 text-ink-3 hover:bg-ink/10 lg:hidden" aria-label="Back to conversations">
           <ArrowLeft className="size-4" />
         </button>
         <Avatar name={customerName(customer)} size={38} />
@@ -280,7 +280,7 @@ function Conversation({ customer, unread, onBack }: { customer: Customer; unread
         })}
       </div>
 
-      <form onSubmit={send} className="border-t border-white/[0.07] p-3">
+      <form onSubmit={send} className="border-t border-ink/[0.07] p-3">
         {suggestions && suggestions.length > 0 && (
           <div className="mb-2 flex flex-wrap gap-1.5" aria-label="AI reply suggestions">
             {suggestions.map((s, i) => (
@@ -327,7 +327,7 @@ function Conversation({ customer, unread, onBack }: { customer: Customer; unread
                 key={t.label}
                 type="button"
                 onClick={() => setBody(fill(t.body))}
-                className="inline-flex items-center gap-1 rounded-full border border-white/10 px-2.5 py-1 text-[11px] text-ink-3 transition hover:border-aqua/40 hover:text-ink"
+                className="inline-flex items-center gap-1 rounded-full border border-ink/10 px-2.5 py-1 text-[11px] text-ink-3 transition hover:border-aqua/40 hover:text-ink"
               >
                 <Zap className="size-3" /> {t.label}
               </button>

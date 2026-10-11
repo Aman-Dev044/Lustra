@@ -122,18 +122,18 @@ function NavGroups({ collapsed }: { collapsed: boolean }) {
                     className={cn(
                       "group relative flex items-center gap-3 rounded-2xl px-3 py-2 text-sm transition-all",
                       collapsed && "justify-center px-0",
-                      active ? "text-ink" : "text-ink-3 hover:bg-white/[0.05] hover:text-ink",
+                      active ? "text-ink" : "text-ink-3 hover:bg-ink/[0.05] hover:text-ink",
                     )}
                   >
                     {active && (
                       <motion.span
                         layoutId="nav-active"
-                        className="absolute inset-0 rounded-2xl border border-white/12 bg-white/[0.09] shadow-[inset_0_1px_0_rgb(255_255_255/0.14),0_8px_24px_-12px_rgb(124_92_255/0.6)]"
+                        className="absolute inset-0 rounded-2xl border border-white/40 bg-surface-lo shadow-[var(--shadow-neu-inset)]"
                         transition={{ type: "spring", stiffness: 420, damping: 36 }}
                       />
                     )}
                     <item.icon
-                      className={cn("relative size-[18px] shrink-0", active ? "text-aqua-soft" : "")}
+                      className={cn("relative size-[18px] shrink-0 transition-colors", active ? "text-iris" : "")}
                       aria-hidden
                     />
                     {!collapsed && <span className="relative flex-1">{item.label}</span>}
@@ -174,13 +174,13 @@ function Sidebar({ collapsed, onToggle }: { collapsed: boolean; onToggle: () => 
       <div className={cn("flex-1 overflow-y-auto pb-4", collapsed ? "px-3" : "px-3")}>
         <NavGroups collapsed={collapsed} />
       </div>
-      <div className={cn("border-t border-white/[0.06] p-3", collapsed && "flex justify-center")}>
+      <div className={cn("border-t border-ink/[0.06] p-3", collapsed && "flex justify-center")}>
         {!collapsed && shop.booking?.enabled && (
           <a
             href={`/book/${shop.slug}`}
             target="_blank"
             rel="noopener"
-            className="mb-2 flex items-center justify-between rounded-2xl bg-white/[0.04] px-3 py-2.5 text-xs text-ink-2 transition hover:bg-white/[0.08]"
+            className="mb-2 flex items-center justify-between rounded-2xl bg-ink/[0.04] px-3 py-2.5 text-xs text-ink-2 transition hover:bg-ink/[0.08]"
           >
             Your booking page
             <ExternalLink className="size-3.5" aria-hidden />
@@ -188,7 +188,7 @@ function Sidebar({ collapsed, onToggle }: { collapsed: boolean; onToggle: () => 
         )}
         <button
           onClick={onToggle}
-          className="flex w-full items-center justify-center gap-2 rounded-2xl px-3 py-2 text-xs text-ink-3 transition hover:bg-white/[0.05] hover:text-ink"
+          className="flex w-full items-center justify-center gap-2 rounded-2xl px-3 py-2 text-xs text-ink-3 transition hover:bg-ink/[0.05] hover:text-ink"
           aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
           {collapsed ? <ChevronsRight className="size-4" /> : <><ChevronsLeft className="size-4" /> Collapse</>}
@@ -221,13 +221,13 @@ function Topbar({ onSearch }: { onSearch: () => void }) {
         <div className="ml-auto flex items-center gap-1.5">
           <div className="mr-1 hidden items-center -space-x-2 md:flex" title={`${presence.length} teammates online`}>
             {presence.slice(0, 4).map((p) => (
-              <span key={p._id} className="rounded-full ring-2 ring-[#0b0e1c]">
+              <span key={p._id} className="rounded-full ring-2 ring-void">
                 <Avatar name={p.name} size={26} />
               </span>
             ))}
           </div>
           <span
-            className={cn("mr-1 hidden size-2 rounded-full sm:block", connected ? "bg-success shadow-[0_0_10px_var(--color-success)]" : "bg-ink-4")}
+            className={cn("mr-1 hidden size-2 rounded-full sm:block", connected ? "animate-pulse bg-success shadow-[0_0_0_3px_rgb(17_161_114/0.15)]" : "bg-ink-4")}
             title={connected ? "Live sync on" : "Reconnecting…"}
             aria-label={connected ? "Live sync connected" : "Live sync reconnecting"}
           />
@@ -248,7 +248,7 @@ function Topbar({ onSearch }: { onSearch: () => void }) {
           <Notifications />
           <Menu
             trigger={
-              <button className="rounded-full p-0.5 transition hover:ring-2 hover:ring-white/20" aria-label="Account menu">
+              <button className="rounded-full p-0.5 transition hover:ring-2 hover:ring-ink/20" aria-label="Account menu">
                 <Avatar name={user.name} size={36} />
               </button>
             }
@@ -304,8 +304,8 @@ function ClockButton() {
       className={cn(
         "hidden h-10 items-center gap-2 rounded-full border px-3.5 text-xs font-medium transition sm:inline-flex",
         active
-          ? "border-success/30 bg-success/10 text-success hover:bg-success/15"
-          : "border-white/10 bg-white/[0.04] text-ink-2 hover:bg-white/[0.08]",
+          ? "border-white/50 bg-surface-lo text-success shadow-[var(--shadow-neu-inset-sm)]"
+          : "neu-press border-white/60 bg-surface text-ink-2 shadow-[var(--shadow-neu-sm)]",
       )}
     >
       {active ? <Square className="size-3 fill-current" /> : <Play className="size-3 fill-current" />}
@@ -328,7 +328,7 @@ function Notifications() {
     <div className="relative">
       <button
         onClick={() => setOpen((o) => !o)}
-        className="relative inline-flex size-10 items-center justify-center rounded-full text-ink-2 transition hover:bg-white/[0.08] hover:text-ink"
+        className="relative inline-flex size-10 items-center justify-center rounded-full text-ink-2 transition hover:bg-ink/[0.08] hover:text-ink"
         aria-label={`Notifications${unread ? ` (${unread} unread)` : ""}`}
       >
         <Bell className="size-[18px]" />
@@ -348,10 +348,10 @@ function Notifications() {
               exit={{ opacity: 0, y: -8, scale: 0.96 }}
               className="glass-sheet absolute right-0 z-50 mt-2 w-[min(380px,calc(100vw-24px))] overflow-hidden rounded-3xl"
             >
-              <div className="flex items-center justify-between border-b border-white/[0.07] px-4 py-3">
+              <div className="flex items-center justify-between border-b border-ink/[0.07] px-4 py-3">
                 <p className="text-sm font-semibold">Notifications</p>
                 {unread > 0 && (
-                  <button onClick={readAll} className="text-xs text-aqua-soft hover:text-white">
+                  <button onClick={readAll} className="text-xs text-aqua-soft hover:text-ink">
                     Mark all read
                   </button>
                 )}
@@ -363,12 +363,12 @@ function Notifications() {
                     <Link
                       href={n.link || "#"}
                       onClick={() => setOpen(false)}
-                      className="flex gap-3 rounded-2xl px-3 py-2.5 transition hover:bg-white/[0.06]"
+                      className="flex gap-3 rounded-2xl px-3 py-2.5 transition hover:bg-ink/[0.06]"
                     >
                       <span
                         className={cn(
                           "mt-1.5 size-2 shrink-0 rounded-full",
-                          n.read ? "bg-transparent" : "bg-aqua shadow-[0_0_8px_var(--color-aqua)]",
+                          n.read ? "bg-transparent" : "bg-iris shadow-[0_0_0_3px_rgb(108_92_231/0.15)]",
                         )}
                       />
                       <span className="min-w-0 flex-1">
@@ -409,10 +409,10 @@ function MobileDock({ onMore }: { onMore: () => void }) {
             href={item.href}
             className={cn(
               "flex flex-col items-center gap-0.5 rounded-2xl px-3 py-1.5 text-[10px] transition",
-              active ? "bg-white/[0.1] text-ink" : "text-ink-3",
+              active ? "bg-surface-lo text-ink shadow-[var(--shadow-neu-inset-sm)]" : "text-ink-3",
             )}
           >
-            <item.icon className={cn("size-5", active && "text-aqua-soft")} aria-hidden />
+            <item.icon className={cn("size-5", active && "text-iris")} aria-hidden />
             {item.label.replace("Live ", "")}
           </Link>
         );

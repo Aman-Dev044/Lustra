@@ -95,7 +95,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <aside className="hidden lg:block">
             <nav aria-label="Table of contents" className="sticky top-28">
               <p className="mb-3 text-[11px] font-semibold tracking-[0.14em] text-ink-4 uppercase">On this page</p>
-              <ol className="space-y-2 border-l border-white/10 text-sm">
+              <ol className="space-y-2 border-l border-ink/10 text-sm">
                 {toc.map((h) => (
                   <li key={h.id}>
                     <a href={`#${h.id}`} className="-ml-px block border-l border-transparent pl-4 text-ink-3 transition hover:border-aqua hover:text-ink">
@@ -128,7 +128,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </h2>
           <div className="grid gap-4 md:grid-cols-3">
             {related.map((p) => (
-              <Link key={p.slug} href={`/blog/${p.slug}`} className="group glass flex flex-col overflow-hidden rounded-[24px] transition hover:bg-white/[0.07]">
+              <Link key={p.slug} href={`/blog/${p.slug}`} className="group glass flex flex-col overflow-hidden rounded-[24px] transition hover:bg-ink/[0.07]">
                 <div className="relative h-40">
                   <Image src={p.image} alt={p.imageAlt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105" />
                 </div>

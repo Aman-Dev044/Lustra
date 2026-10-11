@@ -109,7 +109,7 @@ function JobsView() {
               aria-pressed={on}
               className={cn(
                 "inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs transition",
-                on ? "border-white/25 bg-white/[0.1] text-ink" : "border-white/[0.08] text-ink-3 hover:text-ink",
+                on ? "border-ink/25 bg-ink/[0.1] text-ink" : "border-ink/[0.08] text-ink-3 hover:text-ink",
               )}
             >
               <span className="size-1.5 rounded-full" style={{ background: stageMeta[s].color }} />
@@ -166,7 +166,7 @@ function JobsView() {
                       <Td>
                         <div className="flex -space-x-1.5">
                           {j.assignees?.slice(0, 3).map((u) => (
-                            <span key={u._id} title={u.name} className="rounded-full ring-2 ring-[#0d1022]">
+                            <span key={u._id} title={u.name} className="rounded-full ring-2 ring-void">
                               <Avatar name={u.name} size={24} />
                             </span>
                           ))}
@@ -179,10 +179,10 @@ function JobsView() {
               </Table>
             </div>
             {/* Mobile cards */}
-            <ul className="divide-y divide-white/[0.05] md:hidden">
+            <ul className="divide-y divide-ink/[0.05] md:hidden">
               {data.items.map((j) => (
                 <li key={j._id}>
-                  <Link href={`/app/jobs/${j._id}`} className="block px-4 py-3.5 active:bg-white/[0.05]">
+                  <Link href={`/app/jobs/${j._id}`} className="block px-4 py-3.5 active:bg-ink/[0.05]">
                     <div className="flex items-start justify-between gap-3">
                       <p className="text-sm text-ink">
                         <span className="mr-1.5 font-mono text-xs text-ink-4">#{j.number}</span>

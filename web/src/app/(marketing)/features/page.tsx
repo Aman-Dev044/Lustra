@@ -58,7 +58,7 @@ export default function FeaturesPage() {
                   <TiltCard max={4}>
                     <Link
                       href={`/features/${entry.slug}`}
-                      className="group glass flex h-full flex-col rounded-[26px] p-5 transition hover:bg-white/[0.07]"
+                      className="group glass flex h-full flex-col rounded-[26px] p-5 transition hover:bg-ink/[0.07]"
                     >
                       {Mock && (
                         <div className="pointer-events-none h-56 overflow-hidden rounded-[22px] [mask-image:linear-gradient(to_bottom,black_70%,transparent)]">
@@ -86,7 +86,7 @@ export default function FeaturesPage() {
               <span className="font-semibold text-ink">Every plan includes unlimited users</span>, free data import, iPhone & Android apps
               and live chat support.
             </p>
-            <Link href="/pricing" className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-aqua-soft hover:text-white">
+            <Link href="/pricing" className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-aqua-soft hover:text-ink">
               Compare plans <ArrowRight className="size-4" />
             </Link>
           </Glass>

@@ -153,10 +153,10 @@ function Forms() {
                 </div>
                 <div className="glass-inset mt-4 flex items-center gap-1 rounded-full py-1 pr-1 pl-3">
                   <span className="flex-1 truncate font-mono text-[11px] text-ink-3">{url}</span>
-                  <button onClick={() => copy(url, "Link")} className="rounded-full p-1.5 text-ink-3 hover:bg-white/10 hover:text-ink" aria-label="Copy link">
+                  <button onClick={() => copy(url, "Link")} className="rounded-full p-1.5 text-ink-3 hover:bg-ink/10 hover:text-ink" aria-label="Copy link">
                     <Copy className="size-3.5" />
                   </button>
-                  <a href={url} target="_blank" rel="noopener" className="rounded-full p-1.5 text-ink-3 hover:bg-white/10 hover:text-ink" aria-label="Open form">
+                  <a href={url} target="_blank" rel="noopener" className="rounded-full p-1.5 text-ink-3 hover:bg-ink/10 hover:text-ink" aria-label="Open form">
                     <ExternalLink className="size-3.5" />
                   </a>
                 </div>
@@ -186,7 +186,7 @@ function SortableField({ field, selected, onSelect, onRemove }: { field: FieldDe
       style={{ transform: CSS.Transform.toString(transform), transition }}
       className={cn(
         "flex items-center gap-2 rounded-2xl border px-2 py-2 transition-colors",
-        selected ? "border-aqua/50 bg-aqua/10" : "border-white/[0.07] bg-white/[0.03] hover:border-white/15",
+        selected ? "border-aqua/50 bg-aqua/10" : "border-ink/[0.07] bg-ink/[0.03] hover:border-ink/15",
         isDragging && "z-10 shadow-2xl",
       )}
     >
@@ -289,7 +289,7 @@ function Builder({ initial, onBack }: { initial: Draft; onBack: () => void }) {
       <PageHeader
         title={
           <span className="flex items-center gap-3">
-            <button onClick={onBack} className="rounded-full p-2 text-ink-3 hover:bg-white/10 hover:text-ink" aria-label="Back to forms">
+            <button onClick={onBack} className="rounded-full p-2 text-ink-3 hover:bg-ink/10 hover:text-ink" aria-label="Back to forms">
               <ArrowLeft className="size-5" />
             </button>
             {d.name || "Untitled form"}
@@ -393,7 +393,7 @@ function Builder({ initial, onBack }: { initial: Draft; onBack: () => void }) {
                   <button
                     key={t.value}
                     onClick={() => addField(t.value)}
-                    className="flex flex-col items-center gap-1 rounded-xl border border-white/[0.07] bg-white/[0.02] py-2.5 text-[11px] text-ink-3 transition hover:border-aqua/40 hover:text-ink"
+                    className="flex flex-col items-center gap-1 rounded-xl border border-ink/[0.07] bg-ink/[0.02] py-2.5 text-[11px] text-ink-3 transition hover:border-aqua/40 hover:text-ink"
                   >
                     <t.icon className="size-4" />
                     {t.label}
@@ -433,7 +433,7 @@ function Builder({ initial, onBack }: { initial: Draft; onBack: () => void }) {
                         value={sel.options.join("\n")}
                         onChange={(e) => patchField({ options: e.target.value.split("\n") })}
                         onBlur={() => patchField({ options: sel.options.map((o) => o.trim()).filter(Boolean) })}
-                        className="min-h-24 w-full rounded-[var(--radius-control)] border border-white/10 bg-black/25 px-3.5 py-3 text-sm focus:border-aqua/60 focus:outline-none"
+                        className="min-h-24 w-full rounded-[var(--radius-control)] border border-ink/10 bg-surface-lo px-3.5 py-3 text-sm focus:border-aqua/60 focus:outline-none"
                       />
                     </Field>
                   )}
@@ -492,10 +492,10 @@ function Submissions({ formId }: { formId: string }) {
           </thead>
           <tbody>
             {jobs.map((j) => (
-              <tr key={j._id} className="hover:bg-white/[0.03]">
+              <tr key={j._id} className="hover:bg-ink/[0.03]">
                 <Td className="text-ink">{customerName(j.customer)}</Td>
                 <Td>
-                  <Link href={`/app/jobs/${j._id}`} className="text-aqua-soft hover:text-white">
+                  <Link href={`/app/jobs/${j._id}`} className="text-aqua-soft hover:text-ink">
                     #{j.number} · {j.title}
                   </Link>
                 </Td>

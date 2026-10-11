@@ -50,7 +50,7 @@ export function RecurrenceEditor({ value, onChange }: { value: Recurrence | null
   const on = !!value;
   const set = (patch: Partial<Recurrence>) => onChange({ ...(value ?? { frequency: "monthly", intervalDays: 30 }), ...patch });
   return (
-    <div className="rounded-2xl border border-white/[0.07] bg-white/[0.03] p-3.5">
+    <div className="rounded-2xl border border-ink/[0.07] bg-ink/[0.03] p-3.5">
       <div className="flex items-center justify-between gap-3">
         <div className="flex items-center gap-2.5">
           <Repeat className="size-4 text-aqua-soft" aria-hidden />

@@ -62,7 +62,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
               <div className="absolute right-4 bottom-4 left-4 grid grid-cols-3 gap-2 sm:right-auto sm:bottom-8 sm:left-8 sm:w-[460px]">
                 {ind.stats.map((s) => (
                   <div key={s.label} className="glass-2 rounded-2xl p-3 text-center">
-                    <p className="text-lg font-semibold text-white sm:text-xl">{s.value}</p>
+                    <p className="text-lg font-semibold text-ink sm:text-xl">{s.value}</p>
                     <p className="text-[11px] leading-tight text-ink-2">{s.label}</p>
                   </div>
                 ))}
@@ -91,7 +91,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                     </span>
                     {p.pain}
                   </p>
-                  <div className="my-5 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                  <div className="my-5 h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
                   <p className="flex gap-3 text-[15px] font-medium text-ink">
                     <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-success/15 text-success">
                       <Check className="size-3.5" aria-hidden />
@@ -130,7 +130,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                   </thead>
                   <tbody>
                     {ind.menu.map((m) => (
-                      <tr key={m.name} className="border-t border-white/[0.05]">
+                      <tr key={m.name} className="border-t border-ink/[0.05]">
                         <td className="px-5 py-3.5 text-ink">{m.name}</td>
                         <td className="px-5 py-3.5 text-ink-3">{m.duration}</td>
                         <td className="px-5 py-3.5 text-right font-semibold text-ink tabular-nums">{m.price}</td>
@@ -180,7 +180,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         <Container className="max-w-4xl">
           <Reveal>
             <Glass tier={2} rim as="figure" className="relative p-8 sm:p-12">
-              <Quote className="absolute top-8 right-8 size-14 text-white/[0.05]" aria-hidden />
+              <Quote className="absolute top-8 right-8 size-14 text-ink/[0.06]" aria-hidden />
               <div className="flex gap-0.5 text-warning" aria-label="5 out of 5 stars">
                 {Array.from({ length: 5 }).map((_, s) => (
                   <Star key={s} className="size-4 fill-current" aria-hidden />

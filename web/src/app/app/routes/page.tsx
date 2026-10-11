@@ -176,7 +176,7 @@ export default function RoutesPage() {
                       <li key={j._id}>
                         <Link
                           href={`/app/jobs/${j._id}`}
-                          className="flex items-start gap-3 rounded-xl bg-white/[0.03] px-3 py-2.5 text-sm transition hover:bg-white/[0.07]"
+                          className="flex items-start gap-3 rounded-xl bg-ink/[0.03] px-3 py-2.5 text-sm transition hover:bg-ink/[0.07]"
                         >
                           <MapPin className="mt-0.5 size-4 shrink-0 text-ink-4" />
                           <span className="min-w-0 flex-1">
@@ -228,12 +228,12 @@ function RouteMap({ plan, version, focus, onFocus }: { plan: RoutePlan; version:
       <svg viewBox={`0 0 ${W} ${H}`} className="block w-full" style={{ aspectRatio: `${W}/${H}` }} role="img" aria-label="Route map">
         <defs>
           <radialGradient id="terrain" cx="50%" cy="45%" r="70%">
-            <stop offset="0" stopColor="#1b2350" />
-            <stop offset="0.6" stopColor="#0c1026" />
-            <stop offset="1" stopColor="#05070f" />
+            <stop offset="0" stopColor="#f3f6fa" />
+            <stop offset="0.6" stopColor="#e6ebf2" />
+            <stop offset="1" stopColor="#d8dfe9" />
           </radialGradient>
           <pattern id="map-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M40 0H0V40" fill="none" stroke="rgb(255 255 255 / 0.045)" />
+            <path d="M40 0H0V40" fill="none" stroke="rgb(30 42 68 / 0.045)" />
           </pattern>
           <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="4" result="b" />
@@ -282,7 +282,7 @@ function RouteMap({ plan, version, focus, onFocus }: { plan: RoutePlan; version:
             const p = project(j.geo as Pt);
             return (
               <g key={j._id} transform={`translate(${p.x} ${p.y})`}>
-                <circle r="7" fill="#0b0e1c" stroke="rgb(255 255 255 / 0.5)" strokeDasharray="3 3" strokeWidth="1.5" />
+                <circle r="7" fill="#0b0e1c" stroke="rgb(30 42 68 / 0.5)" strokeDasharray="3 3" strokeWidth="1.5" />
                 <title>{`Unassigned · #${j.number} ${j.title}`}</title>
               </g>
             );
@@ -359,7 +359,7 @@ function TechCard({
 
   return (
     <Glass
-      className={cn("p-5 transition", focused && "border-white/25")}
+      className={cn("p-5 transition", focused && "border-ink/25")}
       style={focused ? { boxShadow: `0 0 0 1px ${color}66, 0 20px 50px -24px ${color}` } : undefined}
     >
       <div className="flex items-center gap-3">
@@ -385,12 +385,12 @@ function TechCard({
         {tech.stops.map((s, i) => (
           <li key={s.job._id} className="relative">
             <span
-              className="absolute top-3 -left-4 flex size-4 items-center justify-center rounded-full text-[9px] font-bold text-[#0b0e1c]"
+              className="absolute top-3 -left-4 flex size-4 items-center justify-center rounded-full text-[9px] font-bold text-ink"
               style={{ background: color }}
             >
               {s.order ?? i + 1}
             </span>
-            <div className="ml-2 rounded-xl bg-white/[0.03] px-3 py-2.5">
+            <div className="ml-2 rounded-xl bg-ink/[0.03] px-3 py-2.5">
               <div className="flex items-start justify-between gap-2">
                 <Link href={`/app/jobs/${s.job._id}`} className="min-w-0 hover:text-aqua-soft">
                   <p className="truncate text-sm text-ink">{customerName(s.job.customer)}</p>
@@ -472,7 +472,7 @@ function OnMyWayModal({ stop, onClose, onSent }: { stop: RouteStop | null; onClo
               onClick={() => setEta(String(m))}
               className={cn(
                 "flex-1 rounded-xl border py-2 text-sm transition",
-                eta === String(m) ? "border-aqua/50 bg-aqua/15 text-aqua-soft" : "border-white/10 text-ink-3",
+                eta === String(m) ? "border-aqua/50 bg-aqua/15 text-aqua-soft" : "border-ink/10 text-ink-3",
               )}
             >
               {m}
@@ -481,7 +481,7 @@ function OnMyWayModal({ stop, onClose, onSent }: { stop: RouteStop | null; onClo
         </div>
         <Input type="number" min={1} value={eta} onChange={(e) => setEta(e.target.value)} className="mt-2" aria-label="Custom minutes" />
       </Field>
-      <p className="mt-3 rounded-2xl bg-white/[0.04] px-4 py-3 text-xs text-ink-3">
+      <p className="mt-3 rounded-2xl bg-ink/[0.04] px-4 py-3 text-xs text-ink-3">
         “Hi {stop?.job.customer?.firstName ?? "there"}, your technician is on the way and should arrive in about {eta || "—"} minutes.”
       </p>
     </Modal>

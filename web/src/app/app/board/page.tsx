@@ -115,7 +115,7 @@ export default function BoardPage() {
             <span
               className={cn(
                 "inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs",
-                connected ? "border-success/30 bg-success/10 text-success" : "border-white/10 text-ink-3",
+                connected ? "border-success/30 bg-success/10 text-success" : "border-ink/10 text-ink-3",
               )}
             >
               <Radio className="size-3.5" aria-hidden />
@@ -144,7 +144,7 @@ export default function BoardPage() {
           aria-pressed={!assignee}
           className={cn(
             "h-9 rounded-full border px-3.5 text-xs transition",
-            !assignee ? "border-aqua/40 bg-aqua/10 text-ink" : "border-white/10 text-ink-3 hover:text-ink",
+            !assignee ? "border-aqua/40 bg-aqua/10 text-ink" : "border-ink/10 text-ink-3 hover:text-ink",
           )}
         >
           Everyone
@@ -158,7 +158,7 @@ export default function BoardPage() {
               aria-pressed={assignee === u._id}
               className={cn(
                 "inline-flex h-9 items-center gap-2 rounded-full border py-1 pr-3.5 pl-1 text-xs transition",
-                assignee === u._id ? "border-aqua/40 bg-aqua/10 text-ink" : "border-white/10 text-ink-3 hover:text-ink",
+                assignee === u._id ? "border-aqua/40 bg-aqua/10 text-ink" : "border-ink/10 text-ink-3 hover:text-ink",
               )}
             >
               <Avatar name={u.name} size={26} />
@@ -222,21 +222,21 @@ function Column({ stage, jobs, children }: { stage: JobStage; jobs: Job[]; child
       aria-label={`${meta.label} column`}
       className={cn(
         "glass flex max-h-[calc(100dvh-260px)] min-h-[50vh] w-[290px] shrink-0 snap-start flex-col rounded-[24px] transition-all duration-200",
-        isOver && "border-aqua/40 bg-white/[0.08] shadow-[var(--shadow-glow-aqua)]",
+        isOver && "border-aqua/40 bg-ink/[0.08] shadow-[var(--shadow-glow-aqua)]",
       )}
     >
       <header className="flex items-center justify-between gap-2 px-4 pt-4 pb-3">
         <div className="flex items-center gap-2">
           <span className="size-2 rounded-full" style={{ background: meta.color, boxShadow: `0 0 10px ${meta.color}` }} />
           <h2 className="text-sm font-semibold">{meta.label}</h2>
-          <span className="rounded-full bg-white/[0.07] px-2 py-0.5 text-[11px] text-ink-3">{jobs.length}</span>
+          <span className="rounded-full bg-ink/[0.07] px-2 py-0.5 text-[11px] text-ink-3">{jobs.length}</span>
         </div>
         <span className="text-xs text-ink-3 tabular-nums">{formatMoney(value, "USD", true)}</span>
       </header>
       <div className="flex-1 space-y-2.5 overflow-y-auto px-3 pb-3">
         {children}
         {jobs.length === 0 && (
-          <div className="rounded-[18px] border border-dashed border-white/10 px-3 py-8 text-center text-xs text-ink-4">Drop jobs here</div>
+          <div className="rounded-[18px] border border-dashed border-ink/10 px-3 py-8 text-center text-xs text-ink-4">Drop jobs here</div>
         )}
       </div>
     </section>

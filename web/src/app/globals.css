@@ -1,101 +1,131 @@
 @import "tailwindcss";
 
 /* ──────────────────────────────────────────────────────────────────────────
-   Lustra · Spatial UI
-   Floating glass materials, layered depth, soft volumetric light.
-   Dark-first by design: glass reads best over a deep ambient field.
+   Lustra · Neumorphic UI
+   Soft extruded surfaces carved from one continuous material: every object
+   shares the page colour and is shaped only by light (top-left) and shade
+   (bottom-right). Raised = interactive / content, inset = wells, inputs and
+   pressed state. Accents are used sparingly for meaning and primary actions.
    ────────────────────────────────────────────────────────────────────────── */
 
 @theme inline {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
 
-  /* Ambient field */
-  --color-void: #04050a;
-  --color-abyss: #070914;
-  --color-deep: #0b0e1c;
+@theme {
 
-  /* Ink (text) on glass */
-  --color-ink: #f4f6ff;
-  --color-ink-2: rgb(226 232 255 / 0.72);
-  --color-ink-3: rgb(226 232 255 / 0.5);
-  --color-ink-4: rgb(226 232 255 / 0.32);
+  /* Surface — the single material everything is carved from */
+  --color-void: #e7ecf3;
+  --color-abyss: #e1e7ef;
+  --color-deep: #dbe2ec;
+  --color-surface: #e7ecf3;
+  --color-surface-hi: #eef2f8;
+  --color-surface-lo: #dde3ec;
 
-  /* Spectral accents */
-  --color-iris: #7c5cff;
-  --color-iris-soft: #a594ff;
-  --color-aqua: #22d3ee;
-  --color-aqua-soft: #7ae7f7;
-  --color-plasma: #f472b6;
-  --color-ember: #fb923c;
-  --color-lime: #a3e635;
-  --color-success: #34d399;
-  --color-warning: #fbbf24;
-  --color-danger: #fb7185;
-  --color-info: #60a5fa;
+  /* Ink (text) */
+  --color-ink: #1e2a44;
+  --color-ink-2: #46536e;
+  --color-ink-3: #67728c;
+  --color-ink-4: #8b95ac;
 
-  /* Glass materials */
-  --color-glass: rgb(255 255 255 / 0.055);
-  --color-glass-2: rgb(255 255 255 / 0.085);
-  --color-glass-3: rgb(255 255 255 / 0.12);
-  --color-glass-hover: rgb(255 255 255 / 0.1);
-  --color-edge: rgb(255 255 255 / 0.1);
-  --color-edge-strong: rgb(255 255 255 / 0.18);
+  /* Accents — tuned for contrast on the light surface */
+  --color-iris: #6c5ce7;
+  --color-iris-soft: #5646d0;
+  --color-aqua: #10b4d6;
+  --color-aqua-soft: #0a87a3;
+  --color-plasma: #dd3f8d;
+  --color-ember: #e5700b;
+  --color-lime: #5f9f0c;
+  --color-success: #11a172;
+  --color-warning: #c98300;
+  --color-danger: #e0434d;
+  --color-info: #2f6fe0;
+  --color-on-accent: #ffffff;
+  /* Dark veil for text placed on photography */
+  --color-scrim: #131a2c;
+
+  /* Material helpers */
+  --color-glass: rgb(30 42 68 / 0.03);
+  --color-glass-2: rgb(30 42 68 / 0.05);
+  --color-glass-3: rgb(30 42 68 / 0.08);
+  --color-glass-hover: rgb(30 42 68 / 0.04);
+  --color-edge: rgb(30 42 68 / 0.08);
+  --color-edge-strong: rgb(30 42 68 / 0.14);
+  --color-shade: rgb(163 177 198 / 0.62);
+  --color-light: rgb(255 255 255 / 0.92);
 
   --radius-panel: 28px;
   --radius-card: 22px;
   --radius-control: 14px;
 
-  --shadow-float: 0 1px 0 0 rgb(255 255 255 / 0.08) inset, 0 24px 60px -24px rgb(0 0 0 / 0.7),
-    0 8px 24px -12px rgb(0 0 0 / 0.5);
-  --shadow-lift: 0 1px 0 0 rgb(255 255 255 / 0.12) inset, 0 40px 90px -30px rgb(0 0 0 / 0.85),
-    0 16px 40px -16px rgb(76 56 200 / 0.35);
-  --shadow-glow-iris: 0 0 0 1px rgb(124 92 255 / 0.5), 0 10px 40px -8px rgb(124 92 255 / 0.65);
-  --shadow-glow-aqua: 0 0 0 1px rgb(34 211 238 / 0.45), 0 10px 40px -8px rgb(34 211 238 / 0.55);
+  /* Neumorphic elevation scale (usable as shadow-neu-sm / shadow-neu / shadow-neu-lg / shadow-neu-inset) */
+  --shadow-neu-sm: 4px 4px 9px rgb(163 177 198 / 0.55), -4px -4px 9px rgb(255 255 255 / 0.9);
+  --shadow-neu: 8px 8px 18px rgb(163 177 198 / 0.55), -8px -8px 18px rgb(255 255 255 / 0.9);
+  --shadow-neu-lg: 14px 14px 32px rgb(163 177 198 / 0.6), -12px -12px 28px rgb(255 255 255 / 0.95);
+  --shadow-neu-inset: inset 4px 4px 9px rgb(163 177 198 / 0.55), inset -4px -4px 9px rgb(255 255 255 / 0.9);
+  --shadow-neu-inset-sm: inset 2px 2px 5px rgb(163 177 198 / 0.5), inset -2px -2px 5px rgb(255 255 255 / 0.9);
+  --shadow-float: var(--shadow-neu);
+  --shadow-lift: var(--shadow-neu-lg);
+  --shadow-glow-iris: 0 10px 24px -8px rgb(108 92 231 / 0.55), 4px 4px 10px rgb(163 177 198 / 0.5),
+    -4px -4px 10px rgb(255 255 255 / 0.85);
+  --shadow-glow-aqua: 0 10px 24px -8px rgb(16 180 214 / 0.5), 4px 4px 10px rgb(163 177 198 / 0.5),
+    -4px -4px 10px rgb(255 255 255 / 0.85);
 
   --animate-float: float 7s ease-in-out infinite;
   --animate-float-slow: float 11s ease-in-out infinite;
-  --animate-aurora: aurora 22s ease-in-out infinite alternate;
-  --animate-shimmer: shimmer 2.4s linear infinite;
+  --animate-aurora: drift 26s ease-in-out infinite alternate;
+  --animate-breathe: breathe 5s ease-in-out infinite;
+  --animate-shimmer: shimmer 1.8s ease-in-out infinite;
   --animate-marquee: marquee 38s linear infinite;
   --animate-pulse-ring: pulse-ring 2.2s cubic-bezier(0.2, 0.7, 0.3, 1) infinite;
   --animate-spin-slow: spin 18s linear infinite;
+  --animate-rise: rise 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes float {
   0%, 100% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(0, -14px, 0); }
+  50% { transform: translate3d(0, -12px, 0); }
 }
-@keyframes aurora {
-  0% { transform: translate3d(-6%, -4%, 0) rotate(0deg) scale(1); }
-  50% { transform: translate3d(4%, 6%, 0) rotate(12deg) scale(1.12); }
-  100% { transform: translate3d(8%, -6%, 0) rotate(-8deg) scale(0.96); }
+@keyframes drift {
+  0% { transform: translate3d(-5%, -3%, 0) scale(1); }
+  50% { transform: translate3d(4%, 5%, 0) scale(1.1); }
+  100% { transform: translate3d(7%, -5%, 0) scale(0.95); }
+}
+/* Soft extrusion that slowly swells and settles — used on hero objects */
+@keyframes breathe {
+  0%, 100% { box-shadow: var(--shadow-neu); }
+  50% { box-shadow: var(--shadow-neu-lg); }
 }
 @keyframes shimmer {
-  from { background-position: -200% 0; }
-  to { background-position: 200% 0; }
+  0% { background-position: -150% 0; }
+  100% { background-position: 250% 0; }
 }
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
 @keyframes pulse-ring {
-  0% { transform: scale(0.8); opacity: 0.7; }
+  0% { transform: scale(0.8); opacity: 0.6; }
   100% { transform: scale(2.2); opacity: 0; }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translate3d(0, 14px, 0); }
+  to { opacity: 1; transform: none; }
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   --nav-h: 76px;
 }
 
 html {
-  background: var(--color-void);
+  background: var(--color-surface);
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* No body background: <html> paints the void, so the fixed -z-10 aurora layer stays visible above it. */
+/* No body background: <html> paints the surface, so the fixed -z-10 ambient layer stays visible above it. */
 body {
   color: var(--color-ink);
   font-family: var(--font-sans);
@@ -104,18 +134,17 @@ body {
 }
 
 ::selection {
-  background: rgb(124 92 255 / 0.45);
-  color: white;
+  background: rgb(108 92 231 / 0.22);
+  color: var(--color-ink);
 }
 
-/* Thin, translucent scrollbars that sit on the glass */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgb(255 255 255 / 0.16) transparent;
+  scrollbar-color: rgb(30 42 68 / 0.18) transparent;
 }
 *::-webkit-scrollbar { width: 10px; height: 10px; }
 *::-webkit-scrollbar-thumb {
-  background: rgb(255 255 255 / 0.14);
+  background: rgb(30 42 68 / 0.16);
   border-radius: 999px;
   border: 3px solid transparent;
   background-clip: padding-box;
@@ -123,48 +152,83 @@ body {
 
 /* Programmatically focused containers (dialogs, tabindex=-1) get no ring; interactive controls do. */
 :focus-visible:not([tabindex="-1"]) {
-  outline: 2px solid var(--color-aqua);
+  outline: 2px solid var(--color-iris);
   outline-offset: 3px;
   border-radius: 10px;
 }
 
 @layer components {
-  /* Glass materials — depth tiers.
-     Each tier sits on a dark tinted base so text stays legible over anything behind it; the blur adds
-     the frosted depth. Only the standard `backdrop-filter` is written — the CSS minifier adds the
-     -webkit- prefix itself (writing both made it keep only the prefixed one, which Chrome ignores). */
-  .glass {
-    background:
-      linear-gradient(180deg, rgb(255 255 255 / 0.07), rgb(255 255 255 / 0.025)),
-      rgb(13 16 32 / 0.62);
-    border: 1px solid var(--color-edge);
-    box-shadow: var(--shadow-float);
-    backdrop-filter: blur(28px) saturate(160%);
+  /* ── Neumorphic materials ───────────────────────────────────────────────
+     The legacy class names (glass*) are kept so every screen picks up the new material. */
+
+  /* Raised surface: panels and cards */
+  .glass,
+  .neu {
+    background: linear-gradient(145deg, var(--color-surface-hi), var(--color-surface-lo));
+    border: 1px solid rgb(255 255 255 / 0.55);
+    box-shadow: var(--shadow-neu);
   }
-  /* Floating objects: menus, popovers, cards inside sheets, the nav bar. */
-  .glass-2 {
-    background:
-      linear-gradient(180deg, rgb(255 255 255 / 0.09), rgb(255 255 255 / 0.03)),
-      rgb(15 18 36 / 0.84);
-    border: 1px solid var(--color-edge-strong);
-    box-shadow: var(--shadow-lift);
-    backdrop-filter: blur(40px) saturate(180%);
+  /* Higher extrusion: floating objects, menus, highlighted cards */
+  .glass-2,
+  .neu-raised {
+    background: linear-gradient(145deg, #f1f4f9, #dfe5ee);
+    border: 1px solid rgb(255 255 255 / 0.7);
+    box-shadow: var(--shadow-neu-lg);
   }
-  /* Sheets: modals, drawers, command palette — near-opaque so nothing behind competes with content. */
+  /* Sheets: modals, drawers, command palette, popovers — solid, lifted well clear of the page */
   .glass-sheet {
-    background:
-      linear-gradient(180deg, rgb(255 255 255 / 0.06), rgb(255 255 255 / 0.015)),
-      rgb(11 14 28 / 0.96);
-    border: 1px solid var(--color-edge-strong);
-    box-shadow: var(--shadow-lift), 0 0 0 1px rgb(0 0 0 / 0.4);
-    backdrop-filter: blur(48px) saturate(180%);
+    background: linear-gradient(160deg, #f2f5fa, #e6ebf2);
+    border: 1px solid rgb(255 255 255 / 0.85);
+    box-shadow:
+      0 40px 90px -30px rgb(52 66 99 / 0.38),
+      16px 16px 36px rgb(163 177 198 / 0.5),
+      -10px -10px 26px rgb(255 255 255 / 0.8);
   }
-  .glass-inset {
-    background: rgb(0 0 0 / 0.22);
-    border: 1px solid rgb(255 255 255 / 0.07);
-    box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.35);
+  /* Carved well: inputs, tracks, insets, pressed state */
+  .glass-inset,
+  .neu-inset {
+    background: var(--color-surface-lo);
+    border: 1px solid rgb(255 255 255 / 0.35);
+    box-shadow: var(--shadow-neu-inset);
   }
-  /* Specular rim: a 1px gradient border that catches light from the top-left */
+
+  /* Tactile feedback: lifts on hover, sinks into the surface when pressed */
+  .neu-press {
+    transition: box-shadow 0.22s ease, transform 0.22s ease, background-color 0.22s ease;
+  }
+  .neu-press:hover { box-shadow: var(--shadow-neu-lg); transform: translateY(-1px); }
+  .neu-press:active { box-shadow: var(--shadow-neu-inset); transform: translateY(0); }
+
+  .neu-hover {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .neu-hover:hover { box-shadow: var(--shadow-neu-lg); transform: translateY(-2px); }
+
+  /* Any raised surface that is itself a link or button behaves like a physical key. */
+  :is(a, button):is(.glass, .neu, .glass-2, .neu-raised) {
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  :is(a, button):is(.glass, .neu, .glass-2, .neu-raised):hover {
+    box-shadow: var(--shadow-neu-lg);
+    transform: translateY(-2px);
+  }
+  :is(a, button):is(.glass, .neu, .glass-2, .neu-raised):active {
+    box-shadow: var(--shadow-neu-inset);
+    transform: translateY(0);
+  }
+
+  /* Content placed on photography: light text over a dark scrim */
+  .on-photo {
+    --color-ink: #ffffff;
+    --color-ink-2: rgb(255 255 255 / 0.86);
+    --color-ink-3: rgb(255 255 255 / 0.72);
+    --color-ink-4: rgb(255 255 255 / 0.58);
+    --color-aqua-soft: #7ae7f7;
+    --color-iris-soft: #c4baff;
+    text-shadow: 0 1px 12px rgb(10 14 28 / 0.35);
+  }
+
+  /* Soft highlight rim (kept as a subtle top-left catch-light) */
   .rim {
     position: relative;
     isolation: isolate;
@@ -175,8 +239,7 @@ body {
     inset: 0;
     padding: 1px;
     border-radius: inherit;
-    background: linear-gradient(140deg, rgb(255 255 255 / 0.38), rgb(255 255 255 / 0.04) 38%,
-        rgb(124 92 255 / 0.25) 70%, rgb(34 211 238 / 0.3));
+    background: linear-gradient(140deg, rgb(255 255 255 / 0.95), rgb(255 255 255 / 0) 45%, rgb(108 92 231 / 0.18));
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -185,7 +248,7 @@ body {
   }
 
   .text-spectral {
-    background: linear-gradient(100deg, #ffffff 0%, #c9c2ff 30%, #7ae7f7 62%, #f9a8d4 100%);
+    background: linear-gradient(100deg, #1e2a44 0%, #5646d0 38%, #0a9ec0 70%, #d23c86 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -198,19 +261,20 @@ body {
   }
 
   .bg-spectral {
-    background: linear-gradient(120deg, #7c5cff 0%, #5b7cfa 45%, #22d3ee 100%);
+    background: linear-gradient(135deg, #7b6cf0 0%, #5b7cf2 50%, #19b9da 100%);
   }
 
   .shimmer {
-    background: linear-gradient(90deg, rgb(255 255 255 / 0.04) 25%, rgb(255 255 255 / 0.1) 50%,
-        rgb(255 255 255 / 0.04) 75%);
-    background-size: 200% 100%;
+    background: linear-gradient(100deg, rgb(255 255 255 / 0) 30%, rgb(255 255 255 / 0.75) 50%, rgb(255 255 255 / 0) 70%),
+      var(--color-surface-lo);
+    background-size: 220% 100%;
+    box-shadow: var(--shadow-neu-inset-sm);
     animation: var(--animate-shimmer);
   }
 
   .grid-floor {
-    background-image: linear-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+    background-image: linear-gradient(rgb(30 42 68 / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(30 42 68 / 0.05) 1px, transparent 1px);
     background-size: 56px 56px;
     mask-image: radial-gradient(ellipse at center, black 20%, transparent 72%);
   }
@@ -220,7 +284,7 @@ body {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.05;
+    opacity: 0.035;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
@@ -245,19 +309,20 @@ body {
     margin: 1.8em 0 0.5em;
   }
   .prose-spatial p { margin: 1em 0; }
-  .prose-spatial a { color: var(--color-aqua-soft); text-decoration: underline; text-underline-offset: 3px; }
+  .prose-spatial a { color: var(--color-iris-soft); text-decoration: underline; text-underline-offset: 3px; }
   .prose-spatial ul, .prose-spatial ol { margin: 1em 0; padding-left: 1.4em; }
   .prose-spatial ul { list-style: disc; }
   .prose-spatial ol { list-style: decimal; }
   .prose-spatial li { margin: 0.4em 0; }
-  .prose-spatial li::marker { color: var(--color-iris-soft); }
+  .prose-spatial li::marker { color: var(--color-iris); }
   .prose-spatial strong { color: var(--color-ink); font-weight: 600; }
   .prose-spatial blockquote {
     border-left: 3px solid var(--color-iris);
-    padding: 0.4em 1.2em;
+    padding: 0.6em 1.2em;
     margin: 1.6em 0;
     color: var(--color-ink);
-    background: rgb(255 255 255 / 0.04);
+    background: var(--color-surface-lo);
+    box-shadow: var(--shadow-neu-inset-sm);
     border-radius: 0 14px 14px 0;
   }
   .prose-spatial table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 1.5em 0; }

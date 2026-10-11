@@ -281,7 +281,8 @@ function Car({ config }: { config: VisualizerConfig }) {
   );
 }
 
-const ENV_BG: Record<EnvPreset, string> = { studio: "#0b0e1c", sunset: "#1a0f1c", night: "#04050b" };
+// Studio matches the neumorphic surface; sunset / night stay moody for contrast.
+const ENV_BG: Record<EnvPreset, string> = { studio: "#dde3ec", sunset: "#1a0f1c", night: "#04050b" };
 
 function Lighting({ preset }: { preset: EnvPreset }) {
   return (
@@ -327,7 +328,7 @@ function Scene({ config }: { config: VisualizerConfig }) {
         <circleGeometry args={[14, 64]} />
         <meshStandardMaterial color={ENV_BG[config.env]} roughness={0.55} metalness={0.4} />
       </mesh>
-      <ContactShadows position={[0, 0, 0]} opacity={0.75} scale={12} blur={2.4} far={2.5} resolution={512} color="#000000" />
+      <ContactShadows position={[0, 0, 0]} opacity={config.env === "studio" ? 0.5 : 0.75} scale={12} blur={2.4} far={2.5} resolution={512} color="#000000" />
       <OrbitControls
         makeDefault
         enablePan={false}
@@ -347,7 +348,7 @@ function Scene({ config }: { config: VisualizerConfig }) {
 
 function Group({ title, children, aside }: { title: string; children: ReactNode; aside?: ReactNode }) {
   return (
-    <fieldset className="border-t border-white/[0.06] pt-4 first:border-0 first:pt-0">
+    <fieldset className="border-t border-ink/[0.06] pt-4 first:border-0 first:pt-0">
       <legend className="mb-2.5 flex w-full items-center justify-between text-[11px] font-semibold tracking-[0.12em] text-ink-3 uppercase">
         {title}
         {aside}
@@ -370,8 +371,8 @@ function Swatches({ list, value, onChange, size = 28 }: { list: Swatch[]; value:
           title={s.name}
           onClick={() => onChange(s.id)}
           className={cn(
-            "rounded-full ring-offset-2 ring-offset-[#0d1024] transition hover:scale-110",
-            value === s.id ? "ring-2 ring-aqua" : "ring-1 ring-white/20",
+            "rounded-full ring-offset-2 ring-offset-void transition hover:scale-110",
+            value === s.id ? "ring-2 ring-aqua" : "ring-1 ring-ink/20",
           )}
           style={{ width: size, height: size, background: `radial-gradient(circle at 30% 30%, rgb(255 255 255 / 0.45), transparent 45%), ${s.hex}` }}
         />
@@ -392,7 +393,7 @@ function Chips<T extends string | number>({ options, value, onChange }: { option
           onClick={() => onChange(o.id)}
           className={cn(
             "rounded-full border px-3 py-1.5 text-xs font-medium transition",
-            value === o.id ? "border-aqua/60 bg-aqua/15 text-ink" : "border-white/10 bg-white/[0.03] text-ink-3 hover:text-ink",
+            value === o.id ? "border-aqua/60 bg-aqua/15 text-ink" : "border-ink/10 bg-ink/[0.03] text-ink-3 hover:text-ink",
           )}
         >
           {o.label}
@@ -568,7 +569,7 @@ export default function CarVisualizer({ mode = "marketing", initialConfig, onSav
               <button
                 type="button"
                 onClick={screenshot}
-                className="glass inline-flex h-10 flex-1 items-center justify-center gap-2 rounded-full text-sm text-ink transition hover:bg-white/[0.08]"
+                className="glass inline-flex h-10 flex-1 items-center justify-center gap-2 rounded-full text-sm text-ink transition hover:bg-ink/[0.08]"
               >
                 <Download className="size-4" /> Screenshot
               </button>

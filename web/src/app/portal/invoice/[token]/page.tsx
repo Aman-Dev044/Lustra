@@ -44,7 +44,7 @@ export default function PublicInvoicePage() {
       </div>
       <div className="grid gap-4 lg:grid-cols-[1fr_380px]">
         <Section title="Items" icon={<Receipt className="size-5" style={{ color: brand }} />}>
-          <ul className="divide-y divide-white/[0.06]">
+          <ul className="divide-y divide-ink/[0.06]">
             {invoice.items.map((it, i) => (
               <li key={it._id ?? i} className="flex justify-between gap-3 py-3 text-sm">
                 <span>

@@ -80,7 +80,7 @@ export default function BlogPage() {
                     <Link href={`/blog/${p.slug}`} className="flex h-full flex-col">
                       <div className="relative h-48">
                         <Image src={p.image} alt={p.imageAlt} fill sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0b0e1c]/80 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-void/85 to-transparent" />
                         <Badge tone="aqua" className="absolute top-4 left-4">
                           {p.category}
                         </Badge>

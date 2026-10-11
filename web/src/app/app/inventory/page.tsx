@@ -106,7 +106,7 @@ function Inventory() {
           onClick={() => setLowOnly((v) => !v)}
           className={cn(
             "h-10 rounded-full border px-4 text-sm transition",
-            lowOnly ? "border-warning/40 bg-warning/10 text-warning" : "border-white/10 text-ink-3 hover:text-ink",
+            lowOnly ? "border-warning/40 bg-warning/10 text-warning" : "border-ink/10 text-ink-3 hover:text-ink",
           )}
           aria-pressed={lowOnly}
         >
@@ -153,7 +153,7 @@ function Inventory() {
                 const lowItem = isLow(i);
                 const pct = Math.min(100, (i.quantity / Math.max(1, i.reorderLevel * 3)) * 100);
                 return (
-                  <tr key={i._id} className={cn("transition-colors hover:bg-white/[0.03]", lowItem && "bg-warning/[0.04]")}>
+                  <tr key={i._id} className={cn("transition-colors hover:bg-ink/[0.03]", lowItem && "bg-warning/[0.04]")}>
                     <Td>
                       <p className="font-medium text-ink">{i.name}</p>
                       <p className="font-mono text-[11px] text-ink-4">{i.sku || "—"}</p>
@@ -164,7 +164,7 @@ function Inventory() {
                         <span className={cn("tabular-nums", lowItem ? "font-semibold text-warning" : "text-ink")}>
                           {formatNumber(i.quantity)} {i.unit}
                         </span>
-                        <span className="h-1 w-20 overflow-hidden rounded-full bg-white/10">
+                        <span className="h-1 w-20 overflow-hidden rounded-full bg-ink/10">
                           <span
                             className={cn("block h-full rounded-full", lowItem ? "bg-warning" : "bg-gradient-to-r from-iris to-aqua")}
                             style={{ width: `${pct}%` }}
@@ -187,7 +187,7 @@ function Inventory() {
                         {isManager && (
                           <Menu
                             trigger={
-                              <button className="rounded-full p-1.5 text-ink-4 hover:bg-white/10 hover:text-ink" aria-label="More actions">
+                              <button className="rounded-full p-1.5 text-ink-4 hover:bg-ink/10 hover:text-ink" aria-label="More actions">
                                 <MoreHorizontal className="size-4" />
                               </button>
                             }
@@ -405,7 +405,7 @@ function AdjustModal({ item, onClose }: { item: InventoryItem | null; onClose: (
                   ? d === 1
                     ? "border-success/40 bg-success/10 text-success"
                     : "border-danger/40 bg-danger/10 text-danger"
-                  : "border-white/10 text-ink-3",
+                  : "border-ink/10 text-ink-3",
               )}
             >
               <Icon className="size-4" /> {label}

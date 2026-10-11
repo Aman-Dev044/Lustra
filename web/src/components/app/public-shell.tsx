@@ -42,12 +42,12 @@ export function PublicShell({ shop, children, wide }: { shop?: PublicShop | null
           </div>
           <div className="flex items-center gap-1">
             {shop?.phone && (
-              <a href={`tel:${shop.phone}`} className="inline-flex h-9 items-center gap-1.5 rounded-full px-3 text-xs text-ink-2 hover:bg-white/[0.06]">
+              <a href={`tel:${shop.phone}`} className="inline-flex h-9 items-center gap-1.5 rounded-full px-3 text-xs text-ink-2 hover:bg-ink/[0.06]">
                 <Phone className="size-3.5" aria-hidden /> <span className="hidden sm:inline">{shop.phone}</span>
               </a>
             )}
             {shop?.email && (
-              <a href={`mailto:${shop.email}`} className="hidden h-9 items-center gap-1.5 rounded-full px-3 text-xs text-ink-2 hover:bg-white/[0.06] sm:inline-flex">
+              <a href={`mailto:${shop.email}`} className="hidden h-9 items-center gap-1.5 rounded-full px-3 text-xs text-ink-2 hover:bg-ink/[0.06] sm:inline-flex">
                 <Mail className="size-3.5" aria-hidden /> Email
               </a>
             )}
@@ -69,7 +69,7 @@ export function PublicShell({ shop, children, wide }: { shop?: PublicShop | null
 export function PublicState({ title, description, icon }: { title: string; description?: string; icon?: ReactNode }) {
   return (
     <div className="glass-2 rim mx-auto mt-10 max-w-md rounded-[28px] p-10 text-center">
-      {icon && <div className="mx-auto mb-5 flex size-14 items-center justify-center rounded-2xl bg-white/[0.06] text-aqua-soft">{icon}</div>}
+      {icon && <div className="mx-auto mb-5 flex size-14 items-center justify-center rounded-2xl bg-ink/[0.06] text-aqua-soft">{icon}</div>}
       <h1 className="text-xl font-semibold tracking-tight text-ink">{title}</h1>
       {description && <p className="mt-2 text-sm text-ink-3">{description}</p>}
     </div>

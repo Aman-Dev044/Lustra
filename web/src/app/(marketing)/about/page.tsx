@@ -113,10 +113,10 @@ export default function AboutPage() {
           <Reveal>
             <SectionHeading eyebrow="Timeline" title={<span id="timeline-title">From one bay to thousands</span>} />
           </Reveal>
-          <ol className="relative mt-12 space-y-4 border-l border-white/10 pl-8">
+          <ol className="relative mt-12 space-y-4 border-l border-ink/10 pl-8">
             {timeline.map((t, i) => (
               <Reveal as="li" key={t.year} delay={i * 0.04} className="relative">
-                <span className="bg-spectral absolute top-5 -left-[41px] size-4 rounded-full ring-4 ring-[#070914]" aria-hidden />
+                <span className="bg-spectral absolute top-5 -left-[41px] size-4 rounded-full ring-4 ring-void" aria-hidden />
                 <Glass className="p-5">
                   <p className="font-mono text-sm text-aqua-soft">{t.year}</p>
                   <p className="mt-1 text-ink-2">{t.text}</p>

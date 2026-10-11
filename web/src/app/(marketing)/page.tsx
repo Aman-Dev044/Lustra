@@ -269,7 +269,7 @@ export default function HomePage() {
       {/* ── Trust stats ──────────────────────────────────────────────── */}
       <section aria-label="Lustra by the numbers" className="py-10">
         <Container>
-          <Glass className="grid grid-cols-2 divide-white/[0.06] rounded-[28px] lg:grid-cols-4 lg:divide-x">
+          <Glass className="grid grid-cols-2 divide-ink/[0.06] rounded-[28px] lg:grid-cols-4 lg:divide-x">
             {trustStats.map((s) => (
               <div key={s.label} className="px-6 py-8 text-center">
                 <p className="text-3xl font-semibold tracking-[-0.04em] text-ink sm:text-4xl">
@@ -298,7 +298,7 @@ export default function HomePage() {
             {bento.map(({ title, body, href, Mock, className }, i) => (
               <Reveal key={title} delay={(i % 3) * 0.06} className={className}>
                 <TiltCard max={5}>
-                  <Link href={href} className="group glass flex h-full flex-col rounded-[26px] p-5 transition hover:bg-white/[0.07]">
+                  <Link href={href} className="group glass flex h-full flex-col rounded-[26px] p-5 transition hover:bg-ink/[0.07]">
                     <div className="flex-1">
                       <Mock />
                     </div>
@@ -338,7 +338,7 @@ export default function HomePage() {
               <Reveal as="li" key={j.step} className="relative">
                 <div className={cn("grid items-center gap-6 lg:grid-cols-2 lg:gap-16", i % 2 === 1 && "lg:[&>*:first-child]:order-2")}>
                   <div className={cn("lg:max-w-md", i % 2 === 0 ? "lg:ml-auto lg:text-right" : "")}>
-                    <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] font-semibold tracking-[0.16em] text-aqua-soft uppercase">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-ink/[0.04] px-3 py-1 text-[11px] font-semibold tracking-[0.16em] text-aqua-soft uppercase">
                       {String(i + 1).padStart(2, "0")} · {j.step}
                     </span>
                     <h3 className="mt-4 text-2xl font-semibold tracking-[-0.03em] text-ink">{j.title}</h3>
@@ -347,7 +347,7 @@ export default function HomePage() {
                   <div className="glass-2 rim relative overflow-hidden rounded-[28px] p-2">
                     <div className="relative aspect-[16/10] overflow-hidden rounded-[22px]">
                       <Image src={j.image} alt={j.alt} fill sizes="(min-width: 1024px) 560px, 100vw" className="object-cover transition duration-700 hover:scale-105" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#04050a]/60 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-scrim/30 to-transparent" />
                     </div>
                   </div>
                 </div>
@@ -394,10 +394,10 @@ export default function HomePage() {
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0b0e1c] via-[#0b0e1c]/30 to-transparent lg:from-[#0d1024]" />
+                <div className="absolute inset-0 bg-gradient-to-r from-void via-void/30 to-transparent lg:from-void" />
                 <div className="glass-2 absolute right-6 bottom-6 flex gap-2 rounded-full p-2" aria-hidden>
                   {["#e11d48", "#0f172a", "#e5e7eb", "#7c5cff", "#22d3ee", "#a3e635"].map((c) => (
-                    <span key={c} className="size-7 rounded-full ring-2 ring-white/20" style={{ background: c }} />
+                    <span key={c} className="size-7 rounded-full ring-2 ring-ink/20" style={{ background: c }} />
                   ))}
                 </div>
               </div>

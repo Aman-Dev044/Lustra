@@ -41,7 +41,7 @@ export function CustomerPicker({
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex h-11 w-full items-center justify-between rounded-[var(--radius-control)] border border-white/10 bg-black/25 px-3.5 text-left text-sm transition hover:border-white/20"
+        className="flex h-11 w-full items-center justify-between rounded-[var(--radius-control)] border border-ink/10 bg-surface-lo px-3.5 text-left text-sm transition hover:border-ink/20"
       >
         <span className={value ? "text-ink" : "text-ink-4"}>
           {value ? customerName(value) : placeholder}
@@ -51,7 +51,7 @@ export function CustomerPicker({
       </button>
       {open && (
         <div className="glass-sheet absolute z-50 mt-2 w-full overflow-hidden rounded-2xl p-1.5">
-          <div className="flex items-center gap-2 border-b border-white/[0.07] px-2.5 pb-2">
+          <div className="flex items-center gap-2 border-b border-ink/[0.07] px-2.5 pb-2">
             <Search className="size-4 text-ink-4" />
             <input
               autoFocus
@@ -70,7 +70,7 @@ export function CustomerPicker({
                     onChange(c);
                     setOpen(false);
                   }}
-                  className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-sm text-ink-2 hover:bg-white/[0.07] hover:text-ink"
+                  className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-sm text-ink-2 hover:bg-ink/[0.07] hover:text-ink"
                 >
                   <span className="flex-1">
                     {customerName(c)}
@@ -88,7 +88,7 @@ export function CustomerPicker({
               setCreating(true);
               setOpen(false);
             }}
-            className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-sm text-aqua-soft hover:bg-white/[0.07]"
+            className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-sm text-aqua-soft hover:bg-ink/[0.07]"
           >
             <Plus className="size-4" /> New customer{q ? ` “${q}”` : ""}
           </button>
@@ -197,7 +197,7 @@ export function VehiclePicker({
   const { data, refresh } = useApi<Paginated<Vehicle>>(customerId ? "/vehicles" : null, { customer: customerId, pageSize: 50 });
   const [creating, setCreating] = useState(false);
   if (!customerId) {
-    return <div className="flex h-11 items-center rounded-[var(--radius-control)] border border-dashed border-white/10 px-3.5 text-sm text-ink-4">Pick a customer first</div>;
+    return <div className="flex h-11 items-center rounded-[var(--radius-control)] border border-dashed border-ink/10 px-3.5 text-sm text-ink-4">Pick a customer first</div>;
   }
   return (
     <div className="flex gap-2">
@@ -398,7 +398,7 @@ export function ServiceQuickAdd({ onPick, size = "medium" }: { onPick: (s: Servi
               key={s._id}
               type="button"
               onClick={() => onPick(s, price)}
-              className="group flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.03] px-3 py-2.5 text-left transition hover:border-aqua/40 hover:bg-white/[0.07]"
+              className="group flex items-center gap-3 rounded-xl border border-ink/[0.06] bg-ink/[0.03] px-3 py-2.5 text-left transition hover:border-aqua/40 hover:bg-ink/[0.07]"
             >
               <span className="size-2 shrink-0 rounded-full" style={{ background: categoryMeta[s.category]?.color }} />
               <span className="min-w-0 flex-1">

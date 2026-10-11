@@ -85,7 +85,7 @@ export default function WhyLustraPage() {
                 <div className="overflow-x-auto">
                   <table className="w-full min-w-[520px] text-sm">
                     <thead>
-                      <tr className="border-b border-white/[0.08]">
+                      <tr className="border-b border-ink/[0.08]">
                         <th scope="col" className="px-6 py-5 text-left text-xs font-semibold tracking-[0.1em] text-ink-4 uppercase">
                           Capability
                         </th>
@@ -99,7 +99,7 @@ export default function WhyLustraPage() {
                     </thead>
                     <tbody>
                       {rows.map((r) => (
-                        <tr key={r.label} className="border-t border-white/[0.04]">
+                        <tr key={r.label} className="border-t border-ink/[0.04]">
                           <th scope="row" className="px-6 py-3.5 text-left font-normal text-ink-2">
                             {r.label}
                           </th>
@@ -118,7 +118,7 @@ export default function WhyLustraPage() {
             </Reveal>
             <Reveal delay={0.1}>
               <SpatialImage src="/images/garage-night.webp" alt="Sports car in a modern detailing garage at night" className="h-80 lg:h-full" sizes="(min-width: 1024px) 480px, 100vw">
-                <div className="absolute right-5 bottom-5 left-5">
+                <div className="on-photo absolute right-5 bottom-5 left-5">
                   <p className="text-xs tracking-[0.14em] text-aqua-soft uppercase">Typical result</p>
                   <p className="mt-1 text-2xl font-semibold text-white">+38% booked jobs in year one</p>
                   <p className="text-sm text-ink-2">Median across shops that switched in 2025</p>

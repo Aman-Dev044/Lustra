@@ -199,7 +199,7 @@ function NewQuoteView() {
                 <button
                   key={s}
                   onClick={() => setPrompt(s)}
-                  className="max-w-full truncate rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs text-ink-3 transition hover:border-aqua/40 hover:text-ink"
+                  className="max-w-full truncate rounded-full border border-ink/[0.08] bg-ink/[0.03] px-3 py-1.5 text-xs text-ink-3 transition hover:border-aqua/40 hover:text-ink"
                 >
                   {s}
                 </button>
@@ -239,7 +239,7 @@ function NewQuoteView() {
                               <span className="text-ink-3">Confidence</span>
                               <span className="font-semibold tabular-nums">{confidence}%</span>
                             </div>
-                            <div className="h-2 overflow-hidden rounded-full bg-white/[0.06]">
+                            <div className="h-2 overflow-hidden rounded-full bg-ink/[0.06]">
                               <motion.div
                                 className="h-full rounded-full"
                                 style={{ background: confidence > 75 ? "linear-gradient(90deg,#7c5cff,#34d399)" : confidence > 50 ? "linear-gradient(90deg,#7c5cff,#22d3ee)" : "linear-gradient(90deg,#fb923c,#fbbf24)" }}
@@ -282,11 +282,11 @@ function NewQuoteView() {
                         ))}
                       </ul>
                       {result && itemsShown >= result.items.length && (
-                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white/[0.04] px-4 py-3">
+                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-ink/[0.04] px-4 py-3">
                           <span className="text-sm text-ink-2">
                             {formatMoney(result.total)} · about {formatDuration(result.durationMinutes)} of work
                           </span>
-                          <a href="#quote-builder" className="inline-flex items-center gap-1 text-sm font-medium text-aqua-soft hover:text-white">
+                          <a href="#quote-builder" className="inline-flex items-center gap-1 text-sm font-medium text-aqua-soft hover:text-ink">
                             Review & send <ArrowRight className="size-4" />
                           </a>
                         </motion.div>

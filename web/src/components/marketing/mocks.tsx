@@ -23,10 +23,10 @@ export function MockFrame({ children, className, title }: { children: ReactNode;
   return (
     <div className={cn("glass-2 rim overflow-hidden rounded-[24px]", className)} aria-hidden>
       {title && (
-        <div className="flex items-center gap-1.5 border-b border-white/[0.07] px-4 py-2.5">
-          <span className="size-2 rounded-full bg-white/20" />
-          <span className="size-2 rounded-full bg-white/20" />
-          <span className="size-2 rounded-full bg-white/20" />
+        <div className="flex items-center gap-1.5 border-b border-ink/[0.07] px-4 py-2.5">
+          <span className="size-2 rounded-full bg-ink/20" />
+          <span className="size-2 rounded-full bg-ink/20" />
+          <span className="size-2 rounded-full bg-ink/20" />
           <span className="ml-2 text-[10px] font-medium tracking-wide text-ink-4">{title}</span>
         </div>
       )}
@@ -46,13 +46,13 @@ export function BoardMock() {
     <MockFrame title="Live Board">
       <div className="grid grid-cols-3 gap-2">
         {cols.map((c) => (
-          <div key={c.name} className="rounded-xl bg-black/20 p-2">
+          <div key={c.name} className="rounded-xl bg-surface-lo p-2">
             <p className="mb-2 flex items-center gap-1.5 text-[10px] font-semibold text-ink-3">
               <span className={cn("size-1.5 rounded-full", c.color)} /> {c.name}
             </p>
             <div className="space-y-1.5">
               {c.cards.map(([car, svc, price], i) => (
-                <div key={car} className={cn("rounded-lg border border-white/10 bg-white/[0.06] p-2", c.name === "In progress" && i === 0 && "animate-float shadow-[var(--shadow-glow-aqua)]")}>
+                <div key={car} className={cn("rounded-lg border border-ink/10 bg-ink/[0.06] p-2", c.name === "In progress" && i === 0 && "animate-float shadow-[var(--shadow-glow-aqua)]")}>
                   <p className="text-[11px] font-medium text-ink">{car}</p>
                   <p className="text-[10px] text-ink-3">{svc}</p>
                   <p className="mt-1 text-[10px] font-semibold text-aqua-soft">{price}</p>
@@ -69,7 +69,7 @@ export function BoardMock() {
 export function CopilotMock() {
   return (
     <MockFrame title="AI Quote Copilot">
-      <div className="rounded-xl bg-black/25 p-3 text-[11px] text-ink-2">“2021 Tesla Model Y, heavy swirls, wants ceramic + front PPF”</div>
+      <div className="rounded-xl bg-surface-lo p-3 text-[11px] text-ink-2">“2021 Tesla Model Y, heavy swirls, wants ceramic + front PPF”</div>
       <div className="mt-3 flex items-center gap-1.5 text-[10px] text-aqua-soft">
         <Sparkles className="size-3" /> Detected: large · heavy defects · ceramic, ppf
       </div>
@@ -79,13 +79,13 @@ export function CopilotMock() {
           ["Ceramic Coating — 5 Year", "$1,689"],
           ["Full Front PPF", "$2,340"],
         ].map(([n, p]) => (
-          <li key={n} className="flex justify-between rounded-lg bg-white/[0.05] px-2.5 py-1.5 text-[11px]">
+          <li key={n} className="flex justify-between rounded-lg bg-ink/[0.05] px-2.5 py-1.5 text-[11px]">
             <span className="text-ink">{n}</span>
             <span className="text-ink-2 tabular-nums">{p}</span>
           </li>
         ))}
       </ul>
-      <div className="mt-3 flex items-center justify-between border-t border-white/[0.07] pt-2 text-[11px]">
+      <div className="mt-3 flex items-center justify-between border-t border-ink/[0.07] pt-2 text-[11px]">
         <span className="text-ink-3">Confidence 92%</span>
         <span className="font-semibold text-ink">$5,134.00</span>
       </div>
@@ -99,7 +99,7 @@ export function BookingMock() {
     <MockFrame title="Book online · Apex Auto Spa">
       <div className="mb-3 flex gap-1.5">
         {["Mon 14", "Tue 15", "Wed 16", "Thu 17"].map((d, i) => (
-          <span key={d} className={cn("flex-1 rounded-lg py-1.5 text-center text-[10px]", i === 1 ? "bg-spectral text-white" : "bg-white/[0.05] text-ink-3")}>
+          <span key={d} className={cn("flex-1 rounded-lg py-1.5 text-center text-[10px]", i === 1 ? "bg-spectral text-white" : "bg-ink/[0.05] text-ink-3")}>
             {d}
           </span>
         ))}
@@ -110,7 +110,7 @@ export function BookingMock() {
             key={s}
             className={cn(
               "rounded-lg border py-1.5 text-center text-[10px]",
-              i === 2 ? "border-aqua/60 bg-aqua/15 text-aqua-soft" : i === 4 ? "border-transparent bg-white/[0.02] text-ink-4 line-through" : "border-white/10 text-ink-2",
+              i === 2 ? "border-aqua/60 bg-aqua/15 text-aqua-soft" : i === 4 ? "border-transparent bg-ink/[0.02] text-ink-4 line-through" : "border-ink/10 text-ink-2",
             )}
           >
             {s}
@@ -136,7 +136,7 @@ export function PortalMock() {
             <span
               className={cn(
                 "flex size-4 items-center justify-center rounded-full",
-                i < 2 ? "bg-success/80" : i === 2 ? "animate-pulse bg-aqua" : "bg-white/10",
+                i < 2 ? "bg-success/80" : i === 2 ? "animate-pulse bg-aqua" : "bg-ink/10",
               )}
             >
               {i < 2 && <Check className="size-2.5 text-white" />}
@@ -147,7 +147,7 @@ export function PortalMock() {
       </ol>
       <div className="mt-3 flex gap-1.5">
         <span className="flex-1 rounded-lg bg-spectral py-1.5 text-center text-[10px] font-medium text-white">Pay $1,299</span>
-        <span className="flex-1 rounded-lg bg-white/[0.07] py-1.5 text-center text-[10px] text-ink-2">View inspection</span>
+        <span className="flex-1 rounded-lg bg-ink/[0.07] py-1.5 text-center text-[10px] text-ink-2">View inspection</span>
       </div>
     </MockFrame>
   );
@@ -167,7 +167,7 @@ export function PaymentMock() {
       </div>
       <div className="mt-3 grid grid-cols-3 gap-1.5 text-center text-[10px]">
         {["Tap to pay", "Text link", "Financing"].map((m) => (
-          <span key={m} className="rounded-lg bg-white/[0.05] py-1.5 text-ink-2">
+          <span key={m} className="rounded-lg bg-ink/[0.05] py-1.5 text-ink-2">
             {m}
           </span>
         ))}
@@ -195,7 +195,7 @@ export function CalendarMock() {
       </div>
       <div className="relative mt-2 grid h-36 grid-cols-4 gap-1.5">
         {[0, 1, 2, 3].map((d) => (
-          <div key={d} className="relative rounded-lg bg-black/20">
+          <div key={d} className="relative rounded-lg bg-surface-lo">
             {blocks
               .filter((b) => b.day === d)
               .map((b) => (
@@ -221,7 +221,7 @@ export function CapacityMock() {
     [0, 1, 1, 2, 2, 1, 0, 0],
     [1, 2, 2, 2, 2, 2, 1, 1],
   ];
-  const tone = ["bg-white/[0.05]", "bg-aqua/35", "bg-iris/70"];
+  const tone = ["bg-ink/[0.05]", "bg-aqua/35", "bg-iris/70"];
   return (
     <MockFrame title="Bay capacity · next 4 days">
       <div className="space-y-1.5">
@@ -248,12 +248,12 @@ export function InspectionMock() {
         <svg viewBox="0 0 260 110" className="h-full w-full">
           <path
             d="M20 70 C 30 45, 70 38, 95 36 L 150 30 C 175 30, 195 42, 215 52 C 236 56, 244 64, 244 74 L 244 82 L 20 82 Z"
-            fill="rgb(255 255 255 / 0.06)"
-            stroke="rgb(255 255 255 / 0.3)"
+            fill="rgb(30 42 68 / 0.06)"
+            stroke="rgb(30 42 68 / 0.3)"
             strokeWidth="1.5"
           />
-          <circle cx="65" cy="84" r="14" fill="#0b0e1c" stroke="rgb(255 255 255 / 0.3)" />
-          <circle cx="198" cy="84" r="14" fill="#0b0e1c" stroke="rgb(255 255 255 / 0.3)" />
+          <circle cx="65" cy="84" r="14" fill="#0b0e1c" stroke="rgb(30 42 68 / 0.3)" />
+          <circle cx="198" cy="84" r="14" fill="#0b0e1c" stroke="rgb(30 42 68 / 0.3)" />
         </svg>
         {[
           { x: "28%", y: "40%", c: "bg-warning" },
@@ -262,7 +262,7 @@ export function InspectionMock() {
         ].map((p, i) => (
           <span key={i} className="absolute" style={{ left: p.x, top: p.y }}>
             <span className={cn("absolute -inset-1.5 animate-pulse-ring rounded-full opacity-60", p.c)} />
-            <span className={cn("relative block size-3 rounded-full ring-2 ring-[#0b0e1c]", p.c)} />
+            <span className={cn("relative block size-3 rounded-full ring-2 ring-void", p.c)} />
           </span>
         ))}
       </div>
@@ -288,13 +288,13 @@ export function AutomationMock() {
   ];
   return (
     <MockFrame title="Automation · Coating lifecycle">
-      <ol className="relative space-y-2 before:absolute before:top-3 before:bottom-3 before:left-[13px] before:w-px before:bg-white/10">
+      <ol className="relative space-y-2 before:absolute before:top-3 before:bottom-3 before:left-[13px] before:w-px before:bg-ink/10">
         {nodes.map((n, i) => (
           <li key={i} className="relative flex items-center gap-2.5">
             <span className="glass relative z-10 flex size-7 items-center justify-center rounded-full">
               <n.icon className={cn("size-3.5", n.c)} />
             </span>
-            <span className="rounded-lg bg-white/[0.05] px-2.5 py-1.5 text-[11px] text-ink">{n.label}</span>
+            <span className="rounded-lg bg-ink/[0.05] px-2.5 py-1.5 text-[11px] text-ink">{n.label}</span>
           </li>
         ))}
       </ol>
@@ -306,11 +306,11 @@ export function MessagesMock() {
   return (
     <MockFrame title="Inbox · Sarah Chen">
       <div className="space-y-2 text-[11px]">
-        <p className="max-w-[80%] rounded-2xl rounded-bl-md bg-white/[0.07] px-3 py-2 text-ink-2">Hey! Is my car ready for pickup?</p>
+        <p className="max-w-[80%] rounded-2xl rounded-bl-md bg-ink/[0.07] px-3 py-2 text-ink-2">Hey! Is my car ready for pickup?</p>
         <p className="ml-auto max-w-[80%] rounded-2xl rounded-br-md bg-spectral px-3 py-2 text-white">
           It’s in final QC now — ready by 4:30. Track it live: lustra.app/p/7Kx2
         </p>
-        <p className="max-w-[80%] rounded-2xl rounded-bl-md bg-white/[0.07] px-3 py-2 text-ink-2">Amazing, see you then 🙌</p>
+        <p className="max-w-[80%] rounded-2xl rounded-bl-md bg-ink/[0.07] px-3 py-2 text-ink-2">Amazing, see you then 🙌</p>
       </div>
     </MockFrame>
   );
@@ -325,11 +325,11 @@ export function CertificateMock() {
           <p className="mt-1 text-sm font-semibold text-ink">9H Lifetime Ceramic Coating</p>
           <p className="text-[11px] text-ink-3">2024 Porsche 911 Carrera · Full body</p>
         </div>
-        <span className="rounded-xl bg-white p-1.5 text-[#0b0e1c]">
+        <span className="rounded-xl bg-white p-1.5 text-ink">
           <QrCode className="size-9" />
         </span>
       </div>
-      <div className="mt-3 grid grid-cols-3 gap-2 border-t border-white/[0.07] pt-3 text-[10px]">
+      <div className="mt-3 grid grid-cols-3 gap-2 border-t border-ink/[0.07] pt-3 text-[10px]">
         <div>
           <p className="text-ink-4">Code</p>
           <p className="font-mono text-ink">LX-7K2M9Q</p>
@@ -354,7 +354,7 @@ export function MembershipMock() {
         { name: "Gloss Club", price: "$89/mo", members: 64, c: "from-iris to-aqua" },
         { name: "Ceramic Care", price: "$129/mo", members: 31, c: "from-plasma to-iris" },
       ].map((p) => (
-        <div key={p.name} className="mb-2 flex items-center gap-3 rounded-xl bg-white/[0.04] p-2.5">
+        <div key={p.name} className="mb-2 flex items-center gap-3 rounded-xl bg-ink/[0.04] p-2.5">
           <span className={cn("flex size-8 items-center justify-center rounded-xl bg-gradient-to-br", p.c)}>
             <Crown className="size-4 text-white" />
           </span>
@@ -380,7 +380,7 @@ export function TeamMock() {
   ];
   return (
     <MockFrame title="Earnings · this week">
-      <div className="grid grid-cols-4 gap-1 border-b border-white/[0.07] pb-1.5 text-[9px] tracking-wide text-ink-4 uppercase">
+      <div className="grid grid-cols-4 gap-1 border-b border-ink/[0.07] pb-1.5 text-[9px] tracking-wide text-ink-4 uppercase">
         <span>Tech</span>
         <span>Hours</span>
         <span>Tips</span>
@@ -413,7 +413,7 @@ export function InventoryMock() {
             <span className="text-ink">{n}</span>
             <span className={pct < 20 ? "text-warning" : "text-ink-3"}>{pct < 20 ? "Low stock" : unit}</span>
           </div>
-          <div className="mt-1 h-1.5 rounded-full bg-white/[0.06]">
+          <div className="mt-1 h-1.5 rounded-full bg-ink/[0.06]">
             <div className={cn("h-full rounded-full", pct < 20 ? "bg-warning" : "bg-gradient-to-r from-iris to-aqua")} style={{ width: `${pct}%` }} />
           </div>
         </div>
@@ -515,7 +515,7 @@ export function InsightsMock() {
           ["9 quotes awaiting follow-up", "+$7,240", "text-success"],
           ["6 VIPs at churn risk", "High", "text-danger"],
         ].map(([t, v, c]) => (
-          <li key={t} className="flex justify-between rounded-lg bg-white/[0.05] px-2.5 py-1.5">
+          <li key={t} className="flex justify-between rounded-lg bg-ink/[0.05] px-2.5 py-1.5">
             <span className="text-ink-2">{t}</span>
             <span className={cn("font-semibold", c)}>{v}</span>
           </li>
@@ -530,9 +530,9 @@ export function CampaignMock() {
     <MockFrame title="Campaign · Coating anniversary">
       <div className="flex flex-wrap gap-1.5 text-[10px]">
         <span className="rounded-full bg-iris/20 px-2 py-0.5 text-iris-soft">Segment: coating anniversary</span>
-        <span className="rounded-full bg-white/[0.06] px-2 py-0.5 text-ink-3">42 recipients · SMS</span>
+        <span className="rounded-full bg-ink/[0.06] px-2 py-0.5 text-ink-3">42 recipients · SMS</span>
       </div>
-      <p className="mt-3 rounded-2xl rounded-bl-md bg-white/[0.07] px-3 py-2 text-[11px] text-ink-2">
+      <p className="mt-3 rounded-2xl rounded-bl-md bg-ink/[0.07] px-3 py-2 text-[11px] text-ink-2">
         Hi Jordan! Your Model Y’s coating turns 1 this month 🎉 Book its maintenance wash and get a free glass topper: lustra.app/b/apex
       </p>
       <div className="mt-3 grid grid-cols-3 gap-1.5 text-center">
@@ -541,7 +541,7 @@ export function CampaignMock() {
           ["11", "booked"],
           ["$1,419", "revenue"],
         ].map(([v, l]) => (
-          <div key={l} className="rounded-lg bg-black/25 py-1.5">
+          <div key={l} className="rounded-lg bg-surface-lo py-1.5">
             <p className="text-xs font-semibold text-ink">{v}</p>
             <p className="text-[9px] text-ink-4">{l}</p>
           </div>
@@ -560,14 +560,14 @@ export function ReviewsMock() {
           {[86, 9, 3, 1, 1].map((w, i) => (
             <div key={i} className="flex items-center gap-1.5 text-[9px] text-ink-4">
               <span className="w-2">{5 - i}</span>
-              <span className="h-1 flex-1 rounded-full bg-white/[0.06]">
+              <span className="h-1 flex-1 rounded-full bg-ink/[0.06]">
                 <span className="block h-full rounded-full bg-warning" style={{ width: `${w}%` }} />
               </span>
             </div>
           ))}
         </div>
       </div>
-      <div className="mt-3 rounded-xl bg-white/[0.05] p-2.5 text-[11px]">
+      <div className="mt-3 rounded-xl bg-ink/[0.05] p-2.5 text-[11px]">
         <p className="text-warning">★★★★★ <span className="text-ink-3">· Google · Sarah C.</span></p>
         <p className="mt-1 text-ink-2">“Car looks better than the day I bought it.”</p>
         <p className="mt-2 flex items-center gap-1 text-[10px] text-aqua-soft">
@@ -585,9 +585,9 @@ export function PromoMock() {
         <p className="text-[10px] tracking-[0.18em] uppercase opacity-80">E-gift card</p>
         <p className="mt-1 text-2xl font-semibold">$250.00</p>
         <p className="mt-3 font-mono text-[11px] opacity-90">GC-8F3K-2QPL</p>
-        <span className="absolute -top-6 -right-6 size-20 rounded-full bg-white/20 blur-xl" />
+        <span className="absolute -top-6 -right-6 size-20 rounded-full bg-ink/20 blur-xl" />
       </div>
-      <div className="mt-3 flex items-center justify-between rounded-xl border border-dashed border-white/20 px-3 py-2 text-[11px]">
+      <div className="mt-3 flex items-center justify-between rounded-xl border border-dashed border-ink/20 px-3 py-2 text-[11px]">
         <span className="font-mono text-ink">SPRING20</span>
         <span className="text-ink-3">20% off · min $150 · 37/100 used</span>
       </div>
@@ -600,20 +600,20 @@ export function LeadFormMock() {
     <MockFrame title="Get a PPF quote">
       <div className="space-y-2">
         {["Your name", "Phone"].map((l) => (
-          <div key={l} className="rounded-lg border border-white/10 bg-black/25 px-2.5 py-1.5 text-[10px] text-ink-4">
+          <div key={l} className="rounded-lg border border-ink/10 bg-surface-lo px-2.5 py-1.5 text-[10px] text-ink-4">
             {l}
           </div>
         ))}
         <div className="grid grid-cols-3 gap-1.5 text-[10px]">
           {["2024", "Porsche", "911"].map((v) => (
-            <span key={v} className="rounded-lg border border-white/10 bg-black/25 px-2 py-1.5 text-ink-2">
+            <span key={v} className="rounded-lg border border-ink/10 bg-surface-lo px-2 py-1.5 text-ink-2">
               {v}
             </span>
           ))}
         </div>
         <div className="flex flex-wrap gap-1 text-[10px]">
           {["Full front PPF", "Ceramic", "Tint"].map((s, i) => (
-            <span key={s} className={cn("rounded-full px-2 py-0.5", i < 2 ? "bg-aqua/15 text-aqua-soft" : "bg-white/[0.05] text-ink-3")}>
+            <span key={s} className={cn("rounded-full px-2 py-0.5", i < 2 ? "bg-aqua/15 text-aqua-soft" : "bg-ink/[0.05] text-ink-3")}>
               {s}
             </span>
           ))}
@@ -636,7 +636,7 @@ export function MarketplaceMock() {
   return (
     <MockFrame title="Marketplace">
       {items.map(([n, list, member]) => (
-        <div key={n} className="mb-1.5 flex items-center justify-between rounded-lg bg-white/[0.05] px-2.5 py-1.5 text-[11px]">
+        <div key={n} className="mb-1.5 flex items-center justify-between rounded-lg bg-ink/[0.05] px-2.5 py-1.5 text-[11px]">
           <span className="text-ink">{n}</span>
           <span>
             <span className="mr-1.5 text-ink-4 line-through">{list}</span>
@@ -662,13 +662,13 @@ export function IntegrationsMock() {
   return (
     <MockFrame title="Integrations & API">
       {apps.map(([n, s]) => (
-        <div key={n} className="mb-1.5 flex items-center gap-2.5 rounded-lg bg-white/[0.05] px-2.5 py-1.5 text-[11px]">
+        <div key={n} className="mb-1.5 flex items-center gap-2.5 rounded-lg bg-ink/[0.05] px-2.5 py-1.5 text-[11px]">
           <span className="size-1.5 rounded-full bg-success shadow-[0_0_6px_var(--color-success)]" />
           <span className="flex-1 text-ink">{n}</span>
           <span className="text-ink-3">{s}</span>
         </div>
       ))}
-      <p className="mt-2 rounded-lg bg-black/30 px-2.5 py-1.5 font-mono text-[10px] text-aqua-soft">X-Lustra-Signature: sha256=9f2c…</p>
+      <p className="mt-2 rounded-lg bg-surface-lo px-2.5 py-1.5 font-mono text-[10px] text-aqua-soft">X-Lustra-Signature: sha256=9f2c…</p>
     </MockFrame>
   );
 }

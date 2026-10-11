@@ -21,6 +21,17 @@ const full = process.env.FULL === "1";
 for (const p of publicPages.filter((p) => !only || only.includes(p))) {
   await page.goto(base + p, { waitUntil: "networkidle" }).catch(() => {});
   await page.waitForTimeout(1200);
+  if (full) {
+    // Scroll through so scroll-triggered reveals play before the full-page capture.
+    await page.evaluate(async () => {
+      for (let y = 0; y < document.body.scrollHeight; y += 500) {
+        window.scrollTo(0, y);
+        await new Promise((r) => setTimeout(r, 120));
+      }
+      window.scrollTo(0, 0);
+    });
+    await page.waitForTimeout(1200);
+  }
   await page.screenshot({ path: join(out, `${mode}-${name(p)}.png`), fullPage: full });
   console.log("shot", p);
 }

@@ -102,8 +102,8 @@ function Memberships() {
             return (
               <TiltCard key={p._id} max={5}>
                 <div
-                  className={cn("rim relative flex h-full flex-col overflow-hidden rounded-[var(--radius-card)] border border-white/12 p-6", !p.active && "opacity-60")}
-                  style={{ background: `linear-gradient(150deg, ${color}38 0%, rgb(255 255 255 / 0.04) 45%, rgb(255 255 255 / 0.02) 100%)` }}
+                  className={cn("rim relative flex h-full flex-col overflow-hidden rounded-[var(--radius-card)] border border-ink/12 p-6", !p.active && "opacity-60")}
+                  style={{ background: `linear-gradient(150deg, ${color}38 0%, rgb(30 42 68 / 0.04) 45%, rgb(30 42 68 / 0.02) 100%)` }}
                 >
                   <div className="pointer-events-none absolute -top-16 -right-16 size-48 rounded-full blur-3xl" style={{ background: `${color}55` }} />
                   <div className="relative flex items-start justify-between">
@@ -113,7 +113,7 @@ function Memberships() {
                       </p>
                       <h3 className="mt-1 text-xl font-semibold tracking-tight text-ink">{p.name}</h3>
                     </div>
-                    <button onClick={() => setEditingPlan(p)} className="rounded-full p-2 text-ink-3 hover:bg-white/10 hover:text-ink" aria-label={`Edit ${p.name}`}>
+                    <button onClick={() => setEditingPlan(p)} className="rounded-full p-2 text-ink-3 hover:bg-ink/10 hover:text-ink" aria-label={`Edit ${p.name}`}>
                       <Pencil className="size-4" />
                     </button>
                   </div>
@@ -168,7 +168,7 @@ function Memberships() {
             </thead>
             <tbody>
               {members.map((m) => (
-                <tr key={m._id} className="hover:bg-white/[0.03]">
+                <tr key={m._id} className="hover:bg-ink/[0.03]">
                   <Td className="font-medium text-ink">{customerName(m.customer)}</Td>
                   <Td>
                     <span className="inline-flex items-center gap-2">
@@ -190,7 +190,7 @@ function Memberships() {
                     {m.status !== "cancelled" && (
                       <Menu
                         trigger={
-                          <button className="rounded-full p-1.5 text-ink-4 hover:bg-white/10 hover:text-ink" aria-label="Membership actions">
+                          <button className="rounded-full p-1.5 text-ink-4 hover:bg-ink/10 hover:text-ink" aria-label="Membership actions">
                             <MoreHorizontal className="size-4" />
                           </button>
                         }
@@ -306,7 +306,7 @@ function PlanModal({ plan, onClose }: { plan: MembershipPlan | "new" | null; onC
                 key={c}
                 type="button"
                 onClick={() => setForm({ ...form, color: c })}
-                className={cn("size-7 rounded-full transition", form.color === c ? "scale-110 ring-2 ring-white ring-offset-2 ring-offset-[#0b0e1c]" : "")}
+                className={cn("size-7 rounded-full transition", form.color === c ? "scale-110 ring-2 ring-white ring-offset-2 ring-offset-void" : "")}
                 style={{ background: c }}
                 aria-label={`Color ${c}`}
               />
@@ -393,7 +393,7 @@ function EnrollModal({ open, plans, initialPlan, onClose }: { open: boolean; pla
           <VehiclePicker customerId={customer?._id ?? null} value={vehicle} onChange={setVehicle} />
         </Field>
         {plan && (
-          <p className="rounded-2xl bg-white/[0.04] px-4 py-3 text-xs text-ink-3">
+          <p className="rounded-2xl bg-ink/[0.04] px-4 py-3 text-xs text-ink-3">
             First charge of <span className="font-semibold text-ink">{formatMoney(plan.price)}</span> today, then every {plan.interval} until cancelled.
           </p>
         )}

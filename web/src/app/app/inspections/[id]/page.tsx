@@ -109,7 +109,7 @@ function InspectionEditor({ inspection, onUpdated }: { inspection: Inspection; o
           <span className="inline-flex flex-wrap items-center gap-2">
             {customerName(inspection.customer)}
             {job && (
-              <Link href={`/app/jobs/${job._id}`} className="text-aqua-soft hover:text-white">
+              <Link href={`/app/jobs/${job._id}`} className="text-aqua-soft hover:text-ink">
                 · Job #{job.number}
               </Link>
             )}
@@ -172,7 +172,7 @@ function InspectionEditor({ inspection, onUpdated }: { inspection: Inspection; o
                         onClick={() => updateSelected({ kind: k.value })}
                         className={cn(
                           "rounded-full border px-3 py-1 text-xs transition",
-                          sel.kind === k.value ? "border-aqua/50 bg-aqua/15 text-aqua-soft" : "border-white/10 text-ink-3 hover:text-ink",
+                          sel.kind === k.value ? "border-aqua/50 bg-aqua/15 text-aqua-soft" : "border-ink/10 text-ink-3 hover:text-ink",
                         )}
                       >
                         {k.label}
@@ -190,7 +190,7 @@ function InspectionEditor({ inspection, onUpdated }: { inspection: Inspection; o
                         onClick={() => updateSelected({ severity: s })}
                         className={cn(
                           "flex items-center justify-center gap-1.5 rounded-xl border py-2 text-xs transition",
-                          sel.severity === s ? "border-white/30 bg-white/[0.1] text-ink" : "border-white/10 text-ink-3 hover:text-ink",
+                          sel.severity === s ? "border-ink/30 bg-ink/[0.1] text-ink" : "border-ink/10 text-ink-3 hover:text-ink",
                         )}
                       >
                         <span className="size-2.5 rounded-full" style={{ background: severityMeta[s].color }} />
@@ -237,7 +237,7 @@ function InspectionEditor({ inspection, onUpdated }: { inspection: Inspection; o
                         setView(m.view);
                         setSelected(i);
                       }}
-                      className="flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left text-sm transition hover:bg-white/[0.06]"
+                      className="flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left text-sm transition hover:bg-ink/[0.06]"
                     >
                       <span className="size-2.5 shrink-0 rounded-full" style={{ background: severityMeta[m.severity].color }} />
                       <span className="flex-1">
@@ -386,7 +386,7 @@ function MediaSection({ inspection, onUpdated, canVideo }: { inspection: Inspect
       {inspection.media.length === 0 ? (
         <button
           onClick={() => fileRef.current?.click()}
-          className="flex w-full flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-white/15 py-12 text-sm text-ink-3 transition hover:border-aqua/40 hover:text-ink"
+          className="flex w-full flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-ink/15 py-12 text-sm text-ink-3 transition hover:border-aqua/40 hover:text-ink"
         >
           <ImagePlus className="size-7" />
           Drop in your walkaround photos
@@ -397,12 +397,12 @@ function MediaSection({ inspection, onUpdated, canVideo }: { inspection: Inspect
             <button
               key={m._id}
               onClick={() => setLightbox(m)}
-              className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-black/30"
+              className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-ink/10 bg-surface-lo"
             >
               {m.kind === "video" ? (
                 <>
                   <video src={m.url} className="size-full object-cover" muted preload="metadata" />
-                  <span className="absolute inset-0 flex items-center justify-center bg-black/30">
+                  <span className="absolute inset-0 flex items-center justify-center bg-surface-lo">
                     <Play className="size-8 fill-white text-white" />
                   </span>
                 </>

@@ -134,15 +134,15 @@ export default function PortalPage() {
                 return (
                   <li key={r.stage} className="flex flex-col items-center text-center" aria-current={active ? "step" : undefined}>
                     <div className="relative flex w-full items-center">
-                      <span className={cn("h-1 flex-1 rounded-full", i === 0 ? "opacity-0" : done || active ? "" : "bg-white/10")} style={done || active ? { background: brand } : undefined} />
+                      <span className={cn("h-1 flex-1 rounded-full", i === 0 ? "opacity-0" : done || active ? "" : "bg-ink/10")} style={done || active ? { background: brand } : undefined} />
                       <span
-                        className={cn("relative z-10 flex size-8 shrink-0 items-center justify-center rounded-full border-2 transition", done ? "border-transparent" : active ? "border-transparent" : "border-white/15 bg-[#0b0e1c]")}
+                        className={cn("relative z-10 flex size-8 shrink-0 items-center justify-center rounded-full border-2 transition", done ? "border-transparent" : active ? "border-transparent" : "border-ink/15 bg-surface shadow-neu-inset-sm")}
                         style={done || active ? { background: `linear-gradient(135deg, ${brand}, #22d3ee)`, boxShadow: active ? `0 0 24px ${brand}` : undefined } : undefined}
                       >
                         {active && <span className="absolute inset-0 animate-pulse-ring rounded-full" style={{ background: `${brand}66` }} />}
-                        {done ? <Check className="size-4 text-white" strokeWidth={3} /> : <span className={cn("size-2 rounded-full", active ? "bg-white" : "bg-white/25")} />}
+                        {done ? <Check className="size-4 text-white" strokeWidth={3} /> : <span className={cn("size-2 rounded-full", active ? "bg-white" : "bg-ink/25")} />}
                       </span>
-                      <span className={cn("h-1 flex-1 rounded-full", i === rail.length - 1 ? "opacity-0" : done ? "" : "bg-white/10")} style={done ? { background: brand } : undefined} />
+                      <span className={cn("h-1 flex-1 rounded-full", i === rail.length - 1 ? "opacity-0" : done ? "" : "bg-ink/10")} style={done ? { background: brand } : undefined} />
                     </div>
                     <span className={cn("mt-2 hidden text-[11px] leading-tight sm:block", active ? "font-medium text-ink" : done ? "text-ink-2" : "text-ink-4")}>{r.label}</span>
                   </li>
@@ -181,12 +181,12 @@ export default function PortalPage() {
 
         {job && !quoteOpen && (
           <Section title="Work order" icon={<ClipboardList className="size-5" style={{ color: brand }} />}>
-            <ul className="divide-y divide-white/[0.06]">
+            <ul className="divide-y divide-ink/[0.06]">
               {job.lineItems.map((li, i) => (
                 <li key={li._id ?? i} className="flex items-center justify-between gap-3 py-3 text-sm">
                   <span className="flex items-center gap-2.5">
                     <span
-                      className={cn("flex size-5 items-center justify-center rounded-full border", li.status === "done" ? "border-transparent" : "border-white/20")}
+                      className={cn("flex size-5 items-center justify-center rounded-full border", li.status === "done" ? "border-transparent" : "border-ink/20")}
                       style={li.status === "done" ? { background: brand } : undefined}
                     >
                       {li.status === "done" && <Check className="size-3 text-white" />}
@@ -198,7 +198,7 @@ export default function PortalPage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-3 rounded-2xl bg-white/[0.03] p-4">
+            <div className="mt-3 rounded-2xl bg-ink/[0.03] p-4">
               <TotalsPanel totals={job.totals} />
             </div>
           </Section>
@@ -214,7 +214,7 @@ export default function PortalPage() {
           <Section title="Your warranty certificates" icon={<Award className="size-5" style={{ color: brand }} />}>
             <div className="grid gap-3 sm:grid-cols-2">
               {data.certificates.map((c) => (
-                <Link key={c._id} href={`/verify/${c.code}`} className="group rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition hover:-translate-y-0.5 hover:border-white/25">
+                <Link key={c._id} href={`/verify/${c.code}`} className="group rounded-2xl border border-ink/10 bg-ink/[0.03] p-4 transition hover:-translate-y-0.5 hover:border-ink/25">
                   <p className="text-sm font-medium text-ink">{c.product}</p>
                   <p className="text-xs text-ink-3">{c.coverage}</p>
                   <p className="mt-3 flex items-center justify-between text-xs">

@@ -40,7 +40,7 @@ export default function PublicInspectionPage() {
         </p>
       </div>
       <Section title="Walkaround" icon={<ScanSearch className="size-5" style={{ color: brand }} />}>
-        {inspection.notes && <p className="mb-4 rounded-2xl bg-white/[0.04] px-4 py-3 text-sm text-ink-2">{inspection.notes}</p>}
+        {inspection.notes && <p className="mb-4 rounded-2xl bg-ink/[0.04] px-4 py-3 text-sm text-ink-2">{inspection.notes}</p>}
         <InspectionSign inspection={inspection} brand={brand} onChanged={setEntity} />
       </Section>
     </PublicShell>

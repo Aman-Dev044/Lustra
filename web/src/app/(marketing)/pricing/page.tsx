@@ -119,7 +119,7 @@ export default function PricingPage() {
               <table className="w-full min-w-[680px] text-sm">
                 <caption className="sr-only">Feature comparison across Express, Pro and Enterprise plans</caption>
                 <thead className="sticky top-0">
-                  <tr className="border-b border-white/[0.08] bg-[#0d1024]/80 backdrop-blur">
+                  <tr className="border-b border-ink/[0.08] bg-surface/85 backdrop-blur">
                     <th scope="col" className="w-1/2 px-6 py-5 text-left text-xs font-semibold tracking-[0.1em] text-ink-4 uppercase">
                       Feature
                     </th>
@@ -134,12 +134,12 @@ export default function PricingPage() {
                 {comparison.map((g) => (
                   <tbody key={g.group}>
                     <tr>
-                      <th colSpan={4} scope="colgroup" className="bg-white/[0.03] px-6 py-3 text-left text-xs font-semibold tracking-[0.12em] text-aqua-soft uppercase">
+                      <th colSpan={4} scope="colgroup" className="bg-ink/[0.03] px-6 py-3 text-left text-xs font-semibold tracking-[0.12em] text-aqua-soft uppercase">
                         {g.group}
                       </th>
                     </tr>
                     {g.rows.map((r) => (
-                      <tr key={r.label} className="border-t border-white/[0.04]">
+                      <tr key={r.label} className="border-t border-ink/[0.04]">
                         <th scope="row" className="px-6 py-3.5 text-left font-normal text-ink-2">
                           {r.label}
                         </th>

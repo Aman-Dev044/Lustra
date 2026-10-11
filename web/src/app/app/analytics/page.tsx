@@ -142,7 +142,7 @@ function Dashboard({ data, range }: { data: AnalyticsOverview; range: Range }) {
               <YAxis yAxisId="rev" {...axisProps} tickFormatter={(v: number) => formatMoney(v, "USD", true)} width={64} />
               <YAxis yAxisId="jobs" orientation="right" {...axisProps} allowDecimals={false} width={32} />
               <Tooltip
-                cursor={{ stroke: "rgb(255 255 255 / 0.15)" }}
+                cursor={{ stroke: "rgb(30 42 68 / 0.15)" }}
                 content={<GlassTooltip formatter={(v, n) => (n === "Revenue" ? formatMoney(v) : formatNumber(v))} />}
               />
               <Bar yAxisId="jobs" dataKey="jobs" name="Jobs" fill="rgb(34 211 238 / 0.35)" radius={[6, 6, 2, 2]} maxBarSize={16} />
@@ -193,7 +193,7 @@ function Dashboard({ data, range }: { data: AnalyticsOverview; range: Range }) {
         <ChartCard title="Top services" subtitle="By revenue">
           <ul className="space-y-1">
             {data.topServices.slice(0, 8).map((s, i) => (
-              <li key={s.name} className="flex items-center gap-3 rounded-xl px-2 py-2 text-sm hover:bg-white/[0.03]">
+              <li key={s.name} className="flex items-center gap-3 rounded-xl px-2 py-2 text-sm hover:bg-ink/[0.03]">
                 <span className="w-5 text-xs text-ink-4 tabular-nums">{i + 1}</span>
                 <span className="min-w-0 flex-1 truncate text-ink">{s.name}</span>
                 <span className="text-xs text-ink-4 tabular-nums">{s.count}×</span>
@@ -213,7 +213,7 @@ function Dashboard({ data, range }: { data: AnalyticsOverview; range: Range }) {
                 <CartesianGrid {...gridProps} horizontal={false} vertical />
                 <XAxis type="number" {...axisProps} allowDecimals={false} />
                 <YAxis type="category" dataKey="label" {...axisProps} width={78} />
-                <Tooltip cursor={{ fill: "rgb(255 255 255 / 0.04)" }} content={<GlassTooltip />} />
+                <Tooltip cursor={{ fill: "rgb(30 42 68 / 0.04)" }} content={<GlassTooltip />} />
                 <Bar dataKey="count" name="Customers" radius={[3, 8, 8, 3]} maxBarSize={18}>
                   {data.sources.map((_, i) => (
                     <Cell key={i} fill={chartColors[i % chartColors.length]} />
@@ -237,7 +237,7 @@ function Dashboard({ data, range }: { data: AnalyticsOverview; range: Range }) {
                     </span>
                     <span className="font-medium tabular-nums">{formatMoney(t.revenue, "USD", true)}</span>
                   </div>
-                  <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-white/[0.06]">
+                  <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-ink/[0.06]">
                     <div className="h-full rounded-full bg-gradient-to-r from-iris to-aqua" style={{ width: `${(t.revenue / maxTech) * 100}%` }} />
                   </div>
                   <p className="mt-1 text-[11px] text-ink-4">{t.jobs} jobs</p>
@@ -260,7 +260,7 @@ function Dashboard({ data, range }: { data: AnalyticsOverview; range: Range }) {
                       {p.count} · {formatMoney(p.value, "USD", true)}
                     </span>
                   </div>
-                  <div className="mx-auto h-7 overflow-hidden rounded-lg bg-white/[0.04]" style={{ width: "100%" }}>
+                  <div className="mx-auto h-7 overflow-hidden rounded-lg bg-ink/[0.04]" style={{ width: "100%" }}>
                     <div
                       className="mx-auto h-full rounded-lg transition-all"
                       style={{
@@ -316,13 +316,13 @@ function ProfitSection({ data, range }: { data: AnalyticsOverview; range: Range 
                 <span className="text-ink-2">{b.label}</span>
                 <span className={cn("font-medium tabular-nums", b.value < 0 ? "text-ink-3" : "text-ink")}>{formatMoney(b.value)}</span>
               </div>
-              <div className="h-3 overflow-hidden rounded-full bg-white/[0.05]">
+              <div className="h-3 overflow-hidden rounded-full bg-ink/[0.05]">
                 <div className="h-full rounded-full" style={{ width: `${Math.min(100, (Math.abs(b.value) / max) * 100)}%`, background: `linear-gradient(90deg, ${b.color}66, ${b.color})` }} />
               </div>
             </li>
           ))}
         </ul>
-        <div className="rounded-3xl bg-white/[0.04] p-5">
+        <div className="rounded-3xl bg-ink/[0.04] p-5">
           <TrendingUp className="size-5 text-success" />
           <p className="mt-3 text-xs text-ink-3">Gross profit per completed job</p>
           <p className="mt-1 text-3xl font-semibold tabular-nums">{formatMoney(data.kpis.jobsCompleted ? profit / data.kpis.jobsCompleted : 0)}</p>
@@ -358,7 +358,7 @@ function CapacityHeatmap() {
       title="Bay capacity — next 14 days"
       subtitle={`${bays} bays · darker cells are fully booked; bright gaps are revenue waiting to be filled`}
       action={
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.06] px-3 py-1 text-xs text-ink-2">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-ink/[0.06] px-3 py-1 text-xs text-ink-2">
           <CalendarRange className="size-3.5" /> {(util * 100).toFixed(0)}% utilized
         </span>
       }
@@ -394,11 +394,11 @@ function CapacityHeatmap() {
                         <td key={h}>
                           <div
                             title={booked === undefined ? "Closed" : `${booked}/${bays} bays booked`}
-                            className="size-7 rounded-md border border-white/[0.05]"
+                            className="size-7 rounded-md border border-ink/[0.05]"
                             style={{
                               background:
                                 ratio < 0
-                                  ? "repeating-linear-gradient(45deg, rgb(255 255 255 / 0.02) 0 3px, transparent 3px 6px)"
+                                  ? "repeating-linear-gradient(45deg, rgb(30 42 68 / 0.02) 0 3px, transparent 3px 6px)"
                                   : ratio === 0
                                     ? "rgb(34 211 238 / 0.08)"
                                     : `rgb(124 92 255 / ${0.25 + ratio * 0.7})`,

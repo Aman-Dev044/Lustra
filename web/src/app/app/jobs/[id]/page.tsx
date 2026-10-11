@@ -292,7 +292,7 @@ export default function JobDetailPage() {
                 </div>
               </div>
             </div>
-            <div className="mt-4 flex items-center gap-3 rounded-2xl bg-white/[0.04] p-3">
+            <div className="mt-4 flex items-center gap-3 rounded-2xl bg-ink/[0.04] p-3">
               <span className="glass flex size-10 items-center justify-center rounded-xl text-aqua-soft">
                 <Car className="size-5" />
               </span>
@@ -367,11 +367,11 @@ function StageStepper({ stage, onMove }: { stage: JobStage; onMove: (s: JobStage
                 aria-current={current ? "step" : undefined}
                 className={cn(
                   "flex w-full items-center gap-2 rounded-2xl px-3 py-2.5 text-left text-xs transition",
-                  current ? "bg-white/[0.1] text-ink shadow-[inset_0_1px_0_rgb(255_255_255/0.12)]" : "text-ink-3 hover:bg-white/[0.05] hover:text-ink",
+                  current ? "bg-ink/[0.1] text-ink shadow-[inset_0_1px_0_rgb(255_255_255/0.12)]" : "text-ink-3 hover:bg-ink/[0.05] hover:text-ink",
                 )}
               >
                 <span
-                  className={cn("flex size-5 shrink-0 items-center justify-center rounded-full border text-[10px]", reached ? "border-transparent text-[#04050a]" : "border-white/15")}
+                  className={cn("flex size-5 shrink-0 items-center justify-center rounded-full border text-[10px]", reached ? "border-transparent text-void" : "border-ink/15")}
                   style={reached ? { background: stageMeta[s].color } : undefined}
                 >
                   {reached && !current ? <Check className="size-3" /> : i + 1}
@@ -467,7 +467,7 @@ function ScheduleCard({
             <dd className="flex flex-wrap justify-end gap-1.5">
               {job.assignees?.length ? (
                 job.assignees.map((u) => (
-                  <span key={u._id} className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.05] py-0.5 pr-2.5 pl-0.5 text-xs">
+                  <span key={u._id} className="inline-flex items-center gap-1.5 rounded-full bg-ink/[0.05] py-0.5 pr-2.5 pl-0.5 text-xs">
                     <Avatar name={u.name} size={20} /> {u.name.split(" ")[0]}
                   </span>
                 ))
@@ -509,7 +509,7 @@ function ScheduleCard({
                       onClick={() => setAssignees((a) => (on ? a.filter((x) => x !== u._id) : [...a, u._id]))}
                       className={cn(
                         "inline-flex items-center gap-1.5 rounded-full border py-0.5 pr-2.5 pl-0.5 text-xs transition",
-                        on ? "border-aqua/50 bg-aqua/10 text-ink" : "border-white/10 text-ink-3",
+                        on ? "border-aqua/50 bg-aqua/10 text-ink" : "border-ink/10 text-ink-3",
                       )}
                     >
                       <Avatar name={u.name} size={20} /> {u.name.split(" ")[0]}
@@ -572,7 +572,7 @@ function LineItemScheduling({
         )}
       </div>
       {!enabled ? (
-        <p className="rounded-2xl border border-dashed border-white/10 px-4 py-5 text-center text-xs text-ink-3">
+        <p className="rounded-2xl border border-dashed border-ink/10 px-4 py-5 text-center text-xs text-ink-3">
           Split work across specialists — e.g. PPF installer on the front clip while a detailer handles the interior. Available on Enterprise.
         </p>
       ) : dirty ? (
@@ -580,7 +580,7 @@ function LineItemScheduling({
       ) : (
         <ul className="space-y-2">
           {items.map((it) => (
-            <li key={it._id} className="grid gap-2 rounded-2xl bg-white/[0.03] p-3 sm:grid-cols-[1.2fr_1fr_1fr_1fr_auto] sm:items-center">
+            <li key={it._id} className="grid gap-2 rounded-2xl bg-ink/[0.03] p-3 sm:grid-cols-[1.2fr_1fr_1fr_1fr_auto] sm:items-center">
               <span className="truncate text-sm text-ink">{it.name}</span>
               <Select
                 aria-label={`Technician for ${it.name}`}
@@ -656,20 +656,20 @@ function Checklist({ job, onSaved }: { job: Job; onSaved: (j: Job) => void }) {
         )}
       </div>
       {list.length > 0 && (
-        <div className="mb-3 h-1.5 overflow-hidden rounded-full bg-white/[0.06]">
+        <div className="mb-3 h-1.5 overflow-hidden rounded-full bg-ink/[0.06]">
           <div className="h-full rounded-full bg-gradient-to-r from-iris to-aqua transition-[width] duration-500" style={{ width: `${(done / list.length) * 100}%` }} />
         </div>
       )}
       <ul className="space-y-1">
         {list.map((c, i) => (
-          <li key={c._id ?? i} className="group flex items-center gap-3 rounded-xl px-2 py-1.5 hover:bg-white/[0.04]">
+          <li key={c._id ?? i} className="group flex items-center gap-3 rounded-xl px-2 py-1.5 hover:bg-ink/[0.04]">
             <button
               role="checkbox"
               aria-checked={c.done}
               onClick={() => save(list.map((x, j) => (j === i ? { ...x, done: !x.done } : x)))}
               className={cn(
                 "flex size-5 shrink-0 items-center justify-center rounded-md border transition",
-                c.done ? "border-transparent bg-gradient-to-br from-iris to-aqua text-white" : "border-white/20 hover:border-aqua/60",
+                c.done ? "border-transparent bg-gradient-to-br from-iris to-aqua text-white" : "border-ink/20 hover:border-aqua/60",
               )}
             >
               {c.done && <Check className="size-3.5" />}
@@ -746,10 +746,10 @@ function Timeline({ job, onSaved }: { job: Job; onSaved: (j: Job) => void }) {
       {events.length === 0 ? (
         <p className="text-sm text-ink-4">No activity yet.</p>
       ) : (
-        <ol className="relative space-y-4 before:absolute before:top-1 before:bottom-1 before:left-[5px] before:w-px before:bg-white/[0.08]">
+        <ol className="relative space-y-4 before:absolute before:top-1 before:bottom-1 before:left-[5px] before:w-px before:bg-ink/[0.08]">
           {events.map((ev) => (
             <li key={ev._id} className="relative flex gap-4 pl-0">
-              <span className="relative z-10 mt-1.5 size-[11px] shrink-0 rounded-full ring-4 ring-[#0c0f20]" style={{ background: dot[ev.type] ?? "#94a3b8" }} />
+              <span className="relative z-10 mt-1.5 size-[11px] shrink-0 rounded-full ring-4 ring-void" style={{ background: dot[ev.type] ?? "#94a3b8" }} />
               <div className="min-w-0">
                 <p className="text-sm text-ink-2">{ev.message}</p>
                 <p className="mt-0.5 text-[11px] text-ink-4">
@@ -829,7 +829,7 @@ function MobileRepeatCard({
                   href={mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-7 items-center rounded-full border border-white/10 px-3 text-xs text-ink-2 transition hover:bg-white/[0.06] hover:text-ink"
+                  className="inline-flex h-7 items-center rounded-full border border-ink/10 px-3 text-xs text-ink-2 transition hover:bg-ink/[0.06] hover:text-ink"
                 >
                   Navigate
                 </a>
@@ -842,13 +842,13 @@ function MobileRepeatCard({
               </Button>
             </div>
           )}
-          <div className="h-px bg-white/[0.06]" />
+          <div className="h-px bg-ink/[0.06]" />
           <div className="flex items-center justify-between gap-3">
             <span className="text-ink-4">Repeats</span>
             {job.recurrence ? <RecurrencePill recurrence={job.recurrence} /> : <span className="text-ink-2">One-time</span>}
           </div>
           {parentId && (
-            <Link href={`/app/jobs/${parentId}`} className="flex items-center gap-1.5 text-xs text-aqua-soft hover:text-white">
+            <Link href={`/app/jobs/${parentId}`} className="flex items-center gap-1.5 text-xs text-aqua-soft hover:text-ink">
               <Repeat className="size-3.5" /> View previous visit
             </Link>
           )}
@@ -856,7 +856,7 @@ function MobileRepeatCard({
         </div>
       ) : (
         <div className="space-y-3">
-          <div className="flex items-center justify-between rounded-2xl bg-white/[0.04] px-3 py-2.5 text-sm">
+          <div className="flex items-center justify-between rounded-2xl bg-ink/[0.04] px-3 py-2.5 text-sm">
             Mobile job
             <Switch checked={mobile} onChange={setMobile} label="Mobile job" />
           </div>
@@ -929,7 +929,7 @@ function OnMyWayModal({ open, job, onClose, onSent }: { open: boolean; job: Job;
             aria-pressed={eta === m}
             className={cn(
               "rounded-2xl border py-3 text-center transition",
-              eta === m ? "border-aqua/50 bg-aqua/10 text-ink shadow-[var(--shadow-glow-aqua)]" : "border-white/10 text-ink-3 hover:text-ink",
+              eta === m ? "border-aqua/50 bg-aqua/10 text-ink shadow-[var(--shadow-glow-aqua)]" : "border-ink/10 text-ink-3 hover:text-ink",
             )}
           >
             <span className="block text-lg font-semibold tabular-nums">{m}</span>

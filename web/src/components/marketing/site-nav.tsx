@@ -76,7 +76,7 @@ export function SiteNav() {
                   href={l.href}
                   className={cn(
                     "inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-sm transition-colors",
-                    active ? "bg-white/[0.08] text-ink" : "text-ink-2 hover:text-ink",
+                    active ? "bg-ink/[0.08] text-ink" : "text-ink-2 hover:text-ink",
                   )}
                   aria-haspopup={l.mega ? "true" : undefined}
                   aria-expanded={l.mega ? mega === l.mega : undefined}
@@ -105,7 +105,7 @@ export function SiteNav() {
             Start free <ArrowRight className="size-3.5" />
           </Button>
           <button
-            className="inline-flex size-10 items-center justify-center rounded-full text-ink hover:bg-white/10 lg:hidden"
+            className="inline-flex size-10 items-center justify-center rounded-full text-ink hover:bg-ink/10 lg:hidden"
             onClick={() => setMobileOpen((o) => !o)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
@@ -131,9 +131,9 @@ export function SiteNav() {
                 <Link
                   key={item.slug}
                   href={`/${mega}/${item.slug}`}
-                  className="group flex items-start gap-3 rounded-2xl p-3 transition hover:bg-white/[0.06]"
+                  className="group flex items-start gap-3 rounded-2xl p-3 transition hover:bg-ink/[0.06]"
                 >
-                  <span className="glass flex size-10 shrink-0 items-center justify-center rounded-xl text-aqua-soft transition group-hover:text-white group-hover:shadow-[var(--shadow-glow-iris)]">
+                  <span className="glass flex size-10 shrink-0 items-center justify-center rounded-xl text-aqua-soft transition group-hover:text-ink group-hover:shadow-[var(--shadow-glow-iris)]">
                     <item.icon className="size-[18px]" aria-hidden />
                   </span>
                   <span>
@@ -150,13 +150,13 @@ export function SiteNav() {
                 </Link>
               ))}
             </div>
-            <div className="mt-2 flex items-center justify-between rounded-2xl bg-white/[0.04] px-4 py-3 text-sm">
+            <div className="mt-2 flex items-center justify-between rounded-2xl bg-ink/[0.04] px-4 py-3 text-sm">
               <span className="text-ink-2">
                 {mega === "features"
                   ? "One platform. Every bay, technician and customer touchpoint."
                   : "Purpose-built workflows for every kind of appearance & field service shop."}
               </span>
-              <Link href={`/${mega}`} className="inline-flex items-center gap-1 font-medium text-aqua-soft hover:text-white">
+              <Link href={`/${mega}`} className="inline-flex items-center gap-1 font-medium text-aqua-soft hover:text-ink">
                 View all {mega} <ArrowRight className="size-3.5" />
               </Link>
             </div>
@@ -176,7 +176,7 @@ export function SiteNav() {
             <ul className="space-y-1">
               {links.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="block rounded-2xl px-4 py-3 text-base text-ink hover:bg-white/[0.06]">
+                  <Link href={l.href} className="block rounded-2xl px-4 py-3 text-base text-ink hover:bg-ink/[0.06]">
                     {l.label}
                   </Link>
                 </li>

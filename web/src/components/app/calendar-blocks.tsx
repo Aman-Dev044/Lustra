@@ -23,7 +23,7 @@ export const blockMeta: Record<BlockKind, { label: string; color: string; icon: 
 export const hatchStyle = (kind: BlockKind) => {
   const c = blockMeta[kind].color;
   return {
-    background: `repeating-linear-gradient(135deg, ${c}2e 0 7px, ${c}0d 7px 14px), linear-gradient(180deg, rgb(255 255 255 / 0.04), rgb(255 255 255 / 0.01))`,
+    background: `repeating-linear-gradient(135deg, ${c}2e 0 7px, ${c}0d 7px 14px), linear-gradient(180deg, rgb(30 42 68 / 0.04), rgb(30 42 68 / 0.01))`,
     borderColor: `${c}59`,
   };
 };
@@ -182,7 +182,7 @@ export function BlockModal({ draft, onClose }: { draft: BlockDraft | null; onClo
                 ))}
               </Select>
             </Field>
-            <div className="flex items-center justify-between rounded-2xl bg-white/[0.04] px-3 py-2.5 text-sm sm:col-span-2">
+            <div className="flex items-center justify-between rounded-2xl bg-ink/[0.04] px-3 py-2.5 text-sm sm:col-span-2">
               All day
               <Switch checked={allDay} onChange={setAllDay} label="All day" />
             </div>
@@ -255,7 +255,7 @@ export function SlotChooser({
           <button
             key={o.key}
             onClick={o.action}
-            className={cn("group flex flex-col items-start gap-2 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-3.5 text-left transition hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.07]")}
+            className={cn("group flex flex-col items-start gap-2 rounded-2xl border border-ink/[0.08] bg-ink/[0.03] p-3.5 text-left transition hover:-translate-y-0.5 hover:border-ink/20 hover:bg-ink/[0.07]")}
           >
             <span className="flex size-9 items-center justify-center rounded-xl" style={{ background: `${o.color}22`, color: o.color }}>
               <o.icon className="size-4" />

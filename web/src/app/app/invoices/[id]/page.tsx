@@ -156,7 +156,7 @@ export default function InvoiceDetailPage() {
             </div>
           </div>
 
-          <div className="print-line mt-8 grid gap-6 rounded-2xl border border-white/[0.07] bg-white/[0.03] p-4 sm:grid-cols-2">
+          <div className="print-line mt-8 grid gap-6 rounded-2xl border border-ink/[0.07] bg-ink/[0.03] p-4 sm:grid-cols-2">
             <div>
               <p className="print-muted text-[11px] tracking-wider text-ink-4 uppercase">Bill to</p>
               <Link href={`/app/customers/${inv.customer?._id}`} className="mt-1 block text-sm font-medium hover:text-aqua-soft">
@@ -178,7 +178,7 @@ export default function InvoiceDetailPage() {
 
           <table className="mt-8 w-full text-sm">
             <thead>
-              <tr className="print-line border-b border-white/[0.08] text-left text-[11px] tracking-wider text-ink-4 uppercase">
+              <tr className="print-line border-b border-ink/[0.08] text-left text-[11px] tracking-wider text-ink-4 uppercase">
                 <th className="pb-2 font-medium">Description</th>
                 <th className="pb-2 text-right font-medium">Qty</th>
                 <th className="pb-2 text-right font-medium">Price</th>
@@ -187,7 +187,7 @@ export default function InvoiceDetailPage() {
             </thead>
             <tbody>
               {inv.items.map((it, i) => (
-                <tr key={it._id ?? i} className="print-line border-b border-white/[0.05]">
+                <tr key={it._id ?? i} className="print-line border-b border-ink/[0.05]">
                   <td className="py-3 pr-3">
                     <p className="text-ink">{it.name}</p>
                     {it.description && <p className="print-muted text-xs text-ink-4">{it.description}</p>}
@@ -231,7 +231,7 @@ export default function InvoiceDetailPage() {
               <InvoiceStatusBadge status={inv.status} />
             </div>
             <p className={cn("text-3xl font-semibold tabular-nums", inv.totals.balance > 0 ? "text-ink" : "text-success")}>{formatMoney(inv.totals.balance)}</p>
-            <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/[0.06]">
+            <div className="mt-3 h-2 overflow-hidden rounded-full bg-ink/[0.06]">
               <div
                 className="h-full rounded-full bg-gradient-to-r from-iris to-success transition-[width] duration-700"
                 style={{ width: `${inv.totals.total ? Math.min(100, (inv.totals.paid / inv.totals.total) * 100) : 0}%` }}
@@ -261,7 +261,7 @@ export default function InvoiceDetailPage() {
             ) : (
               <ul className="space-y-2">
                 {inv.payments.map((p) => (
-                  <li key={p._id} className="flex items-center justify-between gap-3 rounded-2xl bg-white/[0.04] px-3.5 py-2.5">
+                  <li key={p._id} className="flex items-center justify-between gap-3 rounded-2xl bg-ink/[0.04] px-3.5 py-2.5">
                     <div>
                       <p className="flex items-center gap-2 text-sm text-ink">
                         {formatMoney(p.amount)}
@@ -347,7 +347,7 @@ function CouponBox({ invoice, onChange }: { invoice: Invoice; onChange: (i: Invo
           <span className="font-mono font-semibold text-ink">{invoice.coupon.code}</span> · −{formatMoney(invoice.coupon.amount)}
         </span>
         {invoice.totals.paid === 0 && (
-          <button onClick={remove} disabled={busy} className="rounded-full p-1 text-ink-4 hover:bg-white/10 hover:text-ink" aria-label="Remove coupon">
+          <button onClick={remove} disabled={busy} className="rounded-full p-1 text-ink-4 hover:bg-ink/10 hover:text-ink" aria-label="Remove coupon">
             <X className="size-3.5" />
           </button>
         )}
@@ -495,7 +495,7 @@ function PaymentModal({
                   <span className="flex-1 text-danger">{lookup.error ?? "Gift card not found"}</span>
                 )}
                 {giftUsable && amount > giftCap && (
-                  <button type="button" onClick={() => setAmount(giftCap)} className="font-medium text-aqua-soft hover:text-white">
+                  <button type="button" onClick={() => setAmount(giftCap)} className="font-medium text-aqua-soft hover:text-ink">
                     Use {formatMoney(giftCap)}
                   </button>
                 )}
@@ -527,7 +527,7 @@ function PaymentModal({
                   onClick={() => setTip(v)}
                   className={cn(
                     "flex-1 rounded-xl border py-2 text-xs transition",
-                    Math.abs(tip - v) < 0.01 ? "border-aqua/50 bg-aqua/10 text-ink" : "border-white/10 text-ink-3 hover:text-ink",
+                    Math.abs(tip - v) < 0.01 ? "border-aqua/50 bg-aqua/10 text-ink" : "border-ink/10 text-ink-3 hover:text-ink",
                   )}
                 >
                   {p ? `${p * 100}%` : "None"}

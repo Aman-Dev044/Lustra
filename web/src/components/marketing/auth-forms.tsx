@@ -133,7 +133,7 @@ export function LoginForm() {
       </button>
 
       <div className="my-6 flex items-center gap-3 text-xs text-ink-4">
-        <span className="h-px flex-1 bg-white/10" /> or with email <span className="h-px flex-1 bg-white/10" />
+        <span className="h-px flex-1 bg-ink/10" /> or with email <span className="h-px flex-1 bg-ink/10" />
       </div>
 
       <form onSubmit={submit} noValidate className="space-y-4">
@@ -154,7 +154,7 @@ export function LoginForm() {
       </form>
       <p className="mt-6 text-center text-sm text-ink-3">
         New to Lustra?{" "}
-        <Link href="/signup" className="font-medium text-aqua-soft hover:text-white">
+        <Link href="/signup" className="font-medium text-aqua-soft hover:text-ink">
           Start your free trial
         </Link>
       </p>
@@ -243,7 +243,7 @@ export function SignupForm() {
       </div>
       <div className="mt-4 flex gap-1.5" aria-hidden>
         {[1, 2].map((s) => (
-          <span key={s} className={cn("h-1 flex-1 rounded-full transition-colors", s <= step ? "bg-spectral" : "bg-white/10")} />
+          <span key={s} className={cn("h-1 flex-1 rounded-full transition-colors", s <= step ? "bg-spectral" : "bg-ink/10")} />
         ))}
       </div>
 
@@ -266,7 +266,7 @@ export function SignupForm() {
                 <div className="mt-2 flex items-center gap-2" aria-live="polite">
                   <div className="flex flex-1 gap-1" aria-hidden>
                     {[0, 1, 2, 3].map((i) => (
-                      <span key={i} className={cn("h-1 flex-1 rounded-full", form.password && i < Math.max(1, score) ? scoreColor[score] : "bg-white/10")} />
+                      <span key={i} className={cn("h-1 flex-1 rounded-full", form.password && i < Math.max(1, score) ? scoreColor[score] : "bg-ink/10")} />
                     ))}
                   </div>
                   {form.password && <span className="text-[11px] text-ink-3">{scoreLabel[form.password.length < 8 ? 0 : score]}</span>}
@@ -300,7 +300,7 @@ export function SignupForm() {
                         onClick={() => setForm({ ...form, industry: value })}
                         className={cn(
                           "flex items-center gap-2.5 rounded-2xl border px-3 py-2.5 text-left text-sm transition",
-                          active ? "border-aqua/60 bg-aqua/10 text-ink" : "border-white/10 bg-white/[0.03] text-ink-3 hover:text-ink",
+                          active ? "border-aqua/60 bg-aqua/10 text-ink" : "border-ink/10 bg-ink/[0.03] text-ink-3 hover:text-ink",
                         )}
                       >
                         <ind.icon className={cn("size-4 shrink-0", active ? "text-aqua" : "text-ink-4")} aria-hidden />
@@ -344,7 +344,7 @@ export function SignupForm() {
       </p>
       <p className="mt-3 text-center text-sm text-ink-3">
         Already have an account?{" "}
-        <Link href="/login" className="font-medium text-aqua-soft hover:text-white">
+        <Link href="/login" className="font-medium text-aqua-soft hover:text-ink">
           Log in
         </Link>
       </p>

@@ -131,7 +131,7 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
                     </li>
                   ))}
                 </ul>
-                <div className="mt-8 border-t border-white/[0.07] pt-6">
+                <div className="mt-8 border-t border-ink/[0.07] pt-6">
                   <p className="text-sm text-ink-3">Works seamlessly with</p>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {related.map((r) => (
@@ -164,7 +164,7 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
               .filter((c) => c.slug !== f.slug)
               .slice(0, 8)
               .map((c) => (
-                <Link key={c.slug} href={`/features/${c.slug}`} className="glass group flex items-start gap-3 rounded-2xl p-4 transition hover:bg-white/[0.07]">
+                <Link key={c.slug} href={`/features/${c.slug}`} className="glass group flex items-start gap-3 rounded-2xl p-4 transition hover:bg-ink/[0.07]">
                   <c.icon className="mt-0.5 size-4 shrink-0 text-aqua-soft" aria-hidden />
                   <span>
                     <span className="block text-sm font-medium text-ink">{c.title}</span>

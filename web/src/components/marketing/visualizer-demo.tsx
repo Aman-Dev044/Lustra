@@ -44,7 +44,7 @@ export function VisualizerDemo() {
             Tell us where to send a personalized walkthrough. We’ll set the visualizer up with the film lines you install and
             show you the lead capture in action.
           </p>
-          <p className="mt-3 rounded-xl bg-white/[0.04] px-3 py-2 text-xs text-ink-3">
+          <p className="mt-3 rounded-xl bg-ink/[0.04] px-3 py-2 text-xs text-ink-3">
             <span className="text-ink-2">Your build:</span> {describeConfig(config)}
           </p>
         </div>

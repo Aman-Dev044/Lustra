@@ -185,7 +185,7 @@ function Automations() {
                 <span>
                   {a.runs ?? 0} runs{a.lastRunAt ? ` · last ${relativeTime(a.lastRunAt)}` : ""}
                 </span>
-                <button onClick={() => setDraft({ ...a })} className="text-aqua-soft hover:text-white">
+                <button onClick={() => setDraft({ ...a })} className="text-aqua-soft hover:text-ink">
                   Edit flow →
                 </button>
               </div>
@@ -213,7 +213,7 @@ function Automations() {
                     actions: t.actions ?? [],
                   });
                 }}
-                className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4 text-left transition hover:-translate-y-0.5 hover:border-aqua/40 hover:bg-white/[0.06]"
+                className="rounded-2xl border border-ink/[0.08] bg-ink/[0.03] p-4 text-left transition hover:-translate-y-0.5 hover:border-aqua/40 hover:bg-ink/[0.06]"
               >
                 <p className="text-sm font-medium text-ink">{t.name}</p>
                 <p className="mt-1 line-clamp-2 text-xs text-ink-3">{t.description}</p>
@@ -456,13 +456,13 @@ function Builder({ initial, onClose }: { initial: Draft; onClose: () => void }) 
               tone="aqua"
               actions={
                 <div className="flex items-center gap-0.5">
-                  <button onClick={() => move(i, -1)} disabled={i === 0} className="rounded-full p-1.5 text-ink-4 hover:bg-white/10 hover:text-ink disabled:opacity-30" aria-label="Move up">
+                  <button onClick={() => move(i, -1)} disabled={i === 0} className="rounded-full p-1.5 text-ink-4 hover:bg-ink/10 hover:text-ink disabled:opacity-30" aria-label="Move up">
                     <ArrowUp className="size-3.5" />
                   </button>
                   <button
                     onClick={() => move(i, 1)}
                     disabled={i === d.actions.length - 1}
-                    className="rounded-full p-1.5 text-ink-4 hover:bg-white/10 hover:text-ink disabled:opacity-30"
+                    className="rounded-full p-1.5 text-ink-4 hover:bg-ink/10 hover:text-ink disabled:opacity-30"
                     aria-label="Move down"
                   >
                     <ArrowDown className="size-3.5" />
@@ -500,7 +500,7 @@ function Builder({ initial, onClose }: { initial: Draft; onClose: () => void }) 
       <Modal open={!!log} onClose={() => setLog(null)} title="Test run" description="Simulated against your most recent matching record." size="md">
         <ol className="space-y-2 font-mono text-xs">
           {log?.map((line, i) => (
-            <li key={i} className="flex gap-3 rounded-xl bg-black/30 px-3 py-2 text-ink-2">
+            <li key={i} className="flex gap-3 rounded-xl bg-surface-lo px-3 py-2 text-ink-2">
               <span className="text-aqua-soft">{String(i + 1).padStart(2, "0")}</span>
               <span className="whitespace-pre-wrap">{line}</span>
             </li>

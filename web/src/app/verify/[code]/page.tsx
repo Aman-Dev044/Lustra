@@ -71,7 +71,7 @@ export default function VerifyPage() {
           animate={{ opacity: 1, scale: 1, rotateX: 0 }}
           transition={{ type: "spring", stiffness: 180, damping: 20 }}
           style={{ perspective: 1000 }}
-          className="rim relative overflow-hidden rounded-[32px] border border-white/15 bg-[linear-gradient(135deg,#141a3a_0%,#0b0e1c_55%,#0c2430_100%)] p-7 shadow-[var(--shadow-lift)] sm:p-10"
+          className="rim relative overflow-hidden rounded-[32px] border border-ink/15 bg-[linear-gradient(135deg,#141a3a_0%,#0b0e1c_55%,#0c2430_100%)] p-7 shadow-[var(--shadow-lift)] sm:p-10"
         >
           <div className="pointer-events-none absolute -top-28 -right-28 size-80 rounded-full blur-3xl" style={{ background: `${s.color}30` }} />
           <div className="pointer-events-none absolute -bottom-28 -left-20 size-72 rounded-full bg-iris/25 blur-3xl" />
@@ -109,7 +109,7 @@ export default function VerifyPage() {
             ))}
           </dl>
 
-          <div className="relative mt-8 flex flex-col items-center gap-5 border-t border-white/10 pt-6 sm:flex-row sm:justify-between">
+          <div className="relative mt-8 flex flex-col items-center gap-5 border-t border-ink/10 pt-6 sm:flex-row sm:justify-between">
             <div>
               <p className="text-[10px] tracking-[0.18em] text-ink-4 uppercase">Certificate code</p>
               <p className="mt-1 font-mono text-xl tracking-[0.2em] text-ink">{cert.code}</p>

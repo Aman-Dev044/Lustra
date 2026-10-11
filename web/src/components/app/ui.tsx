@@ -143,7 +143,7 @@ export function Th({ children, className }: { children?: ReactNode; className?: 
   return (
     <th
       className={cn(
-        "border-b border-white/[0.07] px-4 py-3 text-left text-[11px] font-semibold tracking-[0.08em] whitespace-nowrap text-ink-4 uppercase",
+        "border-b border-ink/[0.07] px-4 py-3 text-left text-[11px] font-semibold tracking-[0.08em] whitespace-nowrap text-ink-4 uppercase",
         className,
       )}
     >
@@ -153,7 +153,7 @@ export function Th({ children, className }: { children?: ReactNode; className?: 
 }
 
 export function Td({ children, className }: { children?: ReactNode; className?: string }) {
-  return <td className={cn("border-b border-white/[0.04] px-4 py-3 align-middle text-ink-2", className)}>{children}</td>;
+  return <td className={cn("border-b border-ink/[0.04] px-4 py-3 align-middle text-ink-2", className)}>{children}</td>;
 }
 
 /** Clickable table row that navigates like a link while keeping semantic table markup. */
@@ -161,7 +161,7 @@ export function RowLink({ href, children }: { href: string; children: ReactNode 
   const router = useRouter();
   return (
     <tr
-      className="cursor-pointer transition-colors hover:bg-white/[0.04]"
+      className="cursor-pointer transition-colors hover:bg-ink/[0.04]"
       onMouseEnter={() => router.prefetch(href)}
       onClick={(e) => {
         if ((e.target as HTMLElement).closest("a,button,input,select,label")) return;

@@ -80,7 +80,7 @@ export default function QuotesPage() {
           <button
             onClick={() => setStatus("")}
             aria-pressed={!status}
-            className={cn("rounded-full border px-3 py-1.5 text-xs transition", !status ? "border-white/25 bg-white/[0.1] text-ink" : "border-white/[0.08] text-ink-3 hover:text-ink")}
+            className={cn("rounded-full border px-3 py-1.5 text-xs transition", !status ? "border-ink/25 bg-ink/[0.1] text-ink" : "border-ink/[0.08] text-ink-3 hover:text-ink")}
           >
             All
           </button>
@@ -89,7 +89,7 @@ export default function QuotesPage() {
               key={s}
               onClick={() => setStatus(status === s ? "" : s)}
               aria-pressed={status === s}
-              className={cn("rounded-full border px-3 py-1.5 text-xs transition", status === s ? "border-white/25 bg-white/[0.1] text-ink" : "border-white/[0.08] text-ink-3 hover:text-ink")}
+              className={cn("rounded-full border px-3 py-1.5 text-xs transition", status === s ? "border-ink/25 bg-ink/[0.1] text-ink" : "border-ink/[0.08] text-ink-3 hover:text-ink")}
             >
               {quoteStatusMeta[s].label}
             </button>
@@ -156,7 +156,7 @@ export default function QuotesPage() {
                 </tbody>
               </Table>
             </div>
-            <ul className="divide-y divide-white/[0.05] md:hidden">
+            <ul className="divide-y divide-ink/[0.05] md:hidden">
               {data.items.map((x) => (
                 <li key={x._id}>
                   <Link href={`/app/quotes/${x._id}`} className="block px-4 py-3.5">

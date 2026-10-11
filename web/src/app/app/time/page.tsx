@@ -119,7 +119,7 @@ export default function TimeClockPage() {
                 "relative flex size-48 flex-col items-center justify-center rounded-full border transition-all duration-500 active:scale-95 disabled:opacity-60",
                 active
                   ? "border-success/40 bg-[radial-gradient(circle_at_30%_25%,rgb(52_211_153/0.35),rgb(11_14_28/0.9)_70%)] shadow-[0_0_80px_-10px_rgb(52_211_153/0.6),inset_0_1px_0_rgb(255_255_255/0.2)]"
-                  : "border-white/15 bg-[radial-gradient(circle_at_30%_25%,rgb(124_92_255/0.45),rgb(11_14_28/0.9)_70%)] shadow-[0_0_80px_-10px_rgb(124_92_255/0.6),inset_0_1px_0_rgb(255_255_255/0.2)] hover:scale-[1.03]",
+                  : "border-ink/15 bg-[radial-gradient(circle_at_30%_25%,rgb(124_92_255/0.45),rgb(11_14_28/0.9)_70%)] shadow-[0_0_80px_-10px_rgb(124_92_255/0.6),inset_0_1px_0_rgb(255_255_255/0.2)] hover:scale-[1.03]",
               )}
               aria-label={active ? "Clock out" : "Clock in"}
             >
@@ -193,15 +193,15 @@ export default function TimeClockPage() {
               </div>
             </div>
             <div className="mb-4 grid grid-cols-3 gap-3">
-              <div className="rounded-2xl bg-white/[0.04] p-3">
+              <div className="rounded-2xl bg-ink/[0.04] p-3">
                 <p className="text-[11px] text-ink-4">Hours</p>
                 <p className="text-xl font-semibold tabular-nums">{(weekMinutes / 60).toFixed(1)}</p>
               </div>
-              <div className="rounded-2xl bg-white/[0.04] p-3">
+              <div className="rounded-2xl bg-ink/[0.04] p-3">
                 <p className="text-[11px] text-ink-4">Est. wages</p>
                 <p className="text-xl font-semibold tabular-nums">{formatMoney((weekMinutes / 60) * (viewed.hourlyRate ?? 0))}</p>
               </div>
-              <div className="rounded-2xl bg-white/[0.04] p-3">
+              <div className="rounded-2xl bg-ink/[0.04] p-3">
                 <p className="text-[11px] text-ink-4">Tips</p>
                 <p className="text-xl font-semibold tabular-nums">{formatMoney(weekTips)}</p>
               </div>
@@ -218,7 +218,7 @@ export default function TimeClockPage() {
                   <CartesianGrid {...gridProps} />
                   <XAxis dataKey="day" {...axisProps} />
                   <YAxis {...axisProps} allowDecimals={false} />
-                  <Tooltip cursor={{ fill: "rgb(255 255 255 / 0.04)" }} content={<GlassTooltip formatter={(v) => `${v} h`} />} />
+                  <Tooltip cursor={{ fill: "rgb(30 42 68 / 0.04)" }} content={<GlassTooltip formatter={(v) => `${v} h`} />} />
                   <Bar dataKey="hours" name="Hours" fill="url(#hoursBar)" radius={[8, 8, 3, 3]} maxBarSize={38} />
                 </BarChart>
               </ResponsiveContainer>
@@ -226,7 +226,7 @@ export default function TimeClockPage() {
           </Glass>
 
           <Glass className="overflow-hidden">
-            <div className="border-b border-white/[0.07] px-5 py-3">
+            <div className="border-b border-ink/[0.07] px-5 py-3">
               <h2 className="text-sm font-semibold">Entries</h2>
             </div>
             {loading ? (
@@ -254,7 +254,7 @@ export default function TimeClockPage() {
                   {entries.map((e) => {
                     const job = e.job && typeof e.job === "object" ? (e.job as Job) : null;
                     return (
-                      <tr key={e._id} className="hover:bg-white/[0.03]">
+                      <tr key={e._id} className="hover:bg-ink/[0.03]">
                         <Td className="text-ink">{format(new Date(e.clockIn), "EEE, MMM d")}</Td>
                         <Td className="tabular-nums">{formatTime(e.clockIn)}</Td>
                         <Td className="tabular-nums">

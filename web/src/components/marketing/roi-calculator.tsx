@@ -42,7 +42,7 @@ function Slider({
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
         className="mt-3 h-2 w-full cursor-pointer appearance-none rounded-full accent-[#22d3ee]"
-        style={{ background: `linear-gradient(90deg, #7c5cff ${0}%, #22d3ee ${pct}%, rgb(255 255 255 / 0.1) ${pct}%)` }}
+        style={{ background: `linear-gradient(90deg, #7c5cff ${0}%, #22d3ee ${pct}%, rgb(30 42 68 / 0.1) ${pct}%)` }}
       />
     </div>
   );
@@ -74,7 +74,7 @@ export function RoiCalculator() {
           $110/month. Lustra shops report a 38% median booking uplift in year one; we default to a conservative 15%.
         </p>
       </div>
-      <div className="flex flex-col justify-between gap-6 rounded-[24px] bg-black/25 p-6" aria-live="polite">
+      <div className="flex flex-col justify-between gap-6 rounded-[24px] bg-surface-lo p-6" aria-live="polite">
         <div>
           <p className="text-xs tracking-[0.14em] text-ink-3 uppercase">Estimated monthly gain</p>
           <p className="text-spectral mt-2 text-5xl font-semibold tracking-[-0.04em] tabular-nums sm:text-6xl">
@@ -89,7 +89,7 @@ export function RoiCalculator() {
             ["Admin time saved", adminSaved],
             ["Lustra Pro", -planCost],
           ].map(([k, v]) => (
-            <div key={k as string} className="flex justify-between border-b border-white/[0.06] pb-2.5">
+            <div key={k as string} className="flex justify-between border-b border-ink/[0.06] pb-2.5">
               <dt className="text-ink-3">{k}</dt>
               <dd className={(v as number) < 0 ? "text-ink-3 tabular-nums" : "text-ink tabular-nums"}>{formatMoney(v as number)}</dd>
             </div>

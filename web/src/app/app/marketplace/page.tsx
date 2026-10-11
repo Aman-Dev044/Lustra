@@ -88,7 +88,7 @@ function Marketplace() {
             </span>
             <Button variant="secondary" onClick={() => setCartOpen(true)} aria-label={`Cart, ${count} items`}>
               <ShoppingCart className="size-4" /> Cart
-              {count > 0 && <span className="flex size-5 items-center justify-center rounded-full bg-aqua text-[10px] font-bold text-[#04121a]">{count}</span>}
+              {count > 0 && <span className="flex size-5 items-center justify-center rounded-full bg-aqua text-[10px] font-bold text-white">{count}</span>}
             </Button>
           </>
         }
@@ -120,7 +120,7 @@ function Marketplace() {
                 key={c}
                 onClick={() => setCategory(c)}
                 aria-pressed={category === c}
-                className={cn("rounded-full border px-3.5 py-1.5 text-xs transition", category === c ? "border-aqua/50 bg-aqua/15 text-aqua-soft" : "border-white/10 text-ink-3 hover:text-ink")}
+                className={cn("rounded-full border px-3.5 py-1.5 text-xs transition", category === c ? "border-aqua/50 bg-aqua/15 text-aqua-soft" : "border-ink/10 text-ink-3 hover:text-ink")}
               >
                 {c === "all" ? "All products" : c === "ppf" ? "PPF" : titleCase(c)}
               </button>
@@ -146,10 +146,10 @@ function Marketplace() {
                 return (
                   <Glass key={p._id} className="flex flex-col overflow-hidden">
                     <div className={cn("relative flex h-28 items-end bg-gradient-to-br p-4", catGradient[p.category])}>
-                      <span className="pointer-events-none absolute -top-8 -right-8 size-28 rounded-full bg-white/15 blur-2xl" />
+                      <span className="pointer-events-none absolute -top-8 -right-8 size-28 rounded-full bg-ink/15 blur-2xl" />
                       <span className="relative text-[10px] font-semibold tracking-[0.2em] text-white/80 uppercase">{p.vendor}</span>
                       {p.badge && (
-                        <Badge tone="warning" className="absolute top-3 right-3 border-white/20 bg-black/30">
+                        <Badge tone="warning" className="absolute top-3 right-3 border-ink/20 bg-surface-lo">
                           <Sparkles className="size-3" /> {p.badge}
                         </Badge>
                       )}
@@ -216,7 +216,7 @@ function Marketplace() {
           <div className="space-y-4">
             <ul className="space-y-2">
               {lines.map((l) => (
-                <li key={l.product._id} className="flex items-center gap-3 rounded-2xl bg-white/[0.04] p-3">
+                <li key={l.product._id} className="flex items-center gap-3 rounded-2xl bg-ink/[0.04] p-3">
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm text-ink">{l.product.name}</p>
                     <p className="text-xs text-ink-4">
@@ -228,7 +228,7 @@ function Marketplace() {
                 </li>
               ))}
             </ul>
-            <div className="space-y-1.5 rounded-2xl bg-white/[0.03] p-4 text-sm">
+            <div className="space-y-1.5 rounded-2xl bg-ink/[0.03] p-4 text-sm">
               <div className="flex justify-between text-ink-3">
                 <span>Subtotal</span>
                 <span className="tabular-nums">{formatMoney(subtotal)}</span>
@@ -243,7 +243,7 @@ function Marketplace() {
                 <span>Shipping</span>
                 <span>Free</span>
               </div>
-              <div className="my-2 h-px bg-white/10" />
+              <div className="my-2 h-px bg-ink/10" />
               <div className="flex justify-between text-base font-semibold text-ink">
                 <span>Total</span>
                 <span className="tabular-nums">{formatMoney(subtotal)}</span>
@@ -317,7 +317,7 @@ function Orders() {
           </thead>
           <tbody>
             {data.items.map((o) => (
-              <tr key={o._id} className="hover:bg-white/[0.03]">
+              <tr key={o._id} className="hover:bg-ink/[0.03]">
                 <Td>
                   <p className="font-medium text-ink">#{o.number}</p>
                   <p className="text-[11px] text-ink-4">{formatDate(o.createdAt)}</p>

@@ -22,7 +22,7 @@ const legal = [
 
 export function SiteFooter() {
   return (
-    <footer className="relative mt-32 border-t border-white/[0.06]">
+    <footer className="relative mt-32 border-t border-ink/[0.06]">
       <div className="pointer-events-none absolute inset-x-0 -top-px mx-auto h-px max-w-4xl bg-gradient-to-r from-transparent via-aqua/50 to-transparent" />
       <div className="mx-auto max-w-7xl px-5 pt-16 pb-10 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.3fr_2fr]">
@@ -60,7 +60,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-white/[0.06] pt-6 text-xs text-ink-4 sm:flex-row sm:items-center">
+        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-ink/[0.06] pt-6 text-xs text-ink-4 sm:flex-row sm:items-center">
           <p>
             © 2026 {site.legalName}. All rights reserved.
           </p>

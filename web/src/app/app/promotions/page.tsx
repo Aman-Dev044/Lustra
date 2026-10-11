@@ -142,7 +142,7 @@ function Coupons({ creating, onCreatingChange }: { creating: boolean; onCreating
               const expired = c.expiresAt && new Date(c.expiresAt) < new Date();
               const pct = c.maxUses ? Math.min(100, (c.uses / c.maxUses) * 100) : 0;
               return (
-                <tr key={c._id} className="hover:bg-white/[0.03]">
+                <tr key={c._id} className="hover:bg-ink/[0.03]">
                   <Td>
                     <p className="font-mono text-sm font-semibold tracking-wider text-ink">{c.code}</p>
                     {c.description && <p className="max-w-xs truncate text-xs text-ink-4">{c.description}</p>}
@@ -167,7 +167,7 @@ function Coupons({ creating, onCreatingChange }: { creating: boolean; onCreating
                       {c.uses} {c.maxUses ? `/ ${c.maxUses}` : "uses"}
                     </span>
                     {c.maxUses ? (
-                      <span className="mt-1 block h-1.5 w-28 overflow-hidden rounded-full bg-white/[0.07]">
+                      <span className="mt-1 block h-1.5 w-28 overflow-hidden rounded-full bg-ink/[0.07]">
                         <span className={cn("block h-full rounded-full", pct >= 100 ? "bg-danger" : "bg-gradient-to-r from-iris to-aqua")} style={{ width: `${pct}%` }} />
                       </span>
                     ) : null}
@@ -179,7 +179,7 @@ function Coupons({ creating, onCreatingChange }: { creating: boolean; onCreating
                   <Td className="text-right">
                     <Menu
                       trigger={
-                        <button className="rounded-full p-1.5 text-ink-4 hover:bg-white/10 hover:text-ink" aria-label={`Actions for ${c.code}`}>
+                        <button className="rounded-full p-1.5 text-ink-4 hover:bg-ink/10 hover:text-ink" aria-label={`Actions for ${c.code}`}>
                           <MoreHorizontal className="size-4" />
                         </button>
                       }
@@ -331,7 +331,7 @@ function CouponModal({ coupon, onClose }: { coupon: Coupon | "new" | null; onClo
                   type="button"
                   onClick={() => toggleCat(c)}
                   aria-pressed={on}
-                  className={cn("inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs transition", on ? "border-aqua/50 bg-aqua/15 text-aqua-soft" : "border-white/10 text-ink-3 hover:text-ink")}
+                  className={cn("inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs transition", on ? "border-aqua/50 bg-aqua/15 text-aqua-soft" : "border-ink/10 text-ink-3 hover:text-ink")}
                 >
                   <span className="size-1.5 rounded-full" style={{ background: categoryMeta[c].color }} />
                   {categoryMeta[c].label}
@@ -450,20 +450,20 @@ function GiftCardVisual({ card, gradient, onClick }: { card: GiftCard; gradient:
   return (
     <button
       onClick={onClick}
-      className={cn("rim relative flex aspect-[1.6/1] w-full flex-col justify-between overflow-hidden rounded-[24px] border border-white/15 p-5 text-left shadow-[var(--shadow-lift)]", card.status !== "active" && "grayscale-[0.7]")}
+      className={cn("rim relative flex aspect-[1.6/1] w-full flex-col justify-between overflow-hidden rounded-[24px] border border-ink/15 p-5 text-left shadow-[var(--shadow-lift)]", card.status !== "active" && "grayscale-[0.7]")}
       style={{ background: gradient }}
     >
-      <span className="pointer-events-none absolute -top-12 -right-10 size-44 rounded-full bg-white/15 blur-2xl" />
+      <span className="pointer-events-none absolute -top-12 -right-10 size-44 rounded-full bg-ink/15 blur-2xl" />
       <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,transparent_35%,rgb(255_255_255/0.12)_50%,transparent_65%)]" />
       <span className="relative flex items-start justify-between">
         <span className="text-[10px] font-semibold tracking-[0.3em] text-white/80 uppercase">Gift card</span>
-        <Badge tone={giftStatusTone[card.status]} className="border-white/20 bg-black/25">
+        <Badge tone={giftStatusTone[card.status]} className="border-ink/20 bg-surface-lo">
           {card.status}
         </Badge>
       </span>
       <span className="relative">
         <span className="block text-3xl font-semibold tracking-tight text-white tabular-nums">{formatMoney(card.balance)}</span>
-        <span className="mt-2 block h-1 overflow-hidden rounded-full bg-white/20">
+        <span className="mt-2 block h-1 overflow-hidden rounded-full bg-ink/20">
           <span className="block h-full rounded-full bg-white" style={{ width: `${pct}%` }} />
         </span>
         <span className="mt-1 block text-[11px] text-white/70">of {formatMoney(card.initialBalance)}</span>
@@ -525,7 +525,7 @@ function IssueGiftCardModal({ open, onClose }: { open: boolean; onClose: () => v
                 key={a}
                 type="button"
                 onClick={() => setForm({ ...form, initialBalance: String(a) })}
-                className={cn("rounded-full border px-4 py-1.5 text-sm transition", form.initialBalance === String(a) ? "border-aqua/50 bg-aqua/15 text-aqua-soft" : "border-white/10 text-ink-3")}
+                className={cn("rounded-full border px-4 py-1.5 text-sm transition", form.initialBalance === String(a) ? "border-aqua/50 bg-aqua/15 text-aqua-soft" : "border-ink/10 text-ink-3")}
               >
                 ${a}
               </button>
@@ -603,7 +603,7 @@ function GiftCardDrawer({ card, onClose, onChanged }: { card: GiftCard | null; o
               <dd className="text-xs text-ink-3">{card.expiresAt ? `Expires ${formatDate(card.expiresAt)}` : "No expiry"}</dd>
             </div>
           </dl>
-          {card.message && <p className="rounded-2xl bg-white/[0.04] px-4 py-3 text-sm text-ink-2 italic">“{card.message}”</p>}
+          {card.message && <p className="rounded-2xl bg-ink/[0.04] px-4 py-3 text-sm text-ink-2 italic">“{card.message}”</p>}
 
           {card.status === "active" && (
             <div className="glass-inset space-y-3 rounded-2xl p-4">
@@ -627,7 +627,7 @@ function GiftCardDrawer({ card, onClose, onChanged }: { card: GiftCard | null; o
             ) : (
               <ul className="space-y-1.5">
                 {[...card.transactions].reverse().map((t, i) => (
-                  <li key={t._id ?? i} className="flex items-center justify-between rounded-xl bg-white/[0.03] px-3 py-2 text-sm">
+                  <li key={t._id ?? i} className="flex items-center justify-between rounded-xl bg-ink/[0.03] px-3 py-2 text-sm">
                     <span>
                       <span className="text-ink-2">{t.note || (t.amount < 0 ? "Redeemed" : "Loaded")}</span>
                       <span className="block text-[11px] text-ink-4">{formatDateTime(t.at)}</span>

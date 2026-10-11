@@ -51,9 +51,9 @@ export function HeroVisual() {
             quality={85}
             className="object-cover object-[50%_60%]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#04050a] via-[#04050a]/20 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#04050a]/60 via-transparent to-transparent" />
-          <div className="absolute bottom-5 left-5 sm:bottom-8 sm:left-8">
+          <div className="absolute inset-0 bg-gradient-to-t from-scrim/80 via-scrim/15 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-scrim/45 via-transparent to-transparent" />
+          <div className="on-photo absolute bottom-5 left-5 sm:bottom-8 sm:left-8">
             <p className="text-[10px] font-semibold tracking-[0.2em] text-aqua-soft uppercase">Bay 2 · Live</p>
             <p className="mt-1 text-lg font-semibold text-white sm:text-2xl">McLaren 570S · Full body PPF</p>
             <p className="text-xs text-ink-2 sm:text-sm">Marco R. & Jess T. · Day 3 of 4</p>
@@ -93,7 +93,7 @@ export function HeroVisual() {
               <span
                 key={s.label}
                 className="h-1 flex-1 rounded-full transition-all duration-500"
-                style={{ background: i <= stage ? s.color : "rgb(255 255 255 / 0.1)" }}
+                style={{ background: i <= stage ? s.color : "rgb(30 42 68 / 0.1)" }}
               />
             ))}
           </div>
@@ -112,7 +112,7 @@ export function HeroVisual() {
           <p className="flex items-center gap-1.5 text-[11px] font-medium text-aqua-soft">
             <Sparkles className="size-3.5" /> Quote Copilot
           </p>
-          <p className="mt-2 rounded-xl bg-black/25 px-3 py-2 text-[11px] text-ink-2">“Model Y, heavy swirls, ceramic + front PPF”</p>
+          <p className="mt-2 rounded-xl bg-surface-lo px-3 py-2 text-[11px] text-ink-2">“Model Y, heavy swirls, ceramic + front PPF”</p>
           <div className="mt-2 space-y-1 text-[11px]">
             {[
               ["Stage 2 correction", "$1,105"],
@@ -125,7 +125,7 @@ export function HeroVisual() {
               </div>
             ))}
           </div>
-          <div className="mt-2 flex justify-between border-t border-white/10 pt-2 text-xs font-semibold">
+          <div className="mt-2 flex justify-between border-t border-ink/10 pt-2 text-xs font-semibold">
             <span className="text-ink-3">Drafted in 9s</span>
             <span className="text-ink">$5,134</span>
           </div>
